@@ -1,0 +1,529 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnh4n6ki0wq7n"]
+
+[ext_resource type="Texture2D" uid="uid://djxkn1f467cdw" path="res://images/europe_pixel.png" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://dyxpx11hbvdn7" path="res://scripts/cam.gd" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://basxt2a8tih6y" path="res://scenes/factory.tscn" id="3_4wyf3"]
+[ext_resource type="Script" uid="uid://mhauwgnuy0bf" path="res://scripts/countries.gd" id="3_71j4m"]
+[ext_resource type="PackedScene" uid="uid://da65y42hxutpe" path="res://scenes/shop.tscn" id="4_k0juu"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rwgxs"]
+vertices = PackedVector2Array(435, -277, 482, 292, 447, 201, 432, 162, 382, 84, 158, -237, 164, -230, 165, -221, 160, -213, 157, -218, 154, -226, 153, -236, 259, -289, 242, -304, 278, -304, 49, -358, 24, -355, 46, -380, 62, -375, 155, -208, 143, -213, 32, -149, 57.5078, -151.633, 45, -136, 29, -136, 24, -139, 178, -217, 173, -218, 181, -225, 198, -180, 369, 80, 178, -134, 172, -155, 178, -166, 307, -361, 272, -404, 303, -405, 313, -370, 323, 132, 298, 145, 282, 143, 300, 123, 317, 126, 355, -440, 146, -227, 137, 349, 130, 360, 123, 347, 135, 340, 73, -171, 59.8828, -154.602, 55, -166, 55, -192, -239, 37, -232, 10, -210, 30, -242, 97, 125, -405, 133, -418, 142, -423, 144, -412, 128, -304, 109, -303, 116, 354, 111, 344, 114, 338, 35, -157, 19, -149, 17, -156, -7, -275, 13, -140, 17, -128, -68, -49, -69, -96, -44, -126, -27, -126, -40, -83, -49, -69, 104, 329, 117, 321, 131, 321, 141, 333, 222, 342, 191, 270, 239, 263, 281, 338, -282, 35, -281, 23, -257, 62, 20, -116, 34, -90, 12, -82, 130, -217, 133, -229, 142, -243, 142, -227, 139, -210, 130, -204, 181, -232, 61, 276, 58, 285, 32, 270, 21, 246, 137, -245, 119, -229, 366, 99, 372, 105, 363, 120, 350, 135, 348, 133, 343, 129, 307, 162, 315, 116, 274, 114, 159, 314, 156, 330, 138, 292, -385, 133, -392, 121, -364, 110, -307, 140, -1, -133, 17, -119, -9, -109, -13, -126, 376, 320, 400, 222, 376, 222, 25, 308, 11, 324, 6, 319, 12, 311, 35, 300, 11, 287, 23, 279, 304, -348, 154, -423, 166, -411, 165, -400, 279, 130, 154, -247, 155, -260, 50, -166, 51, -208, -397, 261, -429, 250, -420, 223, -395, 167, 194, -400, 270, -365, 259, -340, 239, -330, 198, -339, 140, -203, 96, -64, 100, -109, 113, -122, 131, -107, 237, 144, -33, -75, -36, -66, -35, -47, -29, 148, 357, 93, 344, 93, 262, 116, 122, -424, 129, -418, 122, -408, 87, -397, -1, 169, -19, 163, -16, 149, 270, -323, 294, -354, 58, -385, 81, -403, -9, 264, -2, -56, 5, -40, 146, -245, 142, -254, -26, -167, -79, -171, -91, -177, -73, -239, 134, -250, 101, -241, 278, 238, 310, 216, 349, 215, 318, 352, 241, 250, 235, 243, 197, 258, 213, 219, 152, 260, 129, 282, 110, 318, 155, 273, 142, 280, 132, 271, 6, -72, -5, -74, -6, -143, 8, -157, 104, 317, 99, 305, 86, 286, -267, 246, -261, 263, -288, 285, -298, 285, 2, 229, 17, 232, 20, 241, -21, 260, -27, 249, -16, 214, -42, 243, -58, 227, -41, 177, -26, 189, -76, 199, -77, 186, -349, 285, -381, 290, -274, 153, 173, -233, 171, -241, 173, -190, 151, -203, 167, -210, 176, -205, -56, -145, -74, -145, -85, -157, 46, -158, 96, -272, 130, -278, 225, -314, 237, -286, 225, 172, 57, -57, 69, -44, 240, 154, 122, -173, 101, -194, 125, -203, -90, 171, -151, -6, -111, -42, 72, 272, 75, 239, 212, 208, -427, 204, 138, -128, 170, -137, -187, 174, -196, 204, -238, 216, -250, 129, -310, 294, -330, 294, -185, 17, -174, 174, -105, 171, -171, -4, 164, -247, 163, -155, 126, -145, 129, -158, 146, -169, 167, -164, 119, -210, 224, 194, 31, 210, 6, 189, -140, 189, -157, 188, -256, 83)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3), PackedInt32Array(0, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 0), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 20, 9, 8), PackedInt32Array(21, 22, 23, 24, 25), PackedInt32Array(26, 27, 28, 0), PackedInt32Array(29, 0, 4, 30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(38, 39, 40, 41, 42), PackedInt32Array(37, 43, 0), PackedInt32Array(10, 44, 11), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(49, 50, 51, 52), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(57, 58, 59, 60, 61, 62), PackedInt32Array(47, 63, 64, 65), PackedInt32Array(66, 21, 25, 67, 68, 69), PackedInt32Array(70, 67, 25, 71), PackedInt32Array(72, 73, 74, 75, 76, 77), PackedInt32Array(48, 65, 78, 79, 80, 81), PackedInt32Array(82, 83, 84, 85), PackedInt32Array(86, 87, 53, 88), PackedInt32Array(89, 24, 23, 90, 91), PackedInt32Array(92, 93, 94, 95, 96, 97), PackedInt32Array(0, 28, 98), PackedInt32Array(99, 100, 101, 102), PackedInt32Array(103, 94, 93, 104), PackedInt32Array(105, 4, 3, 106), PackedInt32Array(107, 106, 3), PackedInt32Array(107, 3, 108, 109), PackedInt32Array(38, 110, 109, 108, 111, 39), PackedInt32Array(31, 112, 42, 41, 113), PackedInt32Array(114, 115, 80, 116), PackedInt32Array(117, 118, 119, 120), PackedInt32Array(121, 70, 71, 122, 123, 124), PackedInt32Array(2, 1, 125, 126), PackedInt32Array(127, 126, 125), PackedInt32Array(128, 129, 130, 131), PackedInt32Array(132, 128, 131, 133, 134), PackedInt32Array(34, 37, 0, 135), PackedInt32Array(60, 136, 137, 138, 61), PackedInt32Array(41, 139, 113), PackedInt32Array(5, 11, 140), PackedInt32Array(141, 5, 140), PackedInt32Array(52, 51, 142, 69, 143), PackedInt32Array(144, 145, 146, 147, 120), PackedInt32Array(148, 149, 150, 151, 152, 138), PackedInt32Array(97, 96, 153), PackedInt32Array(154, 155, 156, 157, 158), PackedInt32Array(159, 160, 77, 76), PackedInt32Array(72, 77, 161, 162), PackedInt32Array(31, 30, 163, 164), PackedInt32Array(31, 164, 112), PackedInt32Array(31, 113, 165), PackedInt32Array(166, 167, 168, 169), PackedInt32Array(170, 171, 172), PackedInt32Array(173, 174, 135, 14), PackedInt32Array(18, 175, 176, 169, 62), PackedInt32Array(101, 134, 133, 177, 102), PackedInt32Array(162, 161, 178, 179, 172), PackedInt32Array(140, 180, 181, 141), PackedInt32Array(182, 183, 184, 185, 69), PackedInt32Array(14, 135, 0), PackedInt32Array(186, 103, 104, 187), PackedInt32Array(188, 189, 190, 127, 125, 191, 85), PackedInt32Array(188, 85, 84, 192), PackedInt32Array(193, 188, 192, 194), PackedInt32Array(195, 193, 194, 196), PackedInt32Array(147, 117, 120), PackedInt32Array(48, 47, 65), PackedInt32Array(197, 116, 80, 79, 198), PackedInt32Array(196, 199, 200, 201), PackedInt32Array(89, 91, 202, 203, 123, 122), PackedInt32Array(124, 123, 182), PackedInt32Array(204, 124, 182), PackedInt32Array(205, 204, 182, 69), PackedInt32Array(197, 198, 206, 207), PackedInt32Array(197, 207, 208, 201), PackedInt32Array(209, 210, 211, 212), PackedInt32Array(213, 214, 215, 102, 177, 216, 217), PackedInt32Array(218, 213, 217, 219, 220), PackedInt32Array(221, 222, 218, 220, 223, 224), PackedInt32Array(225, 226, 144, 120, 227), PackedInt32Array(98, 228, 229, 0), PackedInt32Array(230, 231, 19, 8, 232, 233, 29), PackedInt32Array(234, 235, 236, 183, 182), PackedInt32Array(68, 205, 69), PackedInt32Array(237, 66, 69, 142), PackedInt32Array(62, 238, 143, 69, 15, 18), PackedInt32Array(62, 169, 168, 57), PackedInt32Array(61, 138, 152), PackedInt32Array(239, 61, 152, 240, 241, 141), PackedInt32Array(242, 179, 243, 244, 158, 245), PackedInt32Array(230, 246, 247, 248, 97, 153), PackedInt32Array(162, 221, 224, 249, 250, 251, 72), PackedInt32Array(196, 201, 208, 252, 253, 254, 195), PackedInt32Array(146, 255, 147), PackedInt32Array(256, 257, 31, 165, 158, 157), PackedInt32Array(233, 26, 0, 29), PackedInt32Array(258, 259, 260, 227, 261), PackedInt32Array(212, 262, 263, 225, 227, 209), PackedInt32Array(260, 209, 227), PackedInt32Array(264, 265, 258, 261, 56, 55), PackedInt32Array(266, 264, 267, 250, 249), PackedInt32Array(12, 0, 229, 268, 141, 241), PackedInt32Array(269, 256, 270, 271, 272, 273), PackedInt32Array(239, 141, 181, 187), PackedInt32Array(187, 181, 186), PackedInt32Array(247, 187, 104, 274), PackedInt32Array(247, 274, 248), PackedInt32Array(230, 153, 231), PackedInt32Array(33, 32, 273), PackedInt32Array(272, 33, 273), PackedInt32Array(256, 269, 257), PackedInt32Array(244, 154, 158), PackedInt32Array(179, 242, 275, 254, 253, 276, 277, 170), PackedInt32Array(179, 170, 172), PackedInt32Array(264, 266, 278, 279, 265), PackedInt32Array(88, 53, 56, 280)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-381, 290, -397, 261, -429, 250, -420, 223, -427, 204, -395, 167, -385, 133, -392, 121, -364, 110, -307, 140, -274, 153, -250, 129, -242, 97, -256, 83, -257, 62, -282, 35, -281, 23, -239, 37, -232, 10, -210, 30, -185, 17, -171, -4, -151, -6, -111, -42, -68, -49, -69, -96, -44, -126, -27, -126, -40, -83, -33, -75, -36, -66, -49, -69, -35, -47, -2, -56, 5, -40, 57, -57, 69, -44, 96, -64, 100, -109, 113, -122, 131, -107, 138, -128, 126, -145, 129, -158, 146, -169, 178, -166, 198, -180, 173, -190, 122, -173, 101, -194, 101, -241, 130, -278, 128, -304, 109, -303, 96, -272, 51, -208, 55, -192, 73, -171, 45, -136, 34, -90, 12, -82, 6, -72, -5, -74, -9, -109, -26, -167, -56, -145, -74, -145, -85, -157, -79, -171, -91, -177, -73, -239, -7, -275, 49, -358, 24, -355, 46, -380, 62, -375, 58, -385, 81, -403, 87, -397, 122, -424, 129, -418, 122, -408, 125, -405, 133, -418, 142, -423, 144, -412, 154, -423, 166, -411, 165, -400, 194, -400, 270, -365, 259, -340, 239, -330, 198, -339, 225, -314, 237, -286, 259, -289, 242, -304, 278, -304, 270, -323, 294, -354, 304, -348, 307, -361, 272, -404, 303, -405, 313, -370, 355, -440, 435, -277, 482, 292, 376, 320, 318, 352, 281, 338, 222, 342, 191, 270, 239, 263, 241, 250, 197, 258, 152, 260, 155, 273, 142, 280, 132, 271, 129, 282, 138, 292, 159, 314, 156, 330, 131, 321, 141, 333, 135, 340, 137, 349, 130, 360, 123, 347, 116, 354, 111, 344, 114, 338, 104, 329, 117, 321, 110, 318, 104, 317, 99, 305, 86, 286, 72, 272, 75, 239, 31, 210, 6, 189, -1, 169, -19, 163, -16, 149, -29, 148, -41, 177, -26, 189, -16, 214, 2, 229, 17, 232, 20, 241, 21, 246, 61, 276, 58, 285, 32, 270, 23, 279, 35, 300, 25, 308, 11, 324, 6, 319, 12, 311, 11, 287, -9, 264, -21, 260, -27, 249, -42, 243, -58, 227, -76, 199, -77, 186, -90, 171, -105, 171, -140, 189, -157, 188, -174, 174, -187, 174, -196, 204, -238, 216, -267, 246, -261, 263, -288, 285, -298, 285, -310, 294, -330, 294, -349, 285)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4wyf3"]
+vertices = PackedVector2Array(-225, -130, -241, -131, -231, -141, -202, -130, -182, -47, -237, -33, -261, -48, -243, -57, -180, -81, -214, -107, -237, -110, -189, -118, -183, -15, -175, -9, -188, 0, -242, -12, -225, -174, -199, -169, -176, -158, -230, -162, -204, -195, -184, -182, -264, -12, -281, -10, -281, -13, -256, -27, -174, -45, -165, -34, -239, -24, -256, -5, -192, -102, -213, -84, -239, -147, -240, -157, -219, -89, -219, -97, -228, -72, -237, -75, -246, -65)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 0, 3, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 3, 19), PackedInt32Array(20, 21, 17, 16), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(4, 26, 27, 12, 15, 28), PackedInt32Array(15, 29, 22, 25, 28), PackedInt32Array(4, 28, 5), PackedInt32Array(30, 8, 7, 31), PackedInt32Array(32, 33, 19, 3, 2), PackedInt32Array(34, 35, 9, 11, 30, 31), PackedInt32Array(36, 31, 7), PackedInt32Array(37, 36, 7, 38)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-281, -10, -264, -12, -256, -5, -242, -12, -188, 0, -175, -9, -183, -15, -165, -34, -174, -45, -182, -47, -180, -81, -192, -102, -189, -118, -202, -130, -176, -158, -199, -169, -184, -182, -204, -195, -225, -174, -230, -162, -240, -157, -239, -147, -231, -141, -241, -131, -225, -130, -237, -110, -214, -107, -219, -97, -219, -89, -213, -84, -228, -72, -237, -75, -246, -65, -243, -57, -261, -48, -237, -33, -239, -24, -256, -27, -281, -13)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_k0juu"]
+vertices = PackedVector2Array(-306, -120, -303, -127, -288, -117, -300, -114, -279, -116, -283, -126, -272, -133, -259, -132, -244, -114, -251, -102, -260, -99, -303, -98, -309, -106, -306, -111, -262, -86, -276, -63, -291, -63, -315, -84, -301, -57, -319, -61, -327, -71, -324, -81)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 3, 2, 4, 10, 14), PackedInt32Array(11, 14, 15, 16, 17), PackedInt32Array(17, 16, 18, 19, 20, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-279, -116, -283, -126, -272, -133, -259, -132, -244, -114, -251, -102, -260, -99, -262, -86, -276, -63, -291, -63, -301, -57, -319, -61, -327, -71, -324, -81, -315, -84, -303, -98, -309, -106, -306, -111, -300, -114, -306, -120, -303, -127, -288, -117)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_71j4m"]
+vertices = PackedVector2Array(-290, -413, -306, -429, -287, -432, -285, -430, -286, -355, -313, -387, -302, -394, -246, -353, -234, -399, -231, -402, -222, -391, -229, -385, -314, -412, -309, -415, -295, -407, -276, -408, -269, -415, -261, -407, -223, -368, -278, -432, -276, -426, -282, -411, -243, -399, -251, -408, -221, -377)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(6, 12, 13, 14, 7), PackedInt32Array(7, 15, 16, 17, 18), PackedInt32Array(0, 3, 19, 20, 21), PackedInt32Array(22, 8, 11, 18), PackedInt32Array(7, 14, 0, 21, 15), PackedInt32Array(18, 17, 23, 22), PackedInt32Array(18, 11, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-286, -355, -313, -387, -302, -394, -314, -412, -309, -415, -295, -407, -290, -413, -306, -429, -287, -432, -285, -430, -278, -432, -276, -426, -282, -411, -276, -408, -269, -415, -261, -407, -251, -408, -243, -399, -234, -399, -231, -402, -222, -391, -229, -385, -221, -377, -223, -368, -246, -353)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qfnet"]
+vertices = PackedVector2Array(-9, -89, -5, -54, -8, -70, 204, 406, 302, 396, 358.117, 418.125, 198, 414, 126, -125, 138, -108, 124, -117, 115, -135, 222, 360, 175, 399, 141, 353, 131, 341, 156, 350, 242, -284, 225, -294, 198, -319, 239, -310, 270, -303, 278, -284, -18, -46, -2, -36, -165, -14, -111, -22, -151, 14, -171, 16, -175, 11, -35, -27, -49, -49, -36, -46, 353.875, -418.133, 313, -350, 303, -385, -222, -371, 46, -360, 24, -335, -221, -357, -229, -365, 49, -338, -7, -255, 259, -269, 237, -266, 58, -365, 62, -355, 154, -403, 144, -392, 142, -403, 104, 337, 110, 338, 117, 341, 104, 349, -3, 350, -429, 270, -456, 358, -486.945, 379.664, -486, -419, -427, 224, 173, -170, 198, -160, 178, -146, 146, -149, 122, -153, 129, -138, -283, -106, -279, -96, -288, -97, -303, -107, -241, -111, -225, -110, -237, -90, -244, -94, -259, -112, 129, 302, 132, 291, 142, 300, 138, 312, -85, -137, -176, -138, -199, -149, -184, -162, -91, -157, -79, -151, 131, -87, 113, -102, 113, -108, -214, -87, -219, -77, -251, -82, 197, 278, 241, 270, 239, 283, 193, 292, 152, 280, 155, 293, -306, -100, -300, -94, -306, -91, 307, -341, 304, -328, 294, -334, 272, -384, 116, 374, 123, 367, 130, 380, -73, -219, -223, -348, -157, 208, -140, 209, -114, 264, -120, 307, -202, 275, -196, 224, 133, -398, 125, -385, 122, -388, 129, -398, 188, 316, 159, 334, -260, -79, -219, -69, -213, -64, -228, -52, -237, -55, -262, -66, 259, -320, 270, -345, 194, -380, -239, -127, -231, -121, -41, 197, -29, 168, -16, 169, -19, 183, -26, 209, -21, -71, -27, -106, -26, -147, -183, 5, 165, -380, 166, -391, -242, 8, -232, 30, -239, 57, -281, 43, -256, 15, -16, 234, -1, 189, 6, 209, 2, 249, -33, -55, 31, 230, 17, 252, -314, -392, -302, -374, -313, -367, 75, 259, 20, 261, 61, 296, 21, 266, 72, 292, -189, -98, -202, -110, 96, -252, 109, -283, 128, -284, 130, -258, 101, -221, 55, -172, 51, -188, 101, -174, 73, -151, -237, -13, -239, -4, -256, -7, -261, -28, -188, 20, -185, 37, -210, 50, -276, -388, -282, -391, -276, -406, -269, -395, -306, -409, -290, -393, -295, -387, -309, -395, 12, -62, 34, -70, 100, -89, 57, -37, 5, -20, 6, -52, 45, -116, 107, -111, -246, -45, -243, -37, -276, -43, -93, 260, -88, 225, -76, 219, -58, 247, -91, 296, 96, -44, 69, -24, 122, -404, 87, -377, 81, -383, 165, 402, 153, 400, -74, -125, -69, -76, -68, -29, -174, -25, -180, -61, -182, -27, -309, -86, -303, -78, -315, -64, -324, -61, 1, 365, 111, 364, 23, 299, 32, 290, 58, 305, 35, 320, 114, 358, 99, 325, 11, 344, -291, -43, -281, 7, -301, -37, -246, -333, -204, -175, -187, 194, -174, 194, -42, 263, -281, 10, -264, 8, -364, 130, -90, 191, -77, 206, -97, 221, -105, 191, -238, 236, -216, 268, -267, 266, -224, 275, -261, 283, -256, 103, -242, 117, -250, 149, -274, 173, -307, 160, -182, 353, -240, 338, -212, 285, -108, 312, -100, 350, -257, 82, -282, 55, 86, 306, -29, -60, -40, -63, -56, -125, -44, -106, 135, 360, 137, 369, 149, 405, -278, -412, -285, -410, -287, -412, -192, -82, -286, -335, -225, -154, -240, -137, -272, -113, -93.7422, 418.594, 171, 413, -80, 394, -10, 375, -27, 269, -21, 280, -35, 340, -47, 333, 25, 328, -319, -41, -288, 305, -309, 351, -251, -388, -261, -387, -87, 375, -79, 361, -55, 342, -234, -379, -243, -379, -231, -382, -392, 141, -385, 153, -395, 187, 1, 340, 6, 339, -397, 281, -381, 310, -385, 318, -414, 348, -9, 284, 11, 307, 12, 331, -298, 305, -310, 314, -355, 342, -330, 314, -349, 305, -230, -142, -420, 243, -327, -51)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 4, 3, 12), PackedInt32Array(13, 14, 15), PackedInt32Array(16, 17, 18, 19, 20, 21), PackedInt32Array(22, 2, 1, 23), PackedInt32Array(24, 25, 26, 27, 28), PackedInt32Array(29, 30, 31, 23), PackedInt32Array(32, 33, 34), PackedInt32Array(35, 36, 37, 38, 39), PackedInt32Array(37, 40, 41), PackedInt32Array(16, 42, 43, 17), PackedInt32Array(44, 45, 36), PackedInt32Array(46, 47, 48), PackedInt32Array(49, 50, 51, 52, 53), PackedInt32Array(54, 55, 56, 57, 58), PackedInt32Array(59, 60, 61, 62, 63), PackedInt32Array(64, 7, 10, 63), PackedInt32Array(65, 66, 67, 68), PackedInt32Array(69, 70, 71, 72, 73), PackedInt32Array(74, 75, 76, 77), PackedInt32Array(78, 79, 80, 81, 82, 83), PackedInt32Array(9, 8, 84, 85, 86), PackedInt32Array(71, 87, 88, 89), PackedInt32Array(90, 91, 92, 93), PackedInt32Array(94, 90, 93, 95), PackedInt32Array(96, 97, 98), PackedInt32Array(99, 100, 101, 102), PackedInt32Array(63, 62, 64), PackedInt32Array(103, 104, 105), PackedInt32Array(38, 37, 41, 106, 107), PackedInt32Array(108, 109, 110, 111, 112, 113), PackedInt32Array(114, 115, 116, 117), PackedInt32Array(77, 76, 95, 93, 118, 119), PackedInt32Array(120, 89, 121, 122, 123, 124, 125), PackedInt32Array(20, 19, 126, 101), PackedInt32Array(101, 126, 127), PackedInt32Array(102, 101, 127, 128), PackedInt32Array(129, 130, 69, 73), PackedInt32Array(131, 132, 133, 134, 135), PackedInt32Array(0, 2, 136, 137, 138), PackedInt32Array(28, 139, 24), PackedInt32Array(128, 140, 141, 102), PackedInt32Array(142, 143, 144, 145, 146), PackedInt32Array(147, 135, 134, 148, 149, 150), PackedInt32Array(23, 31, 151, 22), PackedInt32Array(150, 149, 152, 153), PackedInt32Array(154, 155, 156, 57), PackedInt32Array(153, 152, 157, 158), PackedInt32Array(159, 160, 158, 157, 161), PackedInt32Array(162, 163, 79, 78), PackedInt32Array(89, 72, 71), PackedInt32Array(164, 165, 166, 167, 168), PackedInt32Array(169, 170, 164, 168, 171, 172), PackedInt32Array(173, 174, 175, 176), PackedInt32Array(177, 28, 27, 178, 179), PackedInt32Array(180, 181, 182, 183), PackedInt32Array(184, 185, 186, 187), PackedInt32Array(188, 189, 190, 191, 192, 23, 193), PackedInt32Array(172, 171, 63, 10), PackedInt32Array(194, 172, 10, 195, 189), PackedInt32Array(196, 197, 176, 198, 125), PackedInt32Array(199, 200, 201, 202, 203), PackedInt32Array(204, 205, 191, 190), PackedInt32Array(206, 207, 208), PackedInt32Array(119, 118, 11, 12, 209, 210, 15), PackedInt32Array(211, 212, 213, 25, 24, 214, 215, 78), PackedInt32Array(214, 216, 215), PackedInt32Array(217, 218, 219, 220), PackedInt32Array(221, 53, 222, 103), PackedInt32Array(223, 224, 225, 226), PackedInt32Array(52, 227, 222, 53), PackedInt32Array(228, 49, 53, 229), PackedInt32Array(230, 198, 176, 175, 231, 232), PackedInt32Array(233, 107, 106, 82, 81, 234), PackedInt32Array(113, 235, 236, 108), PackedInt32Array(203, 202, 237), PackedInt32Array(142, 177, 179, 143), PackedInt32Array(238, 239, 146, 145, 240), PackedInt32Array(241, 242, 201, 200, 243, 244), PackedInt32Array(109, 244, 243, 110), PackedInt32Array(245, 113, 112, 246), PackedInt32Array(247, 245, 246, 248, 249), PackedInt32Array(250, 251, 252, 253, 254, 240), PackedInt32Array(255, 256, 257, 112, 111, 258, 259), PackedInt32Array(89, 88, 121), PackedInt32Array(125, 124, 196), PackedInt32Array(260, 250, 240, 261), PackedInt32Array(225, 159, 161, 262, 228), PackedInt32Array(189, 195, 86, 85, 190), PackedInt32Array(1, 193, 23), PackedInt32Array(263, 22, 151, 264), PackedInt32Array(263, 264, 137, 136), PackedInt32Array(265, 138, 137, 266), PackedInt32Array(265, 266, 212, 211), PackedInt32Array(267, 13, 15, 210, 268), PackedInt32Array(105, 268, 210, 269), PackedInt32Array(270, 271, 272), PackedInt32Array(78, 215, 273, 162), PackedInt32Array(274, 233, 234, 275), PackedInt32Array(276, 129, 73, 277, 274), PackedInt32Array(6, 5, 278), PackedInt32Array(279, 6, 278), PackedInt32Array(269, 279, 278), PackedInt32Array(103, 105, 269, 278, 280, 281), PackedInt32Array(203, 237, 282, 283, 284, 285), PackedInt32Array(286, 226, 225, 228, 229), PackedInt32Array(287, 232, 231, 238, 240), PackedInt32Array(288, 249, 248, 257, 256, 289), PackedInt32Array(290, 291, 183, 182, 270), PackedInt32Array(280, 292, 293, 294, 281), PackedInt32Array(295, 296, 290, 297), PackedInt32Array(44, 36, 35, 297, 208), PackedInt32Array(184, 187, 154, 57), PackedInt32Array(281, 221, 103), PackedInt32Array(294, 293, 259, 258, 203, 285), PackedInt32Array(298, 299, 300), PackedInt32Array(229, 53, 301, 302), PackedInt32Array(145, 261, 240), PackedInt32Array(54, 303, 304, 305, 306, 55), PackedInt32Array(307, 308, 309, 302, 301, 284, 283), PackedInt32Array(310, 288, 289, 311), PackedInt32Array(311, 289, 312, 313), PackedInt32Array(314, 313, 312, 305, 304), PackedInt32Array(274, 275, 315, 276), PackedInt32Array(156, 274, 277, 65, 68, 57), PackedInt32Array(114, 117, 206, 48), PackedInt32Array(58, 316, 54), PackedInt32Array(300, 58, 57, 298), PackedInt32Array(240, 298, 57, 317), PackedInt32Array(317, 287, 240), PackedInt32Array(220, 317, 57), PackedInt32Array(217, 220, 57), PackedInt32Array(98, 217, 57, 96), PackedInt32Array(68, 96, 57), PackedInt32Array(46, 32, 34, 102, 141), PackedInt32Array(270, 206, 208, 297, 290), PackedInt32Array(272, 184, 57), PackedInt32Array(272, 57, 32, 270), PackedInt32Array(206, 270, 32), PackedInt32Array(206, 32, 46, 48)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-487, 419, -486, -419, 486, -418, 486, 418)])
+agent_radius = 0.0
+
+[node name="World" type="Node2D"]
+texture_filter = 1
+
+[node name="EuropePixel" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(3, 3)
+texture = ExtResource("1_f3sb7")
+metadata/_edit_lock_ = true
+
+[node name="Cam" type="Camera2D" parent="."]
+light_mask = 0
+visibility_layer = 16
+script = ExtResource("2_fj7yv")
+
+[node name="EuropeLandNavmesh" type="NavigationRegion2D" parent="."]
+visible = false
+position = Vector2(0, 20)
+navigation_polygon = SubResource("NavigationPolygon_rwgxs")
+use_edge_connections = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="EuropeLandNavmesh"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EuropeLandNavmesh/StaticBody2D"]
+polygon = PackedVector2Array(235, 243, 278, 238, 310, 216, 349, 215, 376, 222, 400, 222, 447, 201, 432, 162, 350, 135, 307, 162, 298, 145, 282, 143, 300, 123, 279, 130, 274, 114, 262, 116, 237, 144, 240, 154, 225, 172, 224, 194, 212, 208, 213, 219)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="EuropeLandNavmesh"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="EuropeLandNavmesh/StaticBody2D2"]
+polygon = PackedVector2Array(323, 132, 343, 129, 348, 133, 363, 120, 372, 105, 366, 99, 382, 84, 369, 80, 357, 93, 344, 93, 315, 116, 317, 126)
+
+[node name="lakes" type="StaticBody2D" parent="EuropeLandNavmesh"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EuropeLandNavmesh/lakes"]
+polygon = PackedVector2Array(-13, -126, -6, -143, 8, -157, 17, -156, 19, -149, 13, -140, -1, -133)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="EuropeLandNavmesh/lakes"]
+polygon = PackedVector2Array(20, -116, 17, -119, 17, -128, 24, -139, 29, -136)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="EuropeLandNavmesh/lakes"]
+polygon = PackedVector2Array(32, -149, 61, -152, 55, -166, 50, -166, 46, -158, 35, -157)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="EuropeLandNavmesh/lakes"]
+polygon = PackedVector2Array(178, -134, 170, -137, 163, -155, 167, -164, 172, -155)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="EuropeLandNavmesh/lakes"]
+polygon = PackedVector2Array(130, -204, 130, -217, 133, -229, 119, -229, 119, -210, 125, -203)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="EuropeLandNavmesh/lakes"]
+polygon = PackedVector2Array(151, -203, 155, -208, 143, -213, 157, -218, 154, -226, 146, -227, 153, -236, 154, -247, 146, -245, 142, -254, 134, -250, 137, -245, 142, -243, 142, -227, 139, -210, 140, -203)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="EuropeLandNavmesh/lakes"]
+polygon = PackedVector2Array(176, -205, 178, -217, 173, -218, 181, -225, 181, -232, 173, -233, 171, -241, 164, -247, 155, -260, 158, -237, 164, -230, 165, -221, 160, -213, 167, -210)
+
+[node name="UkLandNavmesh" type="NavigationRegion2D" parent="."]
+visible = false
+position = Vector2(0, 20)
+navigation_polygon = SubResource("NavigationPolygon_4wyf3")
+
+[node name="IrelandLandNavmesh" type="NavigationRegion2D" parent="."]
+visible = false
+position = Vector2(0, 20)
+navigation_polygon = SubResource("NavigationPolygon_k0juu")
+
+[node name="IcelandLandNavmesh" type="NavigationRegion2D" parent="."]
+visible = false
+position = Vector2(0, 20)
+navigation_polygon = SubResource("NavigationPolygon_71j4m")
+
+[node name="SeaNavmesh" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_qfnet")
+
+[node name="Land" type="StaticBody2D" parent="SeaNavmesh"]
+visible = false
+
+[node name="@CollisionPolygon2D@30980" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-381, 290, -397, 261, -429, 250, -420, 223, -427, 204, -395, 167, -385, 133, -392, 121, -364, 110, -307, 140, -274, 153, -250, 129, -242, 97, -256, 83, -257, 62, -282, 35, -281, 23, -239, 37, -232, 10, -210, 30, -185, 17, -171, -4, -151, -6, -111, -42, -68, -49, -69, -96, -44, -126, -27, -126, -40, -83, -33, -75, -36, -66, -49, -69, -35, -47, -2, -56, 5, -40, 57, -57, 69, -44, 96, -64, 100, -109, 113, -122, 131, -107, 138, -128, 126, -145, 129, -158, 146, -169, 178, -166, 198, -180, 173, -190, 122, -173, 101, -194, 101, -241, 130, -278, 128, -304, 109, -303, 96, -272, 51, -208, 55, -192, 73, -171, 45, -136, 34, -90, 12, -82, 6, -72, -5, -74, -9, -109, -26, -167, -56, -145, -74, -145, -85, -157, -79, -171, -91, -177, -73, -239, -7, -275, 49, -358, 24, -355, 46, -380, 62, -375, 58, -385, 81, -403, 87, -397, 122, -424, 129, -418, 122, -408, 125, -405, 133, -418, 142, -423, 144, -412, 154, -423, 166, -411, 165, -400, 194, -400, 270, -365, 259, -340, 239, -330, 198, -339, 225, -314, 237, -286, 259, -289, 242, -304, 278, -304, 270, -323, 294, -354, 304, -348, 307, -361, 272, -404, 303, -405, 313, -370, 355, -440, 505, -456, 497, 402, 373, 404, 302, 376, 222, 340, 188, 296, 193, 272, 239, 263, 241, 250, 197, 258, 152, 260, 155, 273, 142, 280, 132, 271, 129, 282, 138, 292, 159, 314, 156, 330, 131, 321, 141, 333, 135, 340, 137, 349, 130, 360, 123, 347, 116, 354, 111, 344, 114, 338, 104, 329, 117, 321, 110, 318, 104, 317, 99, 305, 86, 286, 72, 272, 75, 239, 31, 210, 6, 189, -1, 169, -19, 163, -16, 149, -29, 148, -41, 177, -26, 189, -16, 214, 2, 229, 17, 232, 20, 241, 21, 246, 61, 276, 58, 285, 32, 270, 23, 279, 35, 300, 25, 308, 11, 324, 6, 319, 12, 311, 11, 287, -9, 264, -21, 260, -27, 249, -42, 243, -58, 227, -76, 199, -77, 186, -90, 171, -105, 171, -140, 189, -157, 188, -174, 174, -187, 174, -196, 204, -238, 216, -267, 246, -261, 263, -288, 285, -298, 285, -310, 294, -330, 294, -349, 285)
+
+[node name="_CollisionPolygon2D_30980" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(107, -131, 115, -155, 124, -137, 113, -128)
+
+[node name="_CollisionPolygon2D_30981" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-212, 265, -224, 255, -216, 248, -202, 255)
+
+[node name="_CollisionPolygon2D_30982" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-18, -66, -29, -80, -21, -91, -8, -90)
+
+[node name="_CollisionPolygon2D_30983" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-120, 287, -114, 244, -97, 201, -88, 205, -93, 240, -91, 276, -108, 292)
+
+[node name="_CollisionPolygon2D_30984" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-55, 322, -10, 355, 1, 345, -3, 330, 1, 320, -35, 320, -47, 313)
+
+[node name="_CollisionPolygon2D_30985" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(149, 385, 171, 393, 198, 394, 204, 386, 175, 379, 165, 382, 153, 380)
+
+[node name="@CollisionPolygon2D@33247" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-281, -10, -264, -12, -256, -5, -242, -12, -188, 0, -175, -9, -183, -15, -165, -34, -174, -45, -182, -47, -180, -81, -192, -102, -189, -118, -202, -130, -176, -158, -199, -169, -184, -182, -204, -195, -225, -174, -230, -162, -240, -157, -239, -147, -231, -141, -241, -131, -225, -130, -237, -110, -214, -107, -219, -97, -219, -89, -213, -84, -228, -72, -237, -75, -246, -65, -243, -57, -261, -48, -237, -33, -239, -24, -256, -27, -281, -13)
+
+[node name="@CollisionPolygon2D@33248" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-279, -116, -283, -126, -272, -133, -259, -132, -244, -114, -251, -102, -260, -99, -262, -86, -276, -63, -291, -63, -301, -57, -319, -61, -327, -71, -324, -81, -315, -84, -303, -98, -309, -106, -306, -111, -300, -114, -306, -120, -303, -127, -288, -117)
+
+[node name="@CollisionPolygon2D@33249" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-286, -355, -313, -387, -302, -394, -314, -412, -309, -415, -295, -407, -290, -413, -306, -429, -287, -432, -285, -430, -278, -432, -276, -426, -282, -411, -276, -408, -269, -415, -261, -407, -251, -408, -243, -399, -234, -399, -231, -402, -222, -391, -229, -385, -221, -377, -223, -368, -246, -353)
+
+[node name="_CollisionPolygon2D_33249" type="CollisionPolygon2D" parent="SeaNavmesh/Land"]
+position = Vector2(0, 20)
+polygon = PackedVector2Array(-496, 366, -456, 338, -414, 328, -385, 298, -355, 322, -309, 331, -240, 318, -182, 333, -100, 330, -79, 341, -87, 355, -80, 374, -99, 408, -489, 412)
+
+[node name="Countries" type="Node2D" parent="."]
+script = ExtResource("3_71j4m")
+metadata/_edit_lock_ = true
+
+[node name="Romania" type="Node2D" parent="Countries"]
+position = Vector2(161, 160)
+
+[node name="Factory2" parent="Countries/Romania" instance=ExtResource("3_4wyf3")]
+position = Vector2(27, -17)
+
+[node name="Shop" parent="Countries/Romania" instance=ExtResource("4_k0juu")]
+position = Vector2(-9, 36)
+
+[node name="Shop2" parent="Countries/Romania" instance=ExtResource("4_k0juu")]
+position = Vector2(40, 7)
+
+[node name="Serbia" type="Node2D" parent="Countries"]
+position = Vector2(99, 202)
+
+[node name="Shop" parent="Countries/Serbia" instance=ExtResource("4_k0juu")]
+position = Vector2(-8, 19)
+
+[node name="Shop2" parent="Countries/Serbia" instance=ExtResource("4_k0juu")]
+position = Vector2(17, 27)
+
+[node name="Factory" parent="Countries/Serbia" instance=ExtResource("3_4wyf3")]
+position = Vector2(-9, -8)
+
+[node name="Bulgaria" type="Node2D" parent="Countries"]
+position = Vector2(174, 234)
+
+[node name="Factory" parent="Countries/Bulgaria" instance=ExtResource("3_4wyf3")]
+position = Vector2(-17, 0)
+
+[node name="Shop" parent="Countries/Bulgaria" instance=ExtResource("4_k0juu")]
+position = Vector2(3, 16)
+
+[node name="Shop2" parent="Countries/Bulgaria" instance=ExtResource("4_k0juu")]
+position = Vector2(23, -6)
+
+[node name="Kosovo" type="Node2D" parent="Countries"]
+position = Vector2(98, 245)
+
+[node name="Shop" parent="Countries/Kosovo" instance=ExtResource("4_k0juu")]
+position = Vector2(5, -4)
+
+[node name="Bosnia" type="Node2D" parent="Countries"]
+position = Vector2(51, 203)
+
+[node name="Shop" parent="Countries/Bosnia" instance=ExtResource("4_k0juu")]
+position = Vector2(9, -2)
+
+[node name="Factory" parent="Countries/Bosnia" instance=ExtResource("3_4wyf3")]
+position = Vector2(-4, 19)
+
+[node name="Croatia" type="Node2D" parent="Countries"]
+position = Vector2(25, 171)
+
+[node name="Factory" parent="Countries/Croatia" instance=ExtResource("3_4wyf3")]
+position = Vector2(13, 6)
+
+[node name="Shop" parent="Countries/Croatia" instance=ExtResource("4_k0juu")]
+position = Vector2(-18, 16)
+
+[node name="Hungary" type="Node2D" parent="Countries"]
+position = Vector2(75, 139)
+
+[node name="Factory" parent="Countries/Hungary" instance=ExtResource("3_4wyf3")]
+position = Vector2(-17, 9)
+
+[node name="Shop" parent="Countries/Hungary" instance=ExtResource("4_k0juu")]
+position = Vector2(23, -4)
+
+[node name="Slovenia" type="Node2D" parent="Countries"]
+position = Vector2(5, 157)
+
+[node name="Shop" parent="Countries/Slovenia" instance=ExtResource("4_k0juu")]
+position = Vector2(-3, 6)
+
+[node name="Slovakia" type="Node2D" parent="Countries"]
+position = Vector2(75, 103)
+
+[node name="Shop" parent="Countries/Slovakia" instance=ExtResource("4_k0juu")]
+
+[node name="Austria" type="Node2D" parent="Countries"]
+position = Vector2(2, 119)
+
+[node name="Shop" parent="Countries/Austria" instance=ExtResource("4_k0juu")]
+position = Vector2(-13, 11)
+
+[node name="Factory" parent="Countries/Austria" instance=ExtResource("3_4wyf3")]
+position = Vector2(18, 5)
+
+[node name="Italy" type="Node2D" parent="Countries"]
+position = Vector2(-48, 220)
+
+[node name="Factory3" parent="Countries/Italy" instance=ExtResource("3_4wyf3")]
+position = Vector2(3, 23)
+
+[node name="Factory" parent="Countries/Italy" instance=ExtResource("3_4wyf3")]
+position = Vector2(-54, -38)
+
+[node name="Shop" parent="Countries/Italy" instance=ExtResource("4_k0juu")]
+position = Vector2(3, -54)
+
+[node name="Shop2" parent="Countries/Italy" instance=ExtResource("4_k0juu")]
+position = Vector2(-16, -19)
+
+[node name="Shop3" parent="Countries/Italy" instance=ExtResource("4_k0juu")]
+position = Vector2(61, 62)
+
+[node name="Switzerland" type="Node2D" parent="Countries"]
+position = Vector2(-100, 131)
+
+[node name="Shop" parent="Countries/Switzerland" instance=ExtResource("4_k0juu")]
+
+[node name="France" type="Node2D" parent="Countries"]
+position = Vector2(-192, 112)
+
+[node name="Factory" parent="Countries/France" instance=ExtResource("3_4wyf3")]
+position = Vector2(-25, -33)
+
+[node name="Factory2" parent="Countries/France" instance=ExtResource("3_4wyf3")]
+position = Vector2(42, 37)
+
+[node name="Shop" parent="Countries/France" instance=ExtResource("4_k0juu")]
+position = Vector2(-40, -2)
+
+[node name="Shop2" parent="Countries/France" instance=ExtResource("4_k0juu")]
+position = Vector2(23, -9)
+
+[node name="Shop3" parent="Countries/France" instance=ExtResource("4_k0juu")]
+position = Vector2(-34, 47)
+
+[node name="Spain" type="Node2D" parent="Countries"]
+position = Vector2(-334, 246)
+
+[node name="Factory2" parent="Countries/Spain" instance=ExtResource("3_4wyf3")]
+position = Vector2(88, -28)
+
+[node name="Factory3" parent="Countries/Spain" instance=ExtResource("3_4wyf3")]
+position = Vector2(-29, 43)
+
+[node name="Shop" parent="Countries/Spain" instance=ExtResource("4_k0juu")]
+position = Vector2(6, -45)
+
+[node name="Shop2" parent="Countries/Spain" instance=ExtResource("4_k0juu")]
+position = Vector2(37, 27)
+
+[node name="Shop3" parent="Countries/Spain" instance=ExtResource("4_k0juu")]
+position = Vector2(-10, -1)
+
+[node name="Portugal" type="Node2D" parent="Countries"]
+position = Vector2(-402, 220)
+
+[node name="Factory" parent="Countries/Portugal" instance=ExtResource("3_4wyf3")]
+position = Vector2(17, -17)
+
+[node name="Shop2" parent="Countries/Portugal" instance=ExtResource("4_k0juu")]
+position = Vector2(-8, 6)
+
+[node name="Shop" parent="Countries/Portugal" instance=ExtResource("4_k0juu")]
+position = Vector2(0, 35)
+
+[node name="The United Kingdom" type="Node2D" parent="Countries"]
+position = Vector2(-205, -44)
+
+[node name="Shop" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
+position = Vector2(-33, 24)
+
+[node name="Shop3" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
+position = Vector2(-10, 1)
+
+[node name="Factory2" parent="Countries/The United Kingdom" instance=ExtResource("3_4wyf3")]
+position = Vector2(-3, -82)
+
+[node name="Factory" parent="Countries/The United Kingdom" instance=ExtResource("3_4wyf3")]
+position = Vector2(14, 34)
+
+[node name="Shop2" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
+position = Vector2(6, -34)
+
+[node name="Ireland" type="Node2D" parent="Countries"]
+position = Vector2(-286, -68)
+
+[node name="Factory" parent="Countries/Ireland" instance=ExtResource("3_4wyf3")]
+position = Vector2(6, -2)
+
+[node name="Shop" parent="Countries/Ireland" instance=ExtResource("4_k0juu")]
+position = Vector2(-16, 16)
+
+[node name="Belgium" type="Node2D" parent="Countries"]
+position = Vector2(-138, 32)
+
+[node name="Shop" parent="Countries/Belgium" instance=ExtResource("4_k0juu")]
+position = Vector2(-2, 4)
+
+[node name="The Netherlands" type="Node2D" parent="Countries"]
+position = Vector2(-114, 1)
+
+[node name="Shop" parent="Countries/The Netherlands" instance=ExtResource("4_k0juu")]
+position = Vector2(-6, 4)
+
+[node name="Germany" type="Node2D" parent="Countries"]
+position = Vector2(-58, 34)
+
+[node name="Factory" parent="Countries/Germany" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, -23)
+
+[node name="Factory2" parent="Countries/Germany" instance=ExtResource("3_4wyf3")]
+position = Vector2(40, 7)
+
+[node name="Shop" parent="Countries/Germany" instance=ExtResource("4_k0juu")]
+position = Vector2(-17, 28)
+
+[node name="Shop2" parent="Countries/Germany" instance=ExtResource("4_k0juu")]
+position = Vector2(42, -38)
+
+[node name="Shop3" parent="Countries/Germany" instance=ExtResource("4_k0juu")]
+position = Vector2(14, 71)
+
+[node name="Denmark" type="Node2D" parent="Countries"]
+position = Vector2(-52, -73)
+
+[node name="Shop" parent="Countries/Denmark" instance=ExtResource("4_k0juu")]
+position = Vector2(0, 9)
+
+[node name="Norway" type="Node2D" parent="Countries"]
+position = Vector2(-32, -186)
+
+[node name="Factory" parent="Countries/Norway" instance=ExtResource("3_4wyf3")]
+position = Vector2(19, 10)
+
+[node name="Shop" parent="Countries/Norway" instance=ExtResource("4_k0juu")]
+position = Vector2(-34, -14)
+
+[node name="Shop2" parent="Countries/Norway" instance=ExtResource("4_k0juu")]
+position = Vector2(24, -52)
+
+[node name="Sweden" type="Node2D" parent="Countries"]
+position = Vector2(28, -169)
+
+[node name="Factory" parent="Countries/Sweden" instance=ExtResource("3_4wyf3")]
+position = Vector2(64, -119)
+
+[node name="Factory2" parent="Countries/Sweden" instance=ExtResource("3_4wyf3")]
+position = Vector2(-2, 40)
+
+[node name="Shop" parent="Countries/Sweden" instance=ExtResource("4_k0juu")]
+position = Vector2(10, -14)
+
+[node name="Shop2" parent="Countries/Sweden" instance=ExtResource("4_k0juu")]
+position = Vector2(3, -65)
+
+[node name="Shop3" parent="Countries/Sweden" instance=ExtResource("4_k0juu")]
+position = Vector2(52, -87)
+
+[node name="Finland" type="Node2D" parent="Countries"]
+position = Vector2(157, -258)
+
+[node name="Factory" parent="Countries/Finland" instance=ExtResource("3_4wyf3")]
+position = Vector2(20, 24)
+
+[node name="Shop" parent="Countries/Finland/Factory" instance=ExtResource("4_k0juu")]
+position = Vector2(-29, -53)
+
+[node name="Shop2" parent="Countries/Finland/Factory" instance=ExtResource("4_k0juu")]
+position = Vector2(-58, 18)
+
+[node name="Poland" type="Node2D" parent="Countries"]
+position = Vector2(74, 25)
+
+[node name="Factory" parent="Countries/Poland" instance=ExtResource("3_4wyf3")]
+position = Vector2(32, -12)
+
+[node name="Shop" parent="Countries/Poland" instance=ExtResource("4_k0juu")]
+position = Vector2(-40, -23)
+
+[node name="Shop2" parent="Countries/Poland" instance=ExtResource("4_k0juu")]
+position = Vector2(-13, 18)
+
+[node name="Shop3" parent="Countries/Poland" instance=ExtResource("4_k0juu")]
+position = Vector2(47, 43)
+
+[node name="Czechia" type="Node2D" parent="Countries"]
+position = Vector2(10, 77)
+
+[node name="Shop" parent="Countries/Czechia" instance=ExtResource("4_k0juu")]
+position = Vector2(-12, 1)
+
+[node name="Factory" parent="Countries/Czechia" instance=ExtResource("3_4wyf3")]
+position = Vector2(24, 11)
+
+[node name="Estonia" type="Node2D" parent="Countries"]
+position = Vector2(156, -127)
+
+[node name="Shop" parent="Countries/Estonia" instance=ExtResource("4_k0juu")]
+position = Vector2(-3, 3)
+
+[node name="Latvia" type="Node2D" parent="Countries"]
+position = Vector2(159, -87)
+
+[node name="Shop" parent="Countries/Latvia" instance=ExtResource("4_k0juu")]
+position = Vector2(4, 7)
+
+[node name="Lithuania" type="Node2D" parent="Countries"]
+position = Vector2(140, -47)
+
+[node name="Shop" parent="Countries/Lithuania" instance=ExtResource("4_k0juu")]
+
+[node name="Belarus" type="Node2D" parent="Countries"]
+position = Vector2(194, -18)
+
+[node name="Shop" parent="Countries/Belarus" instance=ExtResource("4_k0juu")]
+position = Vector2(-5, 12)
+
+[node name="Moldova" type="Node2D" parent="Countries"]
+position = Vector2(220, 129)
+
+[node name="Shop" parent="Countries/Moldova" instance=ExtResource("4_k0juu")]
+position = Vector2(5, 11)
+
+[node name="Ukraine" type="Node2D" parent="Countries"]
+position = Vector2(255, 89)
+
+[node name="Shop" parent="Countries/Ukraine" instance=ExtResource("4_k0juu")]
+position = Vector2(19, 14)
+
+[node name="Factory" parent="Countries/Ukraine" instance=ExtResource("3_4wyf3")]
+position = Vector2(-41, -23)
+
+[node name="Shop2" parent="Countries/Ukraine" instance=ExtResource("4_k0juu")]
+position = Vector2(30, -31)
+
+[node name="Iceland" type="Node2D" parent="Countries"]
+position = Vector2(-269, -370)
+
+[node name="Shop" parent="Countries/Iceland" instance=ExtResource("4_k0juu")]
+position = Vector2(23, 9)
+
+[node name="Montenegro" type="Node2D" parent="Countries"]
+position = Vector2(72, 234)
+
+[node name="Shop" parent="Countries/Montenegro" instance=ExtResource("4_k0juu")]
+position = Vector2(0, 17)
+
+[node name="Albania" type="Node2D" parent="Countries"]
+position = Vector2(85, 278)
+
+[node name="Shop" parent="Countries/Albania" instance=ExtResource("4_k0juu")]
+position = Vector2(1, 9)
+
+[node name="Macedonia" type="Node2D" parent="Countries"]
+position = Vector2(120, 261)
+
+[node name="Shop" parent="Countries/Macedonia" instance=ExtResource("4_k0juu")]
+position = Vector2(-3, 7)
+
+[node name="Greece" type="Node2D" parent="Countries"]
+position = Vector2(114, 304)
+
+[node name="Factory" parent="Countries/Greece" instance=ExtResource("3_4wyf3")]
+position = Vector2(-2, 9)
+
+[node name="Shop" parent="Countries/Greece" instance=ExtResource("4_k0juu")]
+position = Vector2(8, 52)
+
+[node name="Shop2" parent="Countries/Greece" instance=ExtResource("4_k0juu")]
+position = Vector2(25, 32)

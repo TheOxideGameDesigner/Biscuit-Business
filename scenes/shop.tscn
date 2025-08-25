@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://da65y42hxutpe"]
+
+[ext_resource type="Texture2D" uid="uid://bqnjie5smya7t" path="res://images/shop.png" id="1_xfvoa"]
+[ext_resource type="Texture2D" uid="uid://lexi7vu764cp" path="res://images/shop_selection.png" id="2_1l46r"]
+
+[node name="Shop" type="Node2D"]
+texture_filter = 1
+
+[node name="Sprite" type="Sprite2D" parent="." groups=["constant_size"]]
+position = Vector2(0, -4.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_xfvoa")
+
+[node name="SelectionSprite" type="Sprite2D" parent="." groups=["constant_size"]]
+visible = false
+position = Vector2(0, -4.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_1l46r")
