@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=42 format=3 uid="uid://ckglgrr504an2"]
+[gd_resource type="Theme" load_steps=46 format=3 uid="uid://ckglgrr504an2"]
 
 [ext_resource type="Texture2D" uid="uid://c66gaycd5nacy" path="res://images/ui/button_stylebox_texture.png" id="1_7ct1h"]
 [ext_resource type="FontFile" uid="uid://dysbleh7o8113" path="res://resources/04B_03__.TTF" id="1_d4nwg"]
@@ -103,6 +103,31 @@ modulate_color = Color(0.4, 0.4, 0.4, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbyuf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogd5j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhnw2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_571rs"]
+texture = ExtResource("3_b751m")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.65, 0.65, 0.65, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogd5j"]
+texture = ExtResource("3_b751m")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5jkt"]
+texture = ExtResource("3_b751m")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.55, 0.55, 0.55, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dhnw2"]
 texture = ExtResource("1_7ct1h")
@@ -227,6 +252,10 @@ SpinBox/styles/up_background_disabled = SubResource("StyleBoxEmpty_ouajo")
 SpinBox/styles/up_background_hovered = SubResource("StyleBoxEmpty_j5sbq")
 SpinBox/styles/up_background_pressed = SubResource("StyleBoxEmpty_lbyuf")
 SpinBox/styles/up_down_buttons_separator = SubResource("StyleBoxEmpty_ogd5j")
+TabBar/styles/tab_focus = SubResource("StyleBoxEmpty_dhnw2")
+TabBar/styles/tab_hovered = SubResource("StyleBoxTexture_571rs")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_ogd5j")
+TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_x5jkt")
 TabContainer/styles/panel = SubResource("StyleBoxTexture_dhnw2")
 TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_iojti")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_udp68")

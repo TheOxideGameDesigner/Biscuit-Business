@@ -23,6 +23,8 @@ window/size/resizable=false
 [global_group]
 
 constant_size=""
+country=""
+buy_button=""
 
 [gui]
 
