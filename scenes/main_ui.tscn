@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://m2rnoyfp6ulv"]
+[gd_scene load_steps=13 format=3 uid="uid://m2rnoyfp6ulv"]
 
 [ext_resource type="Theme" uid="uid://ckglgrr504an2" path="res://resources/theme.tres" id="1_jnl7h"]
 [ext_resource type="Script" uid="uid://dtph46pqc5cgf" path="res://scripts/ui/root_control.gd" id="2_hst8y"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://pqh5l37jlxno" path="res://images/ui/names_visible_icon.png" id="9_tshsl"]
 [ext_resource type="Script" uid="uid://bq1tgfnaa267q" path="res://scripts/ui/names_visible.gd" id="10_1t7kk"]
 [ext_resource type="Script" uid="uid://fpr7x5nl362b" path="res://scripts/ui/property.gd" id="11_4yyl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0apq"]
+size = Vector2(28, 30)
 
 [node name="UI" type="Control"]
 texture_filter = 1
@@ -84,6 +87,12 @@ size = Vector2i(975, 840)
 render_target_update_mode = 0
 
 [node name="Node2D" parent="Map/WorldContainer/WorldViewport" instance=ExtResource("8_eigca")]
+
+[node name="Area2D" type="Area2D" parent="Map/WorldContainer/WorldViewport/Node2D" groups=["constant_size"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/WorldContainer/WorldViewport/Node2D/Area2D"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_r0apq")
 
 [node name="NamesVisible" type="Button" parent="Map"]
 layout_mode = 2

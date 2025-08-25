@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://di87jblvuxi21"]
+[gd_scene load_steps=6 format=3 uid="uid://di87jblvuxi21"]
 
 [ext_resource type="Texture2D" uid="uid://52rr0g8p34wg" path="res://images/factory.png" id="1_4wq18"]
 [ext_resource type="Script" uid="uid://trkb6k806x08" path="res://scripts/ui/land_panel.gd" id="1_hnyrg"]
 [ext_resource type="Texture2D" uid="uid://bqnjie5smya7t" path="res://images/shop.png" id="2_hnyrg"]
+[ext_resource type="Script" uid="uid://bkyjj635s6d6t" path="res://scripts/ui/basic_buy_button.gd" id="4_4t4v5"]
+[ext_resource type="Script" uid="uid://s584ia4s2g30" path="res://scripts/ui/buy_land_button.gd" id="5_m3e55"]
 
 [node name="LandPanel" type="Panel"]
 custom_minimum_size = Vector2(0, 200)
@@ -31,7 +33,7 @@ position = Vector2(-20, 7)
 scale = Vector2(3, 3)
 texture = ExtResource("1_4wq18")
 
-[node name="ShopLabel" type="Label" parent="."]
+[node name="ShopsLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 546.0
 offset_top = 138.0
@@ -40,7 +42,7 @@ offset_bottom = 162.0
 scale = Vector2(2, 2)
 text = "0/2"
 
-[node name="ShopLabelSprite" type="Sprite2D" parent="ShopLabel"]
+[node name="ShopLabelSprite" type="Sprite2D" parent="ShopsLabel"]
 position = Vector2(-15, 14)
 scale = Vector2(3, 3)
 texture = ExtResource("2_hnyrg")
@@ -52,15 +54,17 @@ offset_top = 140.0
 offset_right = 454.0
 offset_bottom = 176.0
 text = "Buy factory"
+script = ExtResource("4_4t4v5")
+value_name = "factory_price"
 
 [node name="Label" type="Label" parent="BuyFactoryButton"]
-modulate = Color(0.61, 0.61, 0.61, 1)
 layout_mode = 0
 offset_left = 2.0
 offset_top = -30.0
-offset_right = 309.0
+offset_right = 259.0
 offset_bottom = -4.0
-text = "Cost: $500000"
+text = "$500000"
+horizontal_alignment = 1
 
 [node name="BuyShopButton" type="Button" parent="." groups=["buy_button"]]
 layout_mode = 0
@@ -69,28 +73,36 @@ offset_top = 142.0
 offset_right = 912.0
 offset_bottom = 178.0
 text = "Buy shop"
+script = ExtResource("4_4t4v5")
+value_name = "shop_price"
 
 [node name="Label" type="Label" parent="BuyShopButton"]
-modulate = Color(0.61, 0.61, 0.61, 1)
 layout_mode = 0
-offset_left = 4.0
-offset_top = -28.0
-offset_right = 279.0
-text = "Cost: $500000"
+offset_left = 5.0
+offset_top = -29.0
+offset_right = 250.0
+offset_bottom = -1.0
+text = "$500000"
+horizontal_alignment = 1
 
 [node name="BuyLandButton" type="Button" parent="." groups=["buy_button"]]
+process_priority = -1
 layout_mode = 0
 offset_left = 557.0
 offset_top = 7.0
 offset_right = 784.0
 offset_bottom = 43.0
 text = "Buy land"
+script = ExtResource("5_m3e55")
 
 [node name="Label" type="Label" parent="BuyLandButton"]
-modulate = Color(0.61, 0.61, 0.61, 1)
 layout_mode = 0
 offset_left = 236.0
 offset_top = 7.0
 offset_right = 374.0
 offset_bottom = 31.0
 text = "$50000"
+
+[connection signal="pressed" from="BuyFactoryButton" to="." method="_on_buy_factory_button_pressed"]
+[connection signal="pressed" from="BuyShopButton" to="." method="_on_buy_shop_button_pressed"]
+[connection signal="pressed" from="BuyLandButton" to="." method="_on_buy_land_button_pressed"]

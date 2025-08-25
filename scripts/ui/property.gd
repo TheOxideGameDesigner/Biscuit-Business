@@ -16,14 +16,21 @@ func compare_panels(a : Node, b : Node):
 func update_ui():
 	unpurchased_country_panels.sort_custom(compare_panels)
 	purchased_country_panels.sort_custom(compare_panels)
-	for node in purchased_land.get_children():
-		remove_child(node)
+	var i = 0
 	for node in purchased_country_panels:
-		add_child(node)
-	for node in unpurchased_land.get_children():
-		remove_child(node)
+		purchased_land.move_child(node, i)
+		i += 1
+	i = 0
 	for node in unpurchased_country_panels:
-		add_child(node)
+		unpurchased_land.move_child(node, i)
+		i += 1
+
+func on_purchased(panel):
+	purchased_country_panels.push_back(panel)
+	unpurchased_country_panels.erase(panel)
+	unpurchased_land.remove_child(panel)
+	purchased_land.add_child(panel)
+	update_ui()
 
 func _ready():
 	var uk = null
@@ -38,9 +45,14 @@ func _ready():
 			var land_panel = LAND_PANEL.instantiate()
 			land_panel.country = i
 			unpurchased_country_panels.push_back(land_panel)
+			land_panel.purchased_land.connect(on_purchased.bind(land_panel))
 	var uk_land_panel = LAND_PANEL.instantiate()
 	uk_land_panel.purchased = true
 	uk_land_panel.country = uk
 	purchased_country_panels.push_back(uk_land_panel)
 	
-	update_ui()
+	unpurchased_country_panels.sort_custom(compare_panels)
+	for node in purchased_country_panels:
+		purchased_land.add_child(node)
+	for node in unpurchased_country_panels:
+		unpurchased_land.add_child(node)

@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://basxt2a8tih6y"]
+[gd_scene load_steps=5 format=3 uid="uid://basxt2a8tih6y"]
 
+[ext_resource type="Script" uid="uid://cyddt4j8ia6w4" path="res://scripts/factoryshop.gd" id="1_1adwy"]
 [ext_resource type="Texture2D" uid="uid://52rr0g8p34wg" path="res://images/factory.png" id="1_lmr8u"]
 [ext_resource type="Texture2D" uid="uid://cbte0smsl0jlr" path="res://images/factory_selection.png" id="2_1adwy"]
 
-[node name="Factory" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmr8u"]
+size = Vector2(28, 30)
+
+[node name="Factory" type="Node2D" groups=["factory", "selectable"]]
 texture_filter = 1
+script = ExtResource("1_1adwy")
+is_factory = true
 
 [node name="Sprite" type="Sprite2D" parent="." groups=["constant_size"]]
 position = Vector2(0, -12)
@@ -16,3 +22,9 @@ visible = false
 position = Vector2(0, -4)
 scale = Vector2(3, 3)
 texture = ExtResource("2_1adwy")
+
+[node name="Area2D" type="Area2D" parent="." groups=["constant_size", "selectable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_lmr8u")

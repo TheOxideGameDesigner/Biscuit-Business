@@ -25,6 +25,7 @@ window/size/resizable=false
 constant_size=""
 country=""
 buy_button=""
+selectable=""
 
 [gui]
 

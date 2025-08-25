@@ -1,0 +1,7 @@
+{
+	"initial_money" : 1000000,
+	"land_factory_price" : 50000,
+	"land_shop_price" : 15000,
+	"factory_price" : 500000,
+	"shop_price" : 150000
+}

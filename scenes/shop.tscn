@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://da65y42hxutpe"]
+[gd_scene load_steps=5 format=3 uid="uid://da65y42hxutpe"]
 
+[ext_resource type="Script" uid="uid://cyddt4j8ia6w4" path="res://scripts/factoryshop.gd" id="1_1l46r"]
 [ext_resource type="Texture2D" uid="uid://bqnjie5smya7t" path="res://images/shop.png" id="1_xfvoa"]
 [ext_resource type="Texture2D" uid="uid://lexi7vu764cp" path="res://images/shop_selection.png" id="2_1l46r"]
 
-[node name="Shop" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvoa"]
+size = Vector2(16, 15)
+
+[node name="Shop" type="Node2D" groups=["selectable", "shop"]]
 texture_filter = 1
+script = ExtResource("1_1l46r")
 
 [node name="Sprite" type="Sprite2D" parent="." groups=["constant_size"]]
 position = Vector2(0, -4.5)
@@ -16,3 +21,9 @@ visible = false
 position = Vector2(0, -4.5)
 scale = Vector2(3, 3)
 texture = ExtResource("2_1l46r")
+
+[node name="Area2D" type="Area2D" parent="." groups=["constant_size"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_xfvoa")

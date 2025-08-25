@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnh4n6ki0wq7n"]
+[gd_scene load_steps=12 format=3 uid="uid://bnh4n6ki0wq7n"]
 
 [ext_resource type="Texture2D" uid="uid://djxkn1f467cdw" path="res://images/europe_pixel.png" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://dyxpx11hbvdn7" path="res://scripts/cam.gd" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://basxt2a8tih6y" path="res://scenes/factory.tscn" id="3_4wyf3"]
 [ext_resource type="Script" uid="uid://mhauwgnuy0bf" path="res://scripts/countries.gd" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://da65y42hxutpe" path="res://scenes/shop.tscn" id="4_k0juu"]
+[ext_resource type="Script" uid="uid://blso471rafsrl" path="res://scripts/country.gd" id="4_qfnet"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rwgxs"]
 vertices = PackedVector2Array(435, -277, 482, 292, 447, 201, 432, 162, 382, 84, 158, -237, 164, -230, 165, -221, 160, -213, 157, -218, 154, -226, 153, -236, 259, -289, 242, -304, 278, -304, 49, -358, 24, -355, 46, -380, 62, -375, 155, -208, 143, -213, 32, -149, 57.5078, -151.633, 45, -136, 29, -136, 24, -139, 178, -217, 173, -218, 181, -225, 198, -180, 369, 80, 178, -134, 172, -155, 178, -166, 307, -361, 272, -404, 303, -405, 313, -370, 323, 132, 298, 145, 282, 143, 300, 123, 317, 126, 355, -440, 146, -227, 137, 349, 130, 360, 123, 347, 135, 340, 73, -171, 59.8828, -154.602, 55, -166, 55, -192, -239, 37, -232, 10, -210, 30, -242, 97, 125, -405, 133, -418, 142, -423, 144, -412, 128, -304, 109, -303, 116, 354, 111, 344, 114, 338, 35, -157, 19, -149, 17, -156, -7, -275, 13, -140, 17, -128, -68, -49, -69, -96, -44, -126, -27, -126, -40, -83, -49, -69, 104, 329, 117, 321, 131, 321, 141, 333, 222, 342, 191, 270, 239, 263, 281, 338, -282, 35, -281, 23, -257, 62, 20, -116, 34, -90, 12, -82, 130, -217, 133, -229, 142, -243, 142, -227, 139, -210, 130, -204, 181, -232, 61, 276, 58, 285, 32, 270, 21, 246, 137, -245, 119, -229, 366, 99, 372, 105, 363, 120, 350, 135, 348, 133, 343, 129, 307, 162, 315, 116, 274, 114, 159, 314, 156, 330, 138, 292, -385, 133, -392, 121, -364, 110, -307, 140, -1, -133, 17, -119, -9, -109, -13, -126, 376, 320, 400, 222, 376, 222, 25, 308, 11, 324, 6, 319, 12, 311, 35, 300, 11, 287, 23, 279, 304, -348, 154, -423, 166, -411, 165, -400, 279, 130, 154, -247, 155, -260, 50, -166, 51, -208, -397, 261, -429, 250, -420, 223, -395, 167, 194, -400, 270, -365, 259, -340, 239, -330, 198, -339, 140, -203, 96, -64, 100, -109, 113, -122, 131, -107, 237, 144, -33, -75, -36, -66, -35, -47, -29, 148, 357, 93, 344, 93, 262, 116, 122, -424, 129, -418, 122, -408, 87, -397, -1, 169, -19, 163, -16, 149, 270, -323, 294, -354, 58, -385, 81, -403, -9, 264, -2, -56, 5, -40, 146, -245, 142, -254, -26, -167, -79, -171, -91, -177, -73, -239, 134, -250, 101, -241, 278, 238, 310, 216, 349, 215, 318, 352, 241, 250, 235, 243, 197, 258, 213, 219, 152, 260, 129, 282, 110, 318, 155, 273, 142, 280, 132, 271, 6, -72, -5, -74, -6, -143, 8, -157, 104, 317, 99, 305, 86, 286, -267, 246, -261, 263, -288, 285, -298, 285, 2, 229, 17, 232, 20, 241, -21, 260, -27, 249, -16, 214, -42, 243, -58, 227, -41, 177, -26, 189, -76, 199, -77, 186, -349, 285, -381, 290, -274, 153, 173, -233, 171, -241, 173, -190, 151, -203, 167, -210, 176, -205, -56, -145, -74, -145, -85, -157, 46, -158, 96, -272, 130, -278, 225, -314, 237, -286, 225, 172, 57, -57, 69, -44, 240, 154, 122, -173, 101, -194, 125, -203, -90, 171, -151, -6, -111, -42, 72, 272, 75, 239, 212, 208, -427, 204, 138, -128, 170, -137, -187, 174, -196, 204, -238, 216, -250, 129, -310, 294, -330, 294, -185, 17, -174, 174, -105, 171, -171, -4, 164, -247, 163, -155, 126, -145, 129, -158, 146, -169, 167, -164, 119, -210, 224, 194, 31, 210, 6, 189, -140, 189, -157, 188, -256, 83)
@@ -164,6 +165,7 @@ metadata/_edit_lock_ = true
 
 [node name="Romania" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(161, 160)
+script = ExtResource("4_qfnet")
 
 [node name="Factory2" parent="Countries/Romania" instance=ExtResource("3_4wyf3")]
 position = Vector2(27, -17)
@@ -176,6 +178,7 @@ position = Vector2(40, 7)
 
 [node name="Serbia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(99, 202)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Serbia" instance=ExtResource("4_k0juu")]
 position = Vector2(-8, 19)
@@ -188,6 +191,7 @@ position = Vector2(-9, -8)
 
 [node name="Bulgaria" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(174, 234)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Bulgaria" instance=ExtResource("3_4wyf3")]
 position = Vector2(-17, 0)
@@ -200,12 +204,14 @@ position = Vector2(23, -6)
 
 [node name="Kosovo" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(98, 245)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Kosovo" instance=ExtResource("4_k0juu")]
 position = Vector2(5, -4)
 
 [node name="Bosnia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(51, 203)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Bosnia" instance=ExtResource("4_k0juu")]
 position = Vector2(9, -2)
@@ -215,6 +221,7 @@ position = Vector2(-4, 19)
 
 [node name="Croatia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(25, 171)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Croatia" instance=ExtResource("3_4wyf3")]
 position = Vector2(13, 6)
@@ -224,6 +231,7 @@ position = Vector2(-18, 16)
 
 [node name="Hungary" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(75, 139)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Hungary" instance=ExtResource("3_4wyf3")]
 position = Vector2(-17, 9)
@@ -233,17 +241,20 @@ position = Vector2(23, -4)
 
 [node name="Slovenia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(5, 157)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Slovenia" instance=ExtResource("4_k0juu")]
 position = Vector2(-3, 6)
 
 [node name="Slovakia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(75, 103)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Slovakia" instance=ExtResource("4_k0juu")]
 
 [node name="Austria" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(2, 119)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Austria" instance=ExtResource("4_k0juu")]
 position = Vector2(-13, 11)
@@ -253,6 +264,7 @@ position = Vector2(18, 5)
 
 [node name="Italy" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-48, 220)
+script = ExtResource("4_qfnet")
 
 [node name="Factory3" parent="Countries/Italy" instance=ExtResource("3_4wyf3")]
 position = Vector2(3, 23)
@@ -271,11 +283,13 @@ position = Vector2(61, 62)
 
 [node name="Switzerland" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-100, 131)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Switzerland" instance=ExtResource("4_k0juu")]
 
 [node name="France" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-192, 112)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/France" instance=ExtResource("3_4wyf3")]
 position = Vector2(-25, -33)
@@ -294,6 +308,7 @@ position = Vector2(-34, 47)
 
 [node name="Spain" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-334, 246)
+script = ExtResource("4_qfnet")
 
 [node name="Factory2" parent="Countries/Spain" instance=ExtResource("3_4wyf3")]
 position = Vector2(88, -28)
@@ -312,6 +327,7 @@ position = Vector2(-10, -1)
 
 [node name="Portugal" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-402, 220)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Portugal" instance=ExtResource("3_4wyf3")]
 position = Vector2(17, -17)
@@ -324,6 +340,7 @@ position = Vector2(0, 35)
 
 [node name="The United Kingdom" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-205, -44)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
 position = Vector2(-33, 24)
@@ -342,6 +359,7 @@ position = Vector2(6, -34)
 
 [node name="Ireland" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-286, -68)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Ireland" instance=ExtResource("3_4wyf3")]
 position = Vector2(6, -2)
@@ -351,18 +369,21 @@ position = Vector2(-16, 16)
 
 [node name="Belgium" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-138, 32)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Belgium" instance=ExtResource("4_k0juu")]
 position = Vector2(-2, 4)
 
 [node name="The Netherlands" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-114, 1)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/The Netherlands" instance=ExtResource("4_k0juu")]
 position = Vector2(-6, 4)
 
 [node name="Germany" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-58, 34)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Germany" instance=ExtResource("3_4wyf3")]
 position = Vector2(-10, -23)
@@ -381,12 +402,14 @@ position = Vector2(14, 71)
 
 [node name="Denmark" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-52, -73)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Denmark" instance=ExtResource("4_k0juu")]
 position = Vector2(0, 9)
 
 [node name="Norway" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-32, -186)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Norway" instance=ExtResource("3_4wyf3")]
 position = Vector2(19, 10)
@@ -399,6 +422,7 @@ position = Vector2(24, -52)
 
 [node name="Sweden" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(28, -169)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Sweden" instance=ExtResource("3_4wyf3")]
 position = Vector2(64, -119)
@@ -417,18 +441,20 @@ position = Vector2(52, -87)
 
 [node name="Finland" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(157, -258)
+script = ExtResource("4_qfnet")
+
+[node name="Shop" parent="Countries/Finland" instance=ExtResource("4_k0juu")]
+position = Vector2(-9, -29)
+
+[node name="Shop2" parent="Countries/Finland" instance=ExtResource("4_k0juu")]
+position = Vector2(-38, 42)
 
 [node name="Factory" parent="Countries/Finland" instance=ExtResource("3_4wyf3")]
 position = Vector2(20, 24)
 
-[node name="Shop" parent="Countries/Finland/Factory" instance=ExtResource("4_k0juu")]
-position = Vector2(-29, -53)
-
-[node name="Shop2" parent="Countries/Finland/Factory" instance=ExtResource("4_k0juu")]
-position = Vector2(-58, 18)
-
 [node name="Poland" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(74, 25)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Poland" instance=ExtResource("3_4wyf3")]
 position = Vector2(32, -12)
@@ -444,6 +470,7 @@ position = Vector2(47, 43)
 
 [node name="Czechia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(10, 77)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Czechia" instance=ExtResource("4_k0juu")]
 position = Vector2(-12, 1)
@@ -453,35 +480,41 @@ position = Vector2(24, 11)
 
 [node name="Estonia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(156, -127)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Estonia" instance=ExtResource("4_k0juu")]
 position = Vector2(-3, 3)
 
 [node name="Latvia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(159, -87)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Latvia" instance=ExtResource("4_k0juu")]
 position = Vector2(4, 7)
 
 [node name="Lithuania" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(140, -47)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Lithuania" instance=ExtResource("4_k0juu")]
 
 [node name="Belarus" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(194, -18)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Belarus" instance=ExtResource("4_k0juu")]
 position = Vector2(-5, 12)
 
 [node name="Moldova" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(220, 129)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Moldova" instance=ExtResource("4_k0juu")]
 position = Vector2(5, 11)
 
 [node name="Ukraine" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(255, 89)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Ukraine" instance=ExtResource("4_k0juu")]
 position = Vector2(19, 14)
@@ -494,30 +527,35 @@ position = Vector2(30, -31)
 
 [node name="Iceland" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(-269, -370)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Iceland" instance=ExtResource("4_k0juu")]
 position = Vector2(23, 9)
 
 [node name="Montenegro" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(72, 234)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Montenegro" instance=ExtResource("4_k0juu")]
 position = Vector2(0, 17)
 
 [node name="Albania" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(85, 278)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Albania" instance=ExtResource("4_k0juu")]
 position = Vector2(1, 9)
 
 [node name="Macedonia" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(120, 261)
+script = ExtResource("4_qfnet")
 
 [node name="Shop" parent="Countries/Macedonia" instance=ExtResource("4_k0juu")]
 position = Vector2(-3, 7)
 
 [node name="Greece" type="Node2D" parent="Countries" groups=["country"]]
 position = Vector2(114, 304)
+script = ExtResource("4_qfnet")
 
 [node name="Factory" parent="Countries/Greece" instance=ExtResource("3_4wyf3")]
 position = Vector2(-2, 9)
