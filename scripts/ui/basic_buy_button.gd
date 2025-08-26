@@ -2,7 +2,7 @@ extends Node
 
 var value
 var json : Dictionary
-var enabled : bool
+var enabled : bool = true
 @export var value_name : String
 
 func ready_deff():

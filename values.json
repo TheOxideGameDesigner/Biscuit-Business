@@ -1,7 +1,17 @@
 {
-	"initial_money" : 1000000,
+	"initial_money" : 10000000,
 	"land_factory_price" : 50000,
 	"land_shop_price" : 15000,
 	"factory_price" : 500000,
-	"shop_price" : 150000
+	"shop_price" : 150000,
+	
+	"factory_cost_per_biscuit" : 2,
+	"factory_storage" : [10000, 15000, 20000],
+	"factory_speed" : [500, 750, 1000],
+	"factory_upgrade_cost" : [150000, 250000, 9999999999999],
+	"factory_truck_cost" : 50000,
+	
+	"shop_storage" : [5000, 7500, 10000],
+	"shop_marketing" : [1, 2, 4],
+	"shop_upgrade_cost" : [50000, 80000, 999999999]
 }

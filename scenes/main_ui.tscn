@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://m2rnoyfp6ulv"]
+[gd_scene load_steps=20 format=3 uid="uid://m2rnoyfp6ulv"]
 
 [ext_resource type="Theme" uid="uid://ckglgrr504an2" path="res://resources/theme.tres" id="1_jnl7h"]
 [ext_resource type="Script" uid="uid://dtph46pqc5cgf" path="res://scripts/ui/root_control.gd" id="2_hst8y"]
@@ -11,9 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://pqh5l37jlxno" path="res://images/ui/names_visible_icon.png" id="9_tshsl"]
 [ext_resource type="Script" uid="uid://bq1tgfnaa267q" path="res://scripts/ui/names_visible.gd" id="10_1t7kk"]
 [ext_resource type="Script" uid="uid://fpr7x5nl362b" path="res://scripts/ui/property.gd" id="11_4yyl0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0apq"]
-size = Vector2(28, 30)
+[ext_resource type="Texture2D" uid="uid://52rr0g8p34wg" path="res://images/factory.png" id="11_82kx8"]
+[ext_resource type="Script" uid="uid://b2h5mj8lgpk7j" path="res://scripts/factory_panel.gd" id="11_hst8y"]
+[ext_resource type="Texture2D" uid="uid://o70as6wtou7d" path="res://images/ui/biscuit_symbol.png" id="12_jnl7h"]
+[ext_resource type="Script" uid="uid://dafbovq5a1v3m" path="res://scripts/ui/empty_buy_button.gd" id="13_rx44x"]
+[ext_resource type="Script" uid="uid://bhs61wwvdrcwy" path="res://scripts/shop_panel.gd" id="14_u04fh"]
+[ext_resource type="Script" uid="uid://bkyjj635s6d6t" path="res://scripts/ui/basic_buy_button.gd" id="14_ulqfl"]
+[ext_resource type="Texture2D" uid="uid://bqnjie5smya7t" path="res://images/shop.png" id="17_j03cv"]
+[ext_resource type="Texture2D" uid="uid://c7rubucwunlof" path="res://images/ui/big_biscuit_symbol.png" id="18_rbpqj"]
 
 [node name="UI" type="Control"]
 texture_filter = 1
@@ -21,11 +26,12 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 37.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jnl7h")
 script = ExtResource("2_hst8y")
-metadata/_edit_lock_ = true
 
 [node name="TabBarPanel" type="Panel" parent="."]
 z_index = 2
@@ -69,7 +75,6 @@ offset_bottom = 46.0
 icon = ExtResource("7_rbpqj")
 
 [node name="Map" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -83,16 +88,11 @@ offset_bottom = 900.0
 [node name="WorldViewport" type="SubViewport" parent="Map/WorldContainer"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
+physics_object_picking = true
 size = Vector2i(975, 840)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Node2D" parent="Map/WorldContainer/WorldViewport" instance=ExtResource("8_eigca")]
-
-[node name="Area2D" type="Area2D" parent="Map/WorldContainer/WorldViewport/Node2D" groups=["constant_size"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/WorldContainer/WorldViewport/Node2D/Area2D"]
-position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_r0apq")
 
 [node name="NamesVisible" type="Button" parent="Map"]
 layout_mode = 2
@@ -104,7 +104,271 @@ tooltip_text = "Toggle country name visibility"
 icon = ExtResource("9_tshsl")
 script = ExtResource("10_1t7kk")
 
+[node name="FactoryPanel" type="Panel" parent="Map" groups=["request_json"]]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 61.0
+offset_right = 456.0
+offset_bottom = 409.0
+script = ExtResource("11_hst8y")
+
+[node name="FactorySprite" type="Sprite2D" parent="Map/FactoryPanel"]
+position = Vector2(31, 29)
+scale = Vector2(3, 3)
+texture = ExtResource("11_82kx8")
+
+[node name="LevelLabel" type="Label" parent="Map/FactoryPanel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 21.0
+offset_right = 143.0
+offset_bottom = 45.0
+text = "Level 1"
+
+[node name="UpgradeButton" type="Button" parent="Map/FactoryPanel" groups=["buy_button"]]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 10.0
+offset_right = 325.0
+offset_bottom = 46.0
+mouse_filter = 1
+text = "Upgrade"
+script = ExtResource("13_rx44x")
+
+[node name="Label" type="Label" parent="Map/FactoryPanel/UpgradeButton"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 7.0
+offset_right = 225.0
+offset_bottom = 31.0
+text = "$150000"
+
+[node name="RunningSwitch" type="CheckButton" parent="Map/FactoryPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 53.0
+offset_right = 171.0
+offset_bottom = 89.0
+mouse_filter = 1
+button_pressed = true
+text = "Running"
+flat = true
+
+[node name="StorageLabel" type="Label" parent="Map/FactoryPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 100.0
+offset_right = 291.0
+offset_bottom = 124.0
+text = "Storage:   10000/10000"
+
+[node name="biscuit_symbol" type="Sprite2D" parent="Map/FactoryPanel/StorageLabel"]
+position = Vector2(123, 10)
+scale = Vector2(3, 3)
+texture = ExtResource("12_jnl7h")
+
+[node name="SpeedLabel" type="Label" parent="Map/FactoryPanel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 144.0
+offset_right = 292.0
+offset_bottom = 168.0
+text = "Speed:   500/hour"
+
+[node name="biscuit_symbol" type="Sprite2D" parent="Map/FactoryPanel/SpeedLabel"]
+position = Vector2(98, 10)
+scale = Vector2(3, 3)
+texture = ExtResource("12_jnl7h")
+
+[node name="CostLabel" type="Label" parent="Map/FactoryPanel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 189.0
+offset_right = 292.0
+offset_bottom = 213.0
+text = "Running cost: $500/hour"
+
+[node name="TrucksLabel" type="Label" parent="Map/FactoryPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 234.0
+offset_right = 161.0
+offset_bottom = 258.0
+text = "Trucks: 1/3"
+
+[node name="BuyTrucks" type="Button" parent="Map/FactoryPanel/TrucksLabel" groups=["buy_button"]]
+layout_mode = 0
+offset_left = 172.0
+offset_top = -6.0
+offset_right = 205.0
+offset_bottom = 27.0
+mouse_filter = 1
+icon = ExtResource("7_rbpqj")
+script = ExtResource("14_ulqfl")
+value_name = "factory_truck_cost"
+
+[node name="Label" type="Label" parent="Map/FactoryPanel/TrucksLabel/BuyTrucks"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 5.0
+offset_right = 131.0
+offset_bottom = 29.0
+text = "$50000"
+
+[node name="ConnectionsButton" type="Button" parent="Map/FactoryPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 289.0
+offset_right = 301.0
+offset_bottom = 325.0
+mouse_filter = 1
+text = "Connections"
+
+[node name="UpgradeStorageLabel" type="Label" parent="Map/FactoryPanel"]
+visible = false
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 0
+offset_left = 348.0
+offset_top = 98.0
+offset_right = 420.0
+offset_bottom = 122.0
+text = "+5000"
+
+[node name="UpgradeSpeedLabel" type="Label" parent="Map/FactoryPanel"]
+visible = false
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 0
+offset_left = 349.0
+offset_top = 144.0
+offset_right = 421.0
+offset_bottom = 168.0
+text = "+5000"
+
+[node name="UpgradeCostLabel" type="Label" parent="Map/FactoryPanel"]
+visible = false
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 0
+offset_left = 347.0
+offset_top = 192.0
+offset_right = 419.0
+offset_bottom = 216.0
+text = "+5000"
+
+[node name="ShopPanel" type="Panel" parent="Map" groups=["request_json"]]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 61.0
+offset_right = 457.0
+offset_bottom = 373.0
+script = ExtResource("14_u04fh")
+
+[node name="FactorySprite" type="Sprite2D" parent="Map/ShopPanel"]
+position = Vector2(30, 36)
+scale = Vector2(3, 3)
+texture = ExtResource("17_j03cv")
+
+[node name="LevelLabel" type="Label" parent="Map/ShopPanel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 21.0
+offset_right = 143.0
+offset_bottom = 45.0
+text = "Level 1"
+
+[node name="UpgradeButton" type="Button" parent="Map/ShopPanel" groups=["buy_button"]]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 10.0
+offset_right = 325.0
+offset_bottom = 46.0
+mouse_filter = 1
+text = "Upgrade"
+script = ExtResource("13_rx44x")
+
+[node name="Label" type="Label" parent="Map/ShopPanel/UpgradeButton"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 7.0
+offset_right = 225.0
+offset_bottom = 31.0
+text = "$150000"
+
+[node name="StorageLabel" type="Label" parent="Map/ShopPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 67.0
+offset_right = 315.0
+offset_bottom = 91.0
+text = "Storage:   10000/10000"
+
+[node name="biscuit_symbol" type="Sprite2D" parent="Map/ShopPanel/StorageLabel"]
+position = Vector2(123, 10)
+scale = Vector2(3, 3)
+texture = ExtResource("12_jnl7h")
+
+[node name="PriceSpinBox" type="SpinBox" parent="Map/ShopPanel"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 245.0
+offset_right = 270.0
+offset_bottom = 281.0
+mouse_filter = 1
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+prefix = "$"
+
+[node name="PriceLabel" type="Label" parent="Map/ShopPanel/PriceSpinBox"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -28.0
+offset_right = 158.0
+offset_bottom = -4.0
+text = "Biscuit price"
+
+[node name="BigBiscuitSymbol" type="Sprite2D" parent="Map/ShopPanel/PriceSpinBox"]
+position = Vector2(-58, 8)
+scale = Vector2(3, 3)
+texture = ExtResource("18_rbpqj")
+
+[node name="MarketingLabel" type="Label" parent="Map/ShopPanel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 110.0
+offset_right = 244.0
+offset_bottom = 134.0
+text = "Marketing Level: 1"
+
+[node name="ClientsLabel" type="Label" parent="Map/ShopPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 155.0
+offset_right = 258.0
+offset_bottom = 179.0
+text = "Clients past day: -"
+
+[node name="UpgradeStorageLabel" type="Label" parent="Map/ShopPanel"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 0
+offset_left = 343.0
+offset_top = 67.0
+offset_right = 415.0
+offset_bottom = 91.0
+text = "+5000"
+
+[node name="UpgradeMarketingLevel" type="Label" parent="Map/ShopPanel"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 0
+offset_left = 344.0
+offset_top = 108.0
+offset_right = 416.0
+offset_bottom = 132.0
+text = "+5000"
+
 [node name="Property" type="Panel" parent="."]
+visible = false
 self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
@@ -153,3 +417,12 @@ offset_bottom = 906.0
 
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
+[connection signal="mouse_entered" from="Map/FactoryPanel" to="Map/FactoryPanel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Map/FactoryPanel" to="Map/FactoryPanel" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Map/FactoryPanel/UpgradeButton" to="Map/FactoryPanel" method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="Map/FactoryPanel/UpgradeButton" to="Map/FactoryPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="Map/FactoryPanel/UpgradeButton" to="Map/FactoryPanel" method="_on_upgrade_button_pressed"]
+[connection signal="toggled" from="Map/FactoryPanel/RunningSwitch" to="Map/FactoryPanel" method="_on_running_switch_toggled"]
+[connection signal="pressed" from="Map/FactoryPanel/TrucksLabel/BuyTrucks" to="Map/FactoryPanel" method="_on_buy_trucks_pressed"]
+[connection signal="mouse_entered" from="Map/ShopPanel" to="Map/ShopPanel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Map/ShopPanel" to="Map/ShopPanel" method="_on_mouse_exited"]

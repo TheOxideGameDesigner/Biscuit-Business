@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=46 format=3 uid="uid://ckglgrr504an2"]
+[gd_resource type="Theme" load_steps=48 format=3 uid="uid://ckglgrr504an2"]
 
 [ext_resource type="Texture2D" uid="uid://c66gaycd5nacy" path="res://images/ui/button_stylebox_texture.png" id="1_7ct1h"]
 [ext_resource type="FontFile" uid="uid://dysbleh7o8113" path="res://resources/04B_03__.TTF" id="1_d4nwg"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://by1kew5fpwetu" path="res://images/ui/spinbox_down.png" id="3_aaf3v"]
 [ext_resource type="Texture2D" uid="uid://ccf70byy80ls6" path="res://images/ui/sprite_tab_stylebox_texture.png" id="3_b751m"]
 [ext_resource type="Texture2D" uid="uid://p0p6o0tbxxg5" path="res://images/ui/button_stylebox_texture_highlight.png" id="3_dhnw2"]
+[ext_resource type="Texture2D" uid="uid://0blk5q33jy51" path="res://images/ui/checkbutton_checked.png" id="3_udp68"]
+[ext_resource type="Texture2D" uid="uid://2eqgsgxvvepo" path="res://images/ui/checkbutton_unchecked.png" id="4_vidcg"]
 [ext_resource type="Texture2D" uid="uid://dxu48lrk00h5h" path="res://images/ui/spinbox_up.png" id="4_yp2uj"]
 [ext_resource type="Texture2D" uid="uid://dn74gnrte2xlx" path="res://images/ui/scrollbar_stylebox_texture.png" id="6_yp2uj"]
 
@@ -213,6 +215,8 @@ Button/styles/normal = SubResource("StyleBoxTexture_886mr")
 Button/styles/pressed = SubResource("StyleBoxTexture_owntx")
 CheckBox/icons/checked = ExtResource("2_886mr")
 CheckBox/icons/unchecked = ExtResource("1_7ct1h")
+CheckButton/icons/checked = ExtResource("3_udp68")
+CheckButton/icons/unchecked = ExtResource("4_vidcg")
 HSlider/icons/grabber = ExtResource("1_7ct1h")
 HSlider/icons/grabber_highlight = ExtResource("3_dhnw2")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ouajo")
