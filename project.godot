@@ -28,6 +28,7 @@ buy_button=""
 selectable=""
 request_json=""
 get_hour_update=""
+main_ui=""
 
 [gui]
 

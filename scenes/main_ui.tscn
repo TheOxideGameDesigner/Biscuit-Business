@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bqnjie5smya7t" path="res://images/shop.png" id="17_j03cv"]
 [ext_resource type="Texture2D" uid="uid://c7rubucwunlof" path="res://images/ui/big_biscuit_symbol.png" id="18_rbpqj"]
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" groups=["main_ui"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -204,26 +204,26 @@ offset_top = -6.0
 offset_right = 205.0
 offset_bottom = 27.0
 mouse_filter = 1
-icon = ExtResource("7_rbpqj")
+text = "Buy"
 script = ExtResource("14_ulqfl")
 value_name = "factory_truck_cost"
 
 [node name="Label" type="Label" parent="Map/FactoryPanel/TrucksLabel/BuyTrucks"]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 5.0
-offset_right = 131.0
-offset_bottom = 29.0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 161.0
+offset_bottom = 30.0
 text = "$50000"
 
 [node name="ConnectionsButton" type="Button" parent="Map/FactoryPanel"]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 289.0
-offset_right = 301.0
-offset_bottom = 325.0
+offset_left = 21.0
+offset_top = 288.0
+offset_right = 246.0
+offset_bottom = 324.0
 mouse_filter = 1
-text = "Connections"
+text = "Add connection"
 
 [node name="UpgradeStorageLabel" type="Label" parent="Map/FactoryPanel"]
 visible = false
@@ -255,15 +255,26 @@ offset_right = 419.0
 offset_bottom = 216.0
 text = "+5000"
 
+[node name="NoConnectionLabel" type="Label" parent="Map/FactoryPanel"]
+modulate = Color(0.8, 0.12, 0.12, 1)
+layout_mode = 0
+offset_left = 273.0
+offset_top = 281.0
+offset_right = 420.0
+offset_bottom = 398.0
+text = "No connections!"
+autowrap_mode = 2
+
 [node name="ShopPanel" type="Panel" parent="Map" groups=["request_json"]]
+visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 61.0
-offset_right = 457.0
+offset_right = 476.0
 offset_bottom = 373.0
 script = ExtResource("14_u04fh")
 
-[node name="FactorySprite" type="Sprite2D" parent="Map/ShopPanel"]
+[node name="ShopSprite" type="Sprite2D" parent="Map/ShopPanel"]
 position = Vector2(30, 36)
 scale = Vector2(3, 3)
 texture = ExtResource("17_j03cv")
@@ -278,10 +289,10 @@ text = "Level 1"
 
 [node name="UpgradeButton" type="Button" parent="Map/ShopPanel" groups=["buy_button"]]
 layout_mode = 0
-offset_left = 211.0
-offset_top = 10.0
-offset_right = 325.0
-offset_bottom = 46.0
+offset_left = 233.0
+offset_top = 9.0
+offset_right = 347.0
+offset_bottom = 45.0
 mouse_filter = 1
 text = "Upgrade"
 script = ExtResource("13_rx44x")
@@ -326,7 +337,7 @@ offset_left = -1.0
 offset_top = -28.0
 offset_right = 158.0
 offset_bottom = -4.0
-text = "Biscuit price"
+text = "Biscuit box price"
 
 [node name="BigBiscuitSymbol" type="Sprite2D" parent="Map/ShopPanel/PriceSpinBox"]
 position = Vector2(-58, 8)
@@ -358,7 +369,7 @@ offset_right = 415.0
 offset_bottom = 91.0
 text = "+5000"
 
-[node name="UpgradeMarketingLevel" type="Label" parent="Map/ShopPanel"]
+[node name="UpgradeMarketingLabel" type="Label" parent="Map/ShopPanel"]
 modulate = Color(0.5, 0.5, 0.5, 1)
 layout_mode = 0
 offset_left = 344.0
@@ -366,6 +377,16 @@ offset_top = 108.0
 offset_right = 416.0
 offset_bottom = 132.0
 text = "+5000"
+
+[node name="NoConnectionLabel" type="Label" parent="Map/ShopPanel"]
+modulate = Color(0.8, 0.12, 0.12, 1)
+layout_mode = 0
+offset_left = 285.0
+offset_top = 248.0
+offset_right = 477.0
+offset_bottom = 365.0
+text = "Not connected to factory!"
+autowrap_mode = 2
 
 [node name="Property" type="Panel" parent="."]
 visible = false
@@ -415,6 +436,8 @@ offset_top = 53.0
 offset_right = 982.0
 offset_bottom = 906.0
 
+[node name="hour_timer" type="Timer" parent="."]
+
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
 [connection signal="mouse_entered" from="Map/FactoryPanel" to="Map/FactoryPanel" method="_on_mouse_entered"]
@@ -424,5 +447,12 @@ offset_bottom = 906.0
 [connection signal="pressed" from="Map/FactoryPanel/UpgradeButton" to="Map/FactoryPanel" method="_on_upgrade_button_pressed"]
 [connection signal="toggled" from="Map/FactoryPanel/RunningSwitch" to="Map/FactoryPanel" method="_on_running_switch_toggled"]
 [connection signal="pressed" from="Map/FactoryPanel/TrucksLabel/BuyTrucks" to="Map/FactoryPanel" method="_on_buy_trucks_pressed"]
+[connection signal="pressed" from="Map/FactoryPanel/ConnectionsButton" to="." method="_on_connections_button_pressed"]
+[connection signal="pressed" from="Map/FactoryPanel/ConnectionsButton" to="Map/FactoryPanel" method="_on_connections_button_pressed"]
 [connection signal="mouse_entered" from="Map/ShopPanel" to="Map/ShopPanel" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Map/ShopPanel" to="Map/ShopPanel" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Map/ShopPanel/UpgradeButton" to="Map/ShopPanel" method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="Map/ShopPanel/UpgradeButton" to="Map/ShopPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="Map/ShopPanel/UpgradeButton" to="Map/ShopPanel" method="_on_upgrade_button_pressed"]
+[connection signal="value_changed" from="Map/ShopPanel/PriceSpinBox" to="Map/ShopPanel" method="_on_price_spin_box_value_changed"]
+[connection signal="timeout" from="hour_timer" to="." method="_on_hour_timer_timeout"]

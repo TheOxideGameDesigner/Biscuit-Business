@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ujl1vs7kdm38"]
+
+[ext_resource type="Script" uid="uid://bgl58mi1nnlc8" path="res://scripts/dotted_line.gd" id="1_rmr2y"]
+
+[node name="DottedLine" type="Node2D"]
+script = ExtResource("1_rmr2y")
+start = Vector2(100, 100)
+end = Vector2(700, 300)
+col = Color(0.157763, 0.391441, 1, 1)

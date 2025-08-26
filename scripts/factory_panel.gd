@@ -27,11 +27,14 @@ func update_visual():
 
 func set_factory(f : Node):
 	factory = f
+	$ConnectionsButton.text = "Add connection"
+	$ConnectionsButton.disabled = false
 	update_visual()
 
 func _process(delta):
 	if factory != null:
 		storage_label.text = "Storage:   " + str(int(factory.cookies)) + '/' + str(int(json["factory_storage"][factory.level - 1]))
+		$NoConnectionLabel.visible = factory.connections.is_empty()
 
 func _on_mouse_entered():
 	mouse_hovering = true
@@ -64,3 +67,8 @@ func _on_upgrade_button_mouse_exited():
 	$UpgradeStorageLabel.visible = false
 	$UpgradeSpeedLabel.visible = false
 	$UpgradeCostLabel.visible = false
+
+
+func _on_connections_button_pressed():
+	$ConnectionsButton.text = "Select shop..."
+	$ConnectionsButton.disabled = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://basxt2a8tih6y"]
+[gd_scene load_steps=7 format=3 uid="uid://basxt2a8tih6y"]
 
 [ext_resource type="Script" uid="uid://cyddt4j8ia6w4" path="res://scripts/factoryshop.gd" id="1_1adwy"]
 [ext_resource type="Texture2D" uid="uid://52rr0g8p34wg" path="res://images/factory.png" id="1_lmr8u"]
 [ext_resource type="Texture2D" uid="uid://cbte0smsl0jlr" path="res://images/factory_selection.png" id="2_1adwy"]
+[ext_resource type="Texture2D" uid="uid://ct6olswbe2si8" path="res://images/no_connection_warning.png" id="3_quloc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmr8u"]
 size = Vector2(10.6667, 5.66665)
@@ -10,23 +11,13 @@ size = Vector2(10.6667, 5.66665)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1adwy"]
 size = Vector2(7.33333, 5)
 
-[node name="Factory" type="Node2D" groups=["constant_size", "factory", "get_hour_update", "selectable"]]
+[node name="Factory" type="Node2D" groups=["factory", "get_hour_update", "request_json", "selectable"]]
 y_sort_enabled = true
 texture_filter = 1
-scale = Vector2(3, 3)
 script = ExtResource("1_1adwy")
 is_factory = true
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -4)
-texture = ExtResource("1_lmr8u")
-
-[node name="SelectionSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -4)
-texture = ExtResource("2_1adwy")
-
-[node name="Area2D" type="Area2D" parent="." groups=["selectable"]]
+[node name="Area2D" type="Area2D" parent="." groups=["constant_size", "selectable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2.38419e-07, -2.16668)
@@ -35,6 +26,28 @@ shape = SubResource("RectangleShape2D_lmr8u")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.666667, -7.5)
 shape = SubResource("RectangleShape2D_1adwy")
+
+[node name="Sprite" type="Node2D" parent="." groups=["constant_size"]]
+scale = Vector2(3, 3)
+
+[node name="Sprite" type="Sprite2D" parent="Sprite"]
+position = Vector2(0, -4)
+texture = ExtResource("1_lmr8u")
+
+[node name="NoConnectionWarning" type="Sprite2D" parent="Sprite"]
+position = Vector2(4, -8.33333)
+texture = ExtResource("3_quloc")
+
+[node name="SelectionSprite" type="Node2D" parent="." groups=["constant_size"]]
+visible = false
+scale = Vector2(3, 3)
+
+[node name="SelectionSprite" type="Sprite2D" parent="SelectionSprite"]
+position = Vector2(0, -4)
+texture = ExtResource("2_1adwy")
+
+[node name="ConnectionLines" type="Node2D" parent="."]
+visible = false
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,4 +1,6 @@
 {
+	"hour_duration" : 5,
+	
 	"initial_money" : 10000000,
 	"land_factory_price" : 50000,
 	"land_shop_price" : 15000,

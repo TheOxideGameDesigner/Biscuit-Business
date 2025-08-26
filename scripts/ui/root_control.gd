@@ -9,10 +9,12 @@ var json : Dictionary
 @onready var buy_buttons = get_tree().get_nodes_in_group("buy_button")
 @onready var factories = get_tree().get_nodes_in_group("factory")
 @onready var shops = get_tree().get_nodes_in_group("shop")
+@onready var hour_updaters = get_tree().get_nodes_in_group("get_hour_update")
 var shopsandfactories
 var selected_unit = null
 var selected_factory : bool
 var last_mouse_pressed_pos : Vector2
+var selecting_shop_connection : bool = false
 
 var money : int
 
@@ -27,6 +29,8 @@ func _ready():
 		n.pressed.connect(pay.bind(n))
 	for n in get_tree().get_nodes_in_group("request_json"):
 		n.json = json
+	$hour_timer.wait_time = json["hour_duration"]
+	$hour_timer.start()
 	shopsandfactories = factories.duplicate()
 	shopsandfactories.append_array(shops)
 
@@ -40,6 +44,12 @@ func _process(delta):
 		n.get_child(0).text = '$' + str(int(n.value))
 
 func select(f : Node2D, is_factory):
+	if selected_factory and selecting_shop_connection and not is_factory:
+		selected_unit.add_connection(f)
+		selecting_shop_connection = false
+		$Map/FactoryPanel/ConnectionsButton.text = "Add Connection"
+		$Map/FactoryPanel/ConnectionsButton.disabled = false
+		return
 	if selected_unit != null:
 		selected_unit.set_selected(false)
 	selected_unit = f
@@ -53,6 +63,7 @@ func select(f : Node2D, is_factory):
 	factory_panel.visible = false
 	panel.visible = true
 	if is_factory:
+		selecting_shop_connection = false
 		panel.set_factory(f)
 	else:
 		panel.set_shop(f)
@@ -83,8 +94,18 @@ func _input(event):
 				selected_unit = null
 			factory_panel.visible = false
 			shop_panel.visible = false
+			selecting_shop_connection = false
 
 func _on_tab_bar_tab_changed(tab):
 	for i in tabs:
 		i.visible = false
 	tabs[tab].visible = true
+
+
+func _on_connections_button_pressed():
+	selecting_shop_connection = true
+
+
+func _on_hour_timer_timeout():
+	for n in hour_updaters:
+		n.hour_update()
