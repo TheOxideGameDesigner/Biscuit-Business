@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnh4n6ki0wq7n"]
+[gd_scene load_steps=13 format=3 uid="uid://bnh4n6ki0wq7n"]
 
 [ext_resource type="Texture2D" uid="uid://djxkn1f467cdw" path="res://images/europe_pixel.png" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://dyxpx11hbvdn7" path="res://scripts/cam.gd" id="2_fj7yv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://mhauwgnuy0bf" path="res://scripts/countries.gd" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://da65y42hxutpe" path="res://scenes/shop.tscn" id="4_k0juu"]
 [ext_resource type="Script" uid="uid://blso471rafsrl" path="res://scripts/country.gd" id="4_qfnet"]
+[ext_resource type="Script" uid="uid://bq5h34k7d3hif" path="res://scripts/navigation_test.gd" id="7_i7141"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rwgxs"]
 vertices = PackedVector2Array(435, -277, 482, 292, 447, 201, 432, 162, 382, 84, 158, -237, 164, -230, 165, -221, 160, -213, 157, -218, 154, -226, 153, -236, 259, -289, 242, -304, 278, -304, 49, -358, 24, -355, 46, -380, 62, -375, 155, -208, 143, -213, 32, -149, 57.5078, -151.633, 45, -136, 29, -136, 24, -139, 178, -217, 173, -218, 181, -225, 198, -180, 369, 80, 178, -134, 172, -155, 178, -166, 307, -361, 272, -404, 303, -405, 313, -370, 323, 132, 298, 145, 282, 143, 300, 123, 317, 126, 355, -440, 146, -227, 137, 349, 130, 360, 123, 347, 135, 340, 73, -171, 59.8828, -154.602, 55, -166, 55, -192, -239, 37, -232, 10, -210, 30, -242, 97, 125, -405, 133, -418, 142, -423, 144, -412, 128, -304, 109, -303, 116, 354, 111, 344, 114, 338, 35, -157, 19, -149, 17, -156, -7, -275, 13, -140, 17, -128, -68, -49, -69, -96, -44, -126, -27, -126, -40, -83, -49, -69, 104, 329, 117, 321, 131, 321, 141, 333, 222, 342, 191, 270, 239, 263, 281, 338, -282, 35, -281, 23, -257, 62, 20, -116, 34, -90, 12, -82, 130, -217, 133, -229, 142, -243, 142, -227, 139, -210, 130, -204, 181, -232, 61, 276, 58, 285, 32, 270, 21, 246, 137, -245, 119, -229, 366, 99, 372, 105, 363, 120, 350, 135, 348, 133, 343, 129, 307, 162, 315, 116, 274, 114, 159, 314, 156, 330, 138, 292, -385, 133, -392, 121, -364, 110, -307, 140, -1, -133, 17, -119, -9, -109, -13, -126, 376, 320, 400, 222, 376, 222, 25, 308, 11, 324, 6, 319, 12, 311, 35, 300, 11, 287, 23, 279, 304, -348, 154, -423, 166, -411, 165, -400, 279, 130, 154, -247, 155, -260, 50, -166, 51, -208, -397, 261, -429, 250, -420, 223, -395, 167, 194, -400, 270, -365, 259, -340, 239, -330, 198, -339, 140, -203, 96, -64, 100, -109, 113, -122, 131, -107, 237, 144, -33, -75, -36, -66, -35, -47, -29, 148, 357, 93, 344, 93, 262, 116, 122, -424, 129, -418, 122, -408, 87, -397, -1, 169, -19, 163, -16, 149, 270, -323, 294, -354, 58, -385, 81, -403, -9, 264, -2, -56, 5, -40, 146, -245, 142, -254, -26, -167, -79, -171, -91, -177, -73, -239, 134, -250, 101, -241, 278, 238, 310, 216, 349, 215, 318, 352, 241, 250, 235, 243, 197, 258, 213, 219, 152, 260, 129, 282, 110, 318, 155, 273, 142, 280, 132, 271, 6, -72, -5, -74, -6, -143, 8, -157, 104, 317, 99, 305, 86, 286, -267, 246, -261, 263, -288, 285, -298, 285, 2, 229, 17, 232, 20, 241, -21, 260, -27, 249, -16, 214, -42, 243, -58, 227, -41, 177, -26, 189, -76, 199, -77, 186, -349, 285, -381, 290, -274, 153, 173, -233, 171, -241, 173, -190, 151, -203, 167, -210, 176, -205, -56, -145, -74, -145, -85, -157, 46, -158, 96, -272, 130, -278, 225, -314, 237, -286, 225, 172, 57, -57, 69, -44, 240, 154, 122, -173, 101, -194, 125, -203, -90, 171, -151, -6, -111, -42, 72, 272, 75, 239, 212, 208, -427, 204, 138, -128, 170, -137, -187, 174, -196, 204, -238, 216, -250, 129, -310, 294, -330, 294, -185, 17, -174, 174, -105, 171, -171, -4, 164, -247, 163, -155, 126, -145, 129, -158, 146, -169, 167, -164, 119, -210, 224, 194, 31, 210, 6, 189, -140, 189, -157, 188, -256, 83)
@@ -52,10 +53,10 @@ visibility_layer = 16
 script = ExtResource("2_fj7yv")
 
 [node name="EuropeLandNavmesh" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(0, 20)
 navigation_polygon = SubResource("NavigationPolygon_rwgxs")
 use_edge_connections = false
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="EuropeLandNavmesh"]
 visible = false
@@ -94,23 +95,27 @@ polygon = PackedVector2Array(151, -203, 155, -208, 143, -213, 157, -218, 154, -2
 polygon = PackedVector2Array(176, -205, 178, -217, 173, -218, 181, -225, 181, -232, 173, -233, 171, -241, 164, -247, 155, -260, 158, -237, 164, -230, 165, -221, 160, -213, 167, -210)
 
 [node name="UkLandNavmesh" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(0, 20)
 navigation_polygon = SubResource("NavigationPolygon_4wyf3")
+use_edge_connections = false
+metadata/_edit_lock_ = true
 
 [node name="IrelandLandNavmesh" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(0, 20)
 navigation_polygon = SubResource("NavigationPolygon_k0juu")
+use_edge_connections = false
+metadata/_edit_lock_ = true
 
 [node name="IcelandLandNavmesh" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(0, 20)
 navigation_polygon = SubResource("NavigationPolygon_71j4m")
+use_edge_connections = false
+metadata/_edit_lock_ = true
 
 [node name="SeaNavmesh" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_qfnet")
+use_edge_connections = false
+navigation_layers = 2
 
 [node name="Land" type="StaticBody2D" parent="SeaNavmesh"]
 visible = false
@@ -374,6 +379,12 @@ position = Vector2(14, 34)
 [node name="Shop2" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
 position = Vector2(6, -34)
 
+[node name="UKPort" type="Node2D" parent="Countries/The United Kingdom" groups=["port"]]
+position = Vector2(-52, 62)
+
+[node name="land" type="Node2D" parent="Countries/The United Kingdom/UKPort"]
+position = Vector2(0, -8)
+
 [node name="Ireland" type="Node2D" parent="Countries" groups=["country"]]
 y_sort_enabled = true
 position = Vector2(-286, -68)
@@ -384,6 +395,12 @@ position = Vector2(6, -2)
 
 [node name="Shop" parent="Countries/Ireland" instance=ExtResource("4_k0juu")]
 position = Vector2(-16, 16)
+
+[node name="IrelandPort" type="Node2D" parent="Countries/Ireland" groups=["port"]]
+position = Vector2(11, 28)
+
+[node name="land" type="Node2D" parent="Countries/Ireland/IrelandPort"]
+position = Vector2(-2, -7)
 
 [node name="Belgium" type="Node2D" parent="Countries" groups=["country"]]
 y_sort_enabled = true
@@ -566,6 +583,12 @@ script = ExtResource("4_qfnet")
 [node name="Shop" parent="Countries/Iceland" instance=ExtResource("4_k0juu")]
 position = Vector2(23, 9)
 
+[node name="IcelandPort" type="Node2D" parent="Countries/Iceland" groups=["port"]]
+position = Vector2(23, 42)
+
+[node name="land" type="Node2D" parent="Countries/Iceland/IcelandPort"]
+position = Vector2(-3, -10)
+
 [node name="Montenegro" type="Node2D" parent="Countries" groups=["country"]]
 y_sort_enabled = true
 position = Vector2(72, 234)
@@ -603,3 +626,23 @@ position = Vector2(8, 52)
 
 [node name="Shop2" parent="Countries/Greece" instance=ExtResource("4_k0juu")]
 position = Vector2(25, 32)
+
+[node name="EuropePort" type="Node2D" parent="." groups=["default_port"]]
+position = Vector2(-287, 44)
+
+[node name="land" type="Node2D" parent="EuropePort"]
+position = Vector2(8, 3)
+
+[node name="Ports" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="NavigationTest" type="Node2D" parent="."]
+position = Vector2(-184, 52)
+script = ExtResource("7_i7141")
+
+[node name="target" type="Node2D" parent="NavigationTest"]
+position = Vector2(196, -132)
+
+[node name="Line2D" type="Line2D" parent="NavigationTest"]
+position = Vector2(184, -52)
+width = 1.0

@@ -15,5 +15,7 @@
 	
 	"shop_storage" : [5000, 7500, 10000],
 	"shop_marketing" : [1, 2, 4],
-	"shop_upgrade_cost" : [50000, 80000, 999999999]
+	"shop_upgrade_cost" : [50000, 80000, 999999999],
+	
+	"truck_capacity" : 500
 }

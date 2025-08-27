@@ -47,6 +47,7 @@ func _on_running_switch_toggled(toggled_on):
 
 func _on_buy_trucks_pressed():
 	factory.factory_trucks += 1
+	factory.add_truck()
 	update_visual()
 
 func _on_upgrade_button_pressed():
