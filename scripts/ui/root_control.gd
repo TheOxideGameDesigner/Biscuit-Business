@@ -4,17 +4,28 @@ extends Control
 @onready var tabs = [$Map, $Property, $"Stock Market", $News]
 @onready var factory_panel = $Map/FactoryPanel
 @onready var shop_panel = $Map/ShopPanel
+@onready var loan_panel = $LoanPanel
+@onready var loan_amount = $LoanPanel/Amount
+@onready var loan_button = $LoanPanel/TakeButton
+@onready var debt_label = $LoanPanel/DebtLabel
+@onready var daily_payment_label = $LoanPanel/DailyPaymentLabel
+@onready var debt_too_high_label = $LoanPanel/DebtTooHighLabel
+
 
 var json : Dictionary
 @onready var buy_buttons = get_tree().get_nodes_in_group("buy_button")
 @onready var factories = get_tree().get_nodes_in_group("factory")
 @onready var shops = get_tree().get_nodes_in_group("shop")
 @onready var hour_updaters = get_tree().get_nodes_in_group("get_hour_update")
+@onready var day_updaters = get_tree().get_nodes_in_group("get_day_update")
 var shopsandfactories
 var selected_unit = null
 var selected_factory : bool
 var last_mouse_pressed_pos : Vector2
 var selecting_shop_connection : bool = false
+
+var loans = []
+var loans_unpaid = []
 
 var money : int
 
@@ -31,17 +42,39 @@ func _ready():
 		n.json = json
 	$hour_timer.wait_time = json["hour_duration"]
 	$hour_timer.start()
+	$day_timer.wait_time = json["hour_duration"] * 24
+	$day_timer.start()
 	shopsandfactories = factories.duplicate()
 	shopsandfactories.append_array(shops)
+	
+	loan_amount.max_value = json["max_loan"]
+	loan_amount.get_line_edit().mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 
 func pay(b : Button):
 	money -= b.value
 
 func _process(delta):
-	money_label.text = '$' + str(money)
+	if money >= 0:
+		money_label.text = '$' + str(money)
+		money_label.modulate = Color(1, 1, 0.27)
+	else:
+		money_label.text = "-$" + str(-money)
+		money_label.modulate = Color(0.7, 0, 0)
 	for n in buy_buttons:
 		n.disabled = n.value > money or not n.enabled
 		n.get_child(0).text = '$' + str(int(n.value))
+	if loan_amount.get_line_edit().has_focus():
+		loan_amount.get_line_edit().release_focus()
+	
+	var debt : int = 0
+	for i in loans_unpaid:
+		debt += i
+		
+	loan_button.value = -loan_amount.value
+	loan_button.enabled = (debt + loan_amount.value) <= json["max_loan"]
+	debt_too_high_label.visible = not loan_button.enabled
+	
+	debt_label.text = "Debt: $" + str(debt)
 
 func select(f : Node2D, is_factory):
 	if selected_factory and selecting_shop_connection and not is_factory:
@@ -100,6 +133,7 @@ func _on_tab_bar_tab_changed(tab):
 	for i in tabs:
 		i.visible = false
 	tabs[tab].visible = true
+	loan_panel.visible = false
 
 
 func _on_connections_button_pressed():
@@ -109,3 +143,46 @@ func _on_connections_button_pressed():
 func _on_hour_timer_timeout():
 	for n in hour_updaters:
 		n.hour_update()
+
+
+func _on_day_timer_timeout():
+	for n in day_updaters:
+		n.day_update()
+	for i in range(loans.size()):
+		var daily = int(loans[i] * json["loan_pay_per_day"])
+		money -= min(daily, loans_unpaid[i]) * (1 + json["loan_bank_profit"])
+		loans_unpaid[i] -= daily
+	var filtered_loans = []
+	var filtered_loans_unpaid = []
+	for i in range(loans.size()):
+		if loans_unpaid[i] > 0:
+			filtered_loans.append(loans[i])
+			filtered_loans_unpaid.append(loans_unpaid[i])
+	loans = filtered_loans
+	loans_unpaid = filtered_loans_unpaid
+
+
+func _on_loan_pressed():
+	loan_panel.visible = true
+
+
+func _on_close_pressed():
+	loan_panel.visible = false
+
+
+func _on_take_button_mouse_entered():
+	$LoanPanel/PaymentIncreaseLabel.text = "+$" + str(int((1 + json["loan_bank_profit"]) * loan_amount.value * json["loan_pay_per_day"]))
+	$LoanPanel/PaymentIncreaseLabel.visible = true
+
+
+func _on_take_button_mouse_exited():
+	$LoanPanel/PaymentIncreaseLabel.visible = false
+
+
+func _on_take_button_pressed():
+	var daily = 0
+	loans.append(loan_amount.value)
+	loans_unpaid.append(loan_amount.value)
+	for i in range(loans.size()):
+		daily += int((1 + json["loan_bank_profit"]) * loans[i] * json["loan_pay_per_day"])
+	daily_payment_label.text = "Daily payment: $" + str(int(daily))

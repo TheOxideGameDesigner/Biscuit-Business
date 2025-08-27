@@ -5,6 +5,7 @@ var mouse_hovering : bool
 var factory : Node = null
 
 @onready var storage_label = $StorageLabel
+@onready var main_control = get_tree().get_first_node_in_group("main_ui")
 
 func update_visual():
 	if factory.level >= 3:
@@ -35,6 +36,7 @@ func _process(delta):
 	if factory != null:
 		storage_label.text = "Storage:   " + str(int(factory.cookies)) + '/' + str(int(json["factory_storage"][factory.level - 1]))
 		$NoConnectionLabel.visible = factory.connections.is_empty()
+		$NoMoneyLabel.visible = main_control.money < json["factory_cost_per_biscuit"] * json["factory_speed"][factory.level - 1]
 
 func _on_mouse_entered():
 	mouse_hovering = true
@@ -46,7 +48,6 @@ func _on_running_switch_toggled(toggled_on):
 	factory.factory_running = toggled_on
 
 func _on_buy_trucks_pressed():
-	factory.factory_trucks += 1
 	factory.add_truck()
 	update_visual()
 

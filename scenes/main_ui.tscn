@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://m2rnoyfp6ulv"]
+[gd_scene load_steps=22 format=3 uid="uid://m2rnoyfp6ulv"]
 
 [ext_resource type="Theme" uid="uid://ckglgrr504an2" path="res://resources/theme.tres" id="1_jnl7h"]
 [ext_resource type="Script" uid="uid://dtph46pqc5cgf" path="res://scripts/ui/root_control.gd" id="2_hst8y"]
@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://bkyjj635s6d6t" path="res://scripts/ui/basic_buy_button.gd" id="14_ulqfl"]
 [ext_resource type="Texture2D" uid="uid://bqnjie5smya7t" path="res://images/shop.png" id="17_j03cv"]
 [ext_resource type="Texture2D" uid="uid://c7rubucwunlof" path="res://images/ui/big_biscuit_symbol.png" id="18_rbpqj"]
+[ext_resource type="Texture2D" uid="uid://07me8ov3it75" path="res://images/ui/x_button.png" id="20_eigca"]
+[ext_resource type="PackedScene" uid="uid://jcg1gu8wxltb" path="res://scenes/stock_market.tscn" id="20_tshsl"]
 
 [node name="UI" type="Control" groups=["main_ui"]]
 texture_filter = 1
@@ -75,6 +77,7 @@ offset_bottom = 46.0
 icon = ExtResource("7_rbpqj")
 
 [node name="Map" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -90,7 +93,7 @@ handle_input_locally = false
 canvas_item_default_texture_filter = 0
 physics_object_picking = true
 size = Vector2i(975, 840)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Node2D" parent="Map/WorldContainer/WorldViewport" instance=ExtResource("8_eigca")]
 
@@ -265,13 +268,23 @@ offset_bottom = 398.0
 text = "No connections!"
 autowrap_mode = 2
 
+[node name="NoMoneyLabel" type="Label" parent="Map/FactoryPanel"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 192.0
+offset_top = 61.0
+offset_right = 432.0
+offset_bottom = 85.0
+text = "Not enough money!"
+
 [node name="ShopPanel" type="Panel" parent="Map" groups=["request_json"]]
 visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 61.0
 offset_right = 476.0
-offset_bottom = 373.0
+offset_bottom = 420.0
 script = ExtResource("14_u04fh")
 
 [node name="ShopSprite" type="Sprite2D" parent="Map/ShopPanel"]
@@ -321,9 +334,9 @@ texture = ExtResource("12_jnl7h")
 [node name="PriceSpinBox" type="SpinBox" parent="Map/ShopPanel"]
 layout_mode = 0
 offset_left = 122.0
-offset_top = 245.0
+offset_top = 289.0
 offset_right = 270.0
-offset_bottom = 281.0
+offset_bottom = 325.0
 mouse_filter = 1
 min_value = 1.0
 max_value = 10.0
@@ -337,7 +350,7 @@ offset_left = -1.0
 offset_top = -28.0
 offset_right = 158.0
 offset_bottom = -4.0
-text = "Biscuit box price"
+text = "Price of 10 biscuits"
 
 [node name="BigBiscuitSymbol" type="Sprite2D" parent="Map/ShopPanel/PriceSpinBox"]
 position = Vector2(-58, 8)
@@ -358,7 +371,15 @@ offset_left = 18.0
 offset_top = 155.0
 offset_right = 258.0
 offset_bottom = 179.0
-text = "Clients past day: -"
+text = "Purchases yesterday: -"
+
+[node name="EarningsLabel" type="Label" parent="Map/ShopPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 203.0
+offset_right = 281.0
+offset_bottom = 227.0
+text = "Revenue yesterday: -"
 
 [node name="UpgradeStorageLabel" type="Label" parent="Map/ShopPanel"]
 modulate = Color(0.5, 0.5, 0.5, 1)
@@ -382,9 +403,9 @@ text = "+5000"
 modulate = Color(0.8, 0.12, 0.12, 1)
 layout_mode = 0
 offset_left = 285.0
-offset_top = 248.0
+offset_top = 292.0
 offset_right = 477.0
-offset_bottom = 365.0
+offset_bottom = 409.0
 text = "Not connected to factory!"
 autowrap_mode = 2
 
@@ -419,26 +440,143 @@ custom_minimum_size = Vector2(943.685, 0)
 layout_mode = 2
 
 [node name="Stock Market" type="Panel" parent="."]
-visible = false
-modulate = Color(0.6, 0.6, 0.6, 1)
+self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
 offset_top = 53.0
 offset_right = 982.0
 offset_bottom = 906.0
+
+[node name="GraphViewportContainer" type="SubViewportContainer" parent="Stock Market"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 80.0
+offset_right = 275.0
+offset_bottom = 320.0
+scale = Vector2(3, 3)
+
+[node name="graph_viewport" type="SubViewport" parent="Stock Market/GraphViewportContainer"]
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(300, 240)
+render_target_update_mode = 4
+
+[node name="StockMarket" parent="Stock Market/GraphViewportContainer/graph_viewport" instance=ExtResource("20_tshsl")]
+
+[node name="Line2D" type="Line2D" parent="Stock Market/GraphViewportContainer/graph_viewport/StockMarket"]
+points = PackedVector2Array(23, 21, 64, 105, 118, 58, 174, 144, 269, 63)
+width = 3.0
+default_color = Color(1, 0, 1, 1)
 
 [node name="News" type="Panel" parent="."]
 visible = false
-modulate = Color(0.6, 0.6, 0.6, 1)
+self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
 offset_top = 53.0
 offset_right = 982.0
 offset_bottom = 906.0
 
+[node name="LoanPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 70.0
+offset_right = 445.0
+offset_bottom = 327.0
+
+[node name="Label" type="Label" parent="LoanPanel"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 12.0
+offset_right = 278.0
+offset_bottom = 36.0
+text = "Take loan"
+
+[node name="Amount" type="SpinBox" parent="LoanPanel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 198.0
+offset_right = 223.0
+offset_bottom = 234.0
+min_value = 100000.0
+max_value = 1.5e+06
+step = 100000.0
+value = 100000.0
+rounded = true
+prefix = "$"
+
+[node name="Label2" type="Label" parent="LoanPanel/Amount"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -35.0
+offset_right = 190.0
+offset_bottom = -11.0
+text = "Choose amount"
+
+[node name="TakeButton" type="Button" parent="LoanPanel" groups=["buy_button"]]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 197.0
+offset_right = 404.0
+offset_bottom = 233.0
+text = "Take"
+script = ExtResource("13_rx44x")
+
+[node name="EmptyLabel" type="Label" parent="LoanPanel/TakeButton"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+
+[node name="DebtLabel" type="Label" parent="LoanPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 63.0
+offset_right = 137.0
+offset_bottom = 87.0
+text = "Debt: $0"
+
+[node name="PaymentIncreaseLabel" type="Label" parent="LoanPanel"]
+modulate = Color(0.42, 0.42, 0.42, 1)
+layout_mode = 0
+offset_left = 211.0
+offset_top = 84.0
+offset_right = 316.0
+offset_bottom = 108.0
+text = "+$10000"
+
+[node name="DailyPaymentLabel" type="Label" parent="LoanPanel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 112.0
+offset_right = 253.0
+offset_bottom = 136.0
+text = "Daily payment: $0"
+
+[node name="DebtTooHighLabel" type="Label" parent="LoanPanel"]
+modulate = Color(0.51, 0.51, 0.51, 1)
+layout_mode = 0
+offset_left = 239.0
+offset_top = 170.0
+offset_right = 461.0
+offset_bottom = 194.0
+text = "(Debt too high)"
+
+[node name="Close" type="Button" parent="LoanPanel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 9.0
+offset_right = 417.0
+offset_bottom = 42.0
+icon = ExtResource("20_eigca")
+
 [node name="hour_timer" type="Timer" parent="."]
 
+[node name="day_timer" type="Timer" parent="."]
+
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="pressed" from="TabBarPanel/Loan" to="." method="_on_loan_pressed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
 [connection signal="mouse_entered" from="Map/FactoryPanel" to="Map/FactoryPanel" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Map/FactoryPanel" to="Map/FactoryPanel" method="_on_mouse_exited"]
@@ -455,4 +593,9 @@ offset_bottom = 906.0
 [connection signal="mouse_exited" from="Map/ShopPanel/UpgradeButton" to="Map/ShopPanel" method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="Map/ShopPanel/UpgradeButton" to="Map/ShopPanel" method="_on_upgrade_button_pressed"]
 [connection signal="value_changed" from="Map/ShopPanel/PriceSpinBox" to="Map/ShopPanel" method="_on_price_spin_box_value_changed"]
+[connection signal="mouse_entered" from="LoanPanel/TakeButton" to="." method="_on_take_button_mouse_entered"]
+[connection signal="mouse_exited" from="LoanPanel/TakeButton" to="." method="_on_take_button_mouse_exited"]
+[connection signal="pressed" from="LoanPanel/TakeButton" to="." method="_on_take_button_pressed"]
+[connection signal="pressed" from="LoanPanel/Close" to="." method="_on_close_pressed"]
 [connection signal="timeout" from="hour_timer" to="." method="_on_hour_timer_timeout"]
+[connection signal="timeout" from="day_timer" to="." method="_on_day_timer_timeout"]

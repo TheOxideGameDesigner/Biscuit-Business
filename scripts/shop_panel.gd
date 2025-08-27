@@ -16,6 +16,7 @@ func update_visual():
 	$LevelLabel.text = "Level " + str(int(shop.level))
 	$UpgradeButton.value = json["shop_upgrade_cost"][shop.level - 1]
 	$UpgradeButton.enabled = shop.level < 3
+	$MarketingLabel.text = "Marketing Level: " + str(int(json["shop_marketing"][shop.level - 1]))
 	
 
 func set_shop(s : Node):
@@ -32,6 +33,8 @@ func _process(delta):
 		storage_label.text = "Storage:   " + str(int(shop.cookies)) + '/' + str(int(json["shop_storage"][shop.level - 1]))
 		$NoConnectionLabel.visible = shop.connections.is_empty()
 		$PriceSpinBox.get_line_edit().release_focus()
+		$ClientsLabel.text = "Purchases yesterday: " + (str(int(shop.shop_clients_yesterday)) if shop.shop_clients_yesterday >= 0 else '-')
+		$EarningsLabel.text = "Earnings yesterday: " + (str(int(shop.shop_earnings_yesterday)) if shop.shop_earnings_yesterday >= 0 else '-')
 
 func _on_mouse_entered():
 	mouse_hovering = true

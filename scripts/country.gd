@@ -4,6 +4,8 @@ var factories = []
 var shops = []
 var port
 
+var optimal_price : float = 4.0
+
 func _ready():
 	port = get_tree().get_first_node_in_group("default_port")
 	for i in get_children():

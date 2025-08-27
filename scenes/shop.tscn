@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvoa"]
 size = Vector2(6.66667, 6.66667)
 
-[node name="Shop" type="Node2D" groups=["get_hour_update", "selectable", "shop"]]
+[node name="Shop" type="Node2D" groups=["get_day_update", "get_hour_update", "request_json", "selectable", "shop"]]
 texture_filter = 1
 script = ExtResource("1_1l46r")
 
