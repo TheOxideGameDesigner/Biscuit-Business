@@ -22,7 +22,7 @@ func update_visual():
 	
 
 func _ready():
-	$CountryLabel.text = country.name
+	$CountryLabel.text = country.name.erase(0, 4) if country.name.begins_with("the") else country.name
 	total_factories = country.factories.size()
 	total_shops = country.shops.size()
 	$BuyLandButton.factories = total_factories

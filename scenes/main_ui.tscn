@@ -445,6 +445,7 @@ custom_minimum_size = Vector2(943.685, 0)
 layout_mode = 2
 
 [node name="Stock Market" type="Panel" parent="." groups=["get_hour_update", "request_json"]]
+visible = false
 self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
@@ -480,7 +481,7 @@ scale = Vector2(3, 3)
 handle_input_locally = false
 gui_disable_input = true
 size = Vector2i(294, 178)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="StockMarket" type="Sprite2D" parent="Stock Market/GraphViewportContainer/graph_viewport"]
 texture_filter = 1
@@ -606,13 +607,58 @@ offset_bottom = 24.0
 text = "+$500"
 
 [node name="News" type="Panel" parent="."]
-visible = false
 self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
 offset_top = 53.0
 offset_right = 982.0
 offset_bottom = 906.0
+
+[node name="ColorRect" type="ColorRect" parent="News"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 1010.0
+offset_bottom = 862.0
+
+[node name="Panel2" type="Control" parent="News"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="News/Panel2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 504.0
+offset_bottom = 410.0
+color = Color(1, 0, 0, 1)
+
+[node name="Title" type="Label" parent="News/Panel2"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 16.0
+offset_right = 480.0
+offset_bottom = 70.0
+text = "Heatwave grips southern Europe anime moment"
+autowrap_mode = 3
+
+[node name="ColorRect3" type="ColorRect" parent="News/Panel2"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 82.0
+offset_right = 169.0
+offset_bottom = 226.0
+color = Color(0, 0, 1, 1)
+
+[node name="Label" type="Label" parent="News/Panel2"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 84.0
+offset_right = 476.0
+offset_bottom = 405.0
+text = "Persistent rainfall has led to severe flooding across parts of northern Italy. Emergency services are assisting residents as rivers overflow and transport routes face disruptions."
+autowrap_mode = 3
 
 [node name="LoanPanel" type="Panel" parent="."]
 visible = false

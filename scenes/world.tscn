@@ -364,30 +364,30 @@ position = Vector2(-8, 6)
 [node name="Shop" parent="Countries/Portugal" instance=ExtResource("4_k0juu")]
 position = Vector2(0, 35)
 
-[node name="The United Kingdom" type="Node2D" parent="Countries" groups=["country"]]
+[node name="the UK" type="Node2D" parent="Countries" groups=["country"]]
 y_sort_enabled = true
 position = Vector2(-205, -44)
 script = ExtResource("4_qfnet")
 
-[node name="Shop" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
+[node name="Shop" parent="Countries/the UK" instance=ExtResource("4_k0juu")]
 position = Vector2(-33, 24)
 
-[node name="Shop3" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
+[node name="Shop3" parent="Countries/the UK" instance=ExtResource("4_k0juu")]
 position = Vector2(-10, 1)
 
-[node name="Factory2" parent="Countries/The United Kingdom" instance=ExtResource("3_4wyf3")]
+[node name="Factory2" parent="Countries/the UK" instance=ExtResource("3_4wyf3")]
 position = Vector2(-3, -82)
 
-[node name="Factory" parent="Countries/The United Kingdom" instance=ExtResource("3_4wyf3")]
+[node name="Factory" parent="Countries/the UK" instance=ExtResource("3_4wyf3")]
 position = Vector2(14, 34)
 
-[node name="Shop2" parent="Countries/The United Kingdom" instance=ExtResource("4_k0juu")]
+[node name="Shop2" parent="Countries/the UK" instance=ExtResource("4_k0juu")]
 position = Vector2(6, -34)
 
-[node name="UKPort" type="Node2D" parent="Countries/The United Kingdom" groups=["port"]]
+[node name="UKPort" type="Node2D" parent="Countries/the UK" groups=["port"]]
 position = Vector2(-52, 62)
 
-[node name="land" type="Node2D" parent="Countries/The United Kingdom/UKPort"]
+[node name="land" type="Node2D" parent="Countries/the UK/UKPort"]
 position = Vector2(0, -8)
 
 [node name="Ireland" type="Node2D" parent="Countries" groups=["country"]]
@@ -415,12 +415,12 @@ script = ExtResource("4_qfnet")
 [node name="Shop" parent="Countries/Belgium" instance=ExtResource("4_k0juu")]
 position = Vector2(-2, 4)
 
-[node name="The Netherlands" type="Node2D" parent="Countries" groups=["country"]]
+[node name="the Netherlands" type="Node2D" parent="Countries" groups=["country"]]
 y_sort_enabled = true
 position = Vector2(-114, 1)
 script = ExtResource("4_qfnet")
 
-[node name="Shop" parent="Countries/The Netherlands" instance=ExtResource("4_k0juu")]
+[node name="Shop" parent="Countries/the Netherlands" instance=ExtResource("4_k0juu")]
 position = Vector2(-6, 4)
 
 [node name="Germany" type="Node2D" parent="Countries" groups=["country"]]

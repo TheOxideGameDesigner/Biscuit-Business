@@ -1,0 +1,77 @@
+{
+	"filler_news" : [ 
+		{
+			"headline" : "Severe heatwave grips southern Europe",
+			"content" : "Southern Europe is enduring an intense heatwave, with temperatures soaring well above seasonal averages. Authorities have issued health warnings, urging residents avoid prolonged exposure to the sun.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Heavy rain causes flooding in Italy",
+			"content" : "Persistent rainfall has led to severe flooding across parts of northern Italy. Emergency services are assisting residents as rivers overflow and transport routes face disruptions.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Flood alerts in low countries",
+			"content" : "Rising river levels triggered flood warnings in parts of the Netherlands and Belgium after days of steady rainfall.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Dense fog delays flights in UK and Ireland",
+			"content" : "Thick fog settled over airports in London, Dublin, and Manchester, leading to widespread flight delays. Motorists were urged to drive with caution.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Thunderstorms sweep across Iberian Peninsula",
+			"content" : "Spain and Portugal saw intense thunderstorms, with lightning strikes and localized flooding reported. Meteorologists expect unsettled weather to continue through the week.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Virgo faces shifts in daily routine",
+			"content" : "Astrologers suggest Virgos may experience unexpected changes this week as Mercury moves into retrograde, whatever that means.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Astronomers discover strange exoplanet",
+			"content" : "Chemical composition analysis reveals that a recently discovered distant planet is made of amylose and sucrose.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Study links high carb diet to shorter lifespan",
+			"content" : "Researchers found that people who eat high carb foods, such as chips, biscuits and white bread, tend to live shorter lives.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Mental Health Concerns Rise Among Teenagers",
+			"content" : "Recent surveys indicate increasing rates of depression among teens. Some are turning to crunchy snacks as a way to cope with their mood.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Satellite Reveals Rapid Ice Melt in Greenland",
+			"contect" : "New satellite data shows accelerated ice sheet melting in Greenland, contributing to rising sea levels. Scientists warn of potential impacts on coastal communities.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Artificial Coral Reefs Promote Marine Biodiversity",
+			"content" : "Scientists are deploying artificial coral structures to restore damaged reefs. Early results indicate increased fish populations and improved ecosystem health.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Scientists Develop Renewable Bio-Energy",
+			"content" : "Researchers have invented a high-efficiency, sustainable method of obtaining energy by fermenting and burning flour and sugar.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Value of Cryptocurrency Skyrockets",
+			"content" : "BiscCoin and other major cryptocurrencies have surged in value, reaching record highs this week. Analysts cite growing investor confidence as key drivers behind the rapid gains.",
+			"image" : "placeholder.png"
+		},
+		{
+			"headline" : "Spain Approves Renewable Energy Investment Plan",
+			"content" : "Spain’s government outlined a multi-year plan to invest in solar and wind energy projects. Experts expect the initiative to reduce the country’s carbon footprint by 30%.",
+			"image" : "placeholder.png"
+		}
+	],
+	
+	"stock_news" : [],
+	"biscuit_news" : []
+}

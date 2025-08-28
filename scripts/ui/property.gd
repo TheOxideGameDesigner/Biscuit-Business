@@ -11,7 +11,9 @@ var unpurchased_country_panels = []
 var panels = []
 
 func compare_panels(a : Node, b : Node):
-	return a.country.name.naturalnocasecmp_to(b.country.name) < 0
+	var na = a.country.name.erase(0, 4) if a.country.name.begins_with("the") else a.country.name
+	var nb = b.country.name.erase(0, 4) if b.country.name.begins_with("the") else b.country.name
+	return na.naturalnocasecmp_to(nb) < 0
 
 func update_ui():
 	unpurchased_country_panels.sort_custom(compare_panels)
@@ -35,7 +37,7 @@ func on_purchased(panel):
 func _ready():
 	var uk = null
 	for i in countries:
-		if i.name == "The United Kingdom":
+		if i.name == "the UK":
 			uk = i
 			break
 	if uk == null:
@@ -50,7 +52,6 @@ func _ready():
 	uk_land_panel.purchased = true
 	uk_land_panel.country = uk
 	purchased_country_panels.push_back(uk_land_panel)
-	
 	unpurchased_country_panels.sort_custom(compare_panels)
 	for node in purchased_country_panels:
 		purchased_land.add_child(node)
