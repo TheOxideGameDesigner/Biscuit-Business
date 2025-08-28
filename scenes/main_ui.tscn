@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://m2rnoyfp6ulv"]
+[gd_scene load_steps=27 format=3 uid="uid://m2rnoyfp6ulv"]
 
 [ext_resource type="Theme" uid="uid://ckglgrr504an2" path="res://resources/theme.tres" id="1_jnl7h"]
 [ext_resource type="Script" uid="uid://dtph46pqc5cgf" path="res://scripts/ui/root_control.gd" id="2_hst8y"]
@@ -19,8 +19,13 @@
 [ext_resource type="Script" uid="uid://bkyjj635s6d6t" path="res://scripts/ui/basic_buy_button.gd" id="14_ulqfl"]
 [ext_resource type="Texture2D" uid="uid://bqnjie5smya7t" path="res://images/shop.png" id="17_j03cv"]
 [ext_resource type="Texture2D" uid="uid://c7rubucwunlof" path="res://images/ui/big_biscuit_symbol.png" id="18_rbpqj"]
+[ext_resource type="Script" uid="uid://bug76xr178xwd" path="res://scripts/ui/stock_market.gd" id="20_26nsp"]
+[ext_resource type="Texture2D" uid="uid://bqvigoimf83c7" path="res://images/ui/logo_bergstrom_mining.png" id="20_32s7f"]
 [ext_resource type="Texture2D" uid="uid://07me8ov3it75" path="res://images/ui/x_button.png" id="20_eigca"]
-[ext_resource type="PackedScene" uid="uid://jcg1gu8wxltb" path="res://scenes/stock_market.tscn" id="20_tshsl"]
+[ext_resource type="Texture2D" uid="uid://dc2fssdkscose" path="res://images/ui/logo_hellvik_construction.png" id="21_26nsp"]
+[ext_resource type="Texture2D" uid="uid://2i3fvryws1mb" path="res://images/ui/logo_lumina_computers.png" id="22_rrr7h"]
+[ext_resource type="Texture2D" uid="uid://csh8f4cak7572" path="res://images/graph_background.png" id="23_058p6"]
+[ext_resource type="Texture2D" uid="uid://bralilgetm27y" path="res://images/graph_axes.png" id="24_vmb1c"]
 
 [node name="UI" type="Control" groups=["main_ui"]]
 texture_filter = 1
@@ -331,7 +336,7 @@ position = Vector2(123, 10)
 scale = Vector2(3, 3)
 texture = ExtResource("12_jnl7h")
 
-[node name="PriceSpinBox" type="SpinBox" parent="Map/ShopPanel"]
+[node name="PriceSpinBox" type="SpinBox" parent="Map/ShopPanel" groups=["spinbox"]]
 layout_mode = 0
 offset_left = 122.0
 offset_top = 289.0
@@ -439,34 +444,166 @@ layout_mode = 2
 custom_minimum_size = Vector2(943.685, 0)
 layout_mode = 2
 
-[node name="Stock Market" type="Panel" parent="."]
+[node name="Stock Market" type="Panel" parent="." groups=["get_hour_update", "request_json"]]
 self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
 offset_top = 53.0
 offset_right = 982.0
 offset_bottom = 906.0
+script = ExtResource("20_26nsp")
+
+[node name="CompanyTabs" type="TabBar" parent="Stock Market"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 19.0
+offset_right = 331.0
+offset_bottom = 79.0
+current_tab = 0
+tab_count = 3
+tab_0/tooltip = "Bergstrom Mining"
+tab_0/icon = ExtResource("20_32s7f")
+tab_1/tooltip = "Hellvik Construction"
+tab_1/icon = ExtResource("21_26nsp")
+tab_2/tooltip = "Lumina Computers"
+tab_2/icon = ExtResource("22_rrr7h")
 
 [node name="GraphViewportContainer" type="SubViewportContainer" parent="Stock Market"]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 80.0
-offset_right = 275.0
-offset_bottom = 320.0
+offset_left = 56.0
+offset_top = 79.0
+offset_right = 350.0
+offset_bottom = 257.0
 scale = Vector2(3, 3)
 
 [node name="graph_viewport" type="SubViewport" parent="Stock Market/GraphViewportContainer"]
 handle_input_locally = false
 gui_disable_input = true
-size = Vector2i(300, 240)
+size = Vector2i(294, 178)
 render_target_update_mode = 4
 
-[node name="StockMarket" parent="Stock Market/GraphViewportContainer/graph_viewport" instance=ExtResource("20_tshsl")]
+[node name="StockMarket" type="Sprite2D" parent="Stock Market/GraphViewportContainer/graph_viewport"]
+texture_filter = 1
+texture = ExtResource("23_058p6")
+centered = false
 
-[node name="Line2D" type="Line2D" parent="Stock Market/GraphViewportContainer/graph_viewport/StockMarket"]
-points = PackedVector2Array(23, 21, 64, 105, 118, 58, 174, 144, 269, 63)
+[node name="GraphAxes" type="Sprite2D" parent="Stock Market/GraphViewportContainer/graph_viewport/StockMarket"]
+z_index = 5
+texture = ExtResource("24_vmb1c")
+centered = false
+
+[node name="GraphLine" type="Line2D" parent="Stock Market/GraphViewportContainer/graph_viewport"]
 width = 3.0
-default_color = Color(1, 0, 1, 1)
+default_color = Color(1.15514e-06, 0.670494, 0.943109, 1)
+
+[node name="CompanyNameLabel" type="Label" parent="Stock Market"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 624.0
+offset_right = 681.0
+offset_bottom = 648.0
+text = "Bergstrom mining"
+horizontal_alignment = 1
+
+[node name="SharePriceLabel" type="Label" parent="Stock Market"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 676.0
+offset_right = 275.0
+offset_bottom = 700.0
+text = "Share price: $100"
+
+[node name="SharesOwnedLabel" type="Label" parent="Stock Market"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 741.0
+offset_right = 335.0
+offset_bottom = 765.0
+text = "Shares owned: 100000"
+
+[node name="BuyAmount" type="SpinBox" parent="Stock Market" groups=["spinbox"]]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 669.0
+offset_right = 557.0
+offset_bottom = 705.0
+min_value = 100.0
+max_value = 10000.0
+step = 100.0
+value = 100.0
+rounded = true
+
+[node name="BuyButton" type="Button" parent="Stock Market/BuyAmount" groups=["buy_button"]]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 37.0
+text = "Buy"
+script = ExtResource("13_rx44x")
+
+[node name="Label" type="Label" parent="Stock Market/BuyAmount/BuyButton"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 6.0
+offset_right = 191.0
+offset_bottom = 30.0
+text = "$1000000"
+
+[node name="LimitLabel" type="Label" parent="Stock Market/BuyAmount"]
+modulate = Color(0.54, 0.54, 0.54, 1)
+layout_mode = 0
+offset_left = 383.0
+offset_top = 7.0
+offset_right = 548.0
+offset_bottom = 31.0
+text = "Limit reached"
+
+[node name="SellAmount" type="SpinBox" parent="Stock Market" groups=["spinbox"]]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 734.0
+offset_right = 558.0
+offset_bottom = 770.0
+min_value = 100.0
+max_value = 10000.0
+step = 100.0
+value = 100.0
+rounded = true
+
+[node name="SellButton" type="Button" parent="Stock Market/SellAmount" groups=["buy_button"]]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 1.0
+offset_right = 225.0
+offset_bottom = 37.0
+text = "Sell"
+script = ExtResource("13_rx44x")
+
+[node name="Label" type="Label" parent="Stock Market/SellAmount/SellButton"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 6.0
+offset_right = 191.0
+offset_bottom = 30.0
+text = "$1000000"
+
+[node name="ProfitLabel" type="Label" parent="Stock Market/SellAmount/SellButton"]
+layout_mode = 0
+offset_left = -168.0
+offset_top = 52.0
+offset_right = 111.0
+offset_bottom = 76.0
+text = "Profit per 100 stocks:"
+horizontal_alignment = 2
+
+[node name="ProfitValueLabel" type="Label" parent="Stock Market/SellAmount/SellButton/ProfitLabel"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 288.0
+offset_right = 360.0
+offset_bottom = 24.0
+text = "+$500"
 
 [node name="News" type="Panel" parent="."]
 visible = false
@@ -493,7 +630,7 @@ offset_right = 278.0
 offset_bottom = 36.0
 text = "Take loan"
 
-[node name="Amount" type="SpinBox" parent="LoanPanel"]
+[node name="Amount" type="SpinBox" parent="LoanPanel" groups=["spinbox"]]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 198.0
@@ -593,6 +730,11 @@ icon = ExtResource("20_eigca")
 [connection signal="mouse_exited" from="Map/ShopPanel/UpgradeButton" to="Map/ShopPanel" method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="Map/ShopPanel/UpgradeButton" to="Map/ShopPanel" method="_on_upgrade_button_pressed"]
 [connection signal="value_changed" from="Map/ShopPanel/PriceSpinBox" to="Map/ShopPanel" method="_on_price_spin_box_value_changed"]
+[connection signal="tab_changed" from="Stock Market/CompanyTabs" to="Stock Market" method="_on_company_tabs_tab_changed"]
+[connection signal="value_changed" from="Stock Market/BuyAmount" to="Stock Market" method="_on_buy_amount_value_changed"]
+[connection signal="pressed" from="Stock Market/BuyAmount/BuyButton" to="Stock Market" method="_on_buy_button_pressed"]
+[connection signal="value_changed" from="Stock Market/SellAmount" to="Stock Market" method="_on_sell_amount_value_changed"]
+[connection signal="pressed" from="Stock Market/SellAmount/SellButton" to="Stock Market" method="_on_sell_button_pressed"]
 [connection signal="mouse_entered" from="LoanPanel/TakeButton" to="." method="_on_take_button_mouse_entered"]
 [connection signal="mouse_exited" from="LoanPanel/TakeButton" to="." method="_on_take_button_mouse_exited"]
 [connection signal="pressed" from="LoanPanel/TakeButton" to="." method="_on_take_button_pressed"]

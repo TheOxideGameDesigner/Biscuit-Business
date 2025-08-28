@@ -31,6 +31,7 @@ get_hour_update=""
 main_ui=""
 get_day_update=""
 constant_size_label=""
+spinbox=""
 
 [gui]
 

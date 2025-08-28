@@ -1,10 +1,10 @@
 {
 	"hour_duration" : 5,
 	
-	"initial_money" : 100000,
+	"initial_money" : 20000000,
 	"land_factory_price" : 70000,
 	"land_shop_price" : 50000,
-	"factory_price" : 200000,
+	"factory_price" : 300000,
 	"shop_price" : 100000,
 	
 	"factory_cost_per_biscuit" : 0.2,
@@ -22,5 +22,7 @@
 	
 	"max_loan" : 1000000,
 	"loan_pay_per_day" : 0.05,
-	"loan_bank_profit" : 0.1
+	"loan_bank_profit" : 0.1,
+	
+	"max_shares" : 10000
 }

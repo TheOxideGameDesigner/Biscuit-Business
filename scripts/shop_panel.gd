@@ -24,15 +24,10 @@ func set_shop(s : Node):
 	$PriceSpinBox.set_value_no_signal(shop.shop_biscuit_price)
 	update_visual()
 
-func _ready():
-	$PriceSpinBox.get_line_edit().mouse_default_cursor_shape = Control.CURSOR_ARROW
-	
-
 func _process(delta):
 	if shop != null:
 		storage_label.text = "Storage:   " + str(int(shop.cookies)) + '/' + str(int(json["shop_storage"][shop.level - 1]))
 		$NoConnectionLabel.visible = shop.connections.is_empty()
-		$PriceSpinBox.get_line_edit().release_focus()
 		$ClientsLabel.text = "Purchases yesterday: " + (str(int(shop.shop_clients_yesterday)) if shop.shop_clients_yesterday >= 0 else '-')
 		$EarningsLabel.text = "Earnings yesterday: " + (str(int(shop.shop_earnings_yesterday)) if shop.shop_earnings_yesterday >= 0 else '-')
 

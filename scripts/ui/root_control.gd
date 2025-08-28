@@ -18,6 +18,7 @@ var json : Dictionary
 @onready var shops = get_tree().get_nodes_in_group("shop")
 @onready var hour_updaters = get_tree().get_nodes_in_group("get_hour_update")
 @onready var day_updaters = get_tree().get_nodes_in_group("get_day_update")
+@onready var spinboxes = get_tree().get_nodes_in_group("spinbox")
 var shopsandfactories
 var selected_unit = null
 var selected_factory : bool
@@ -40,6 +41,8 @@ func _ready():
 		n.pressed.connect(pay.bind(n))
 	for n in get_tree().get_nodes_in_group("request_json"):
 		n.json = json
+	for n : SpinBox in spinboxes:
+		n.get_line_edit().mouse_default_cursor_shape = Control.CURSOR_ARROW
 	$hour_timer.wait_time = json["hour_duration"]
 	$hour_timer.start()
 	$day_timer.wait_time = json["hour_duration"] * 24
@@ -48,7 +51,6 @@ func _ready():
 	shopsandfactories.append_array(shops)
 	
 	loan_amount.max_value = json["max_loan"]
-	loan_amount.get_line_edit().mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 
 func pay(b : Button):
 	money -= b.value
@@ -61,10 +63,11 @@ func _process(delta):
 		money_label.text = "-$" + str(-money)
 		money_label.modulate = Color(0.7, 0, 0)
 	for n in buy_buttons:
-		n.disabled = n.value > money or not n.enabled
-		n.get_child(0).text = '$' + str(int(n.value))
-	if loan_amount.get_line_edit().has_focus():
-		loan_amount.get_line_edit().release_focus()
+		n.disabled = (n.value > money and n.value > 0) or not n.enabled
+		n.get_child(0).text = '$' + str(int(abs(n.value)))
+	for n : SpinBox in spinboxes:
+		if n.get_line_edit().has_focus():
+			n.get_line_edit().release_focus()
 	
 	var debt : int = 0
 	for i in loans_unpaid:
