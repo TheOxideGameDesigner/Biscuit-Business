@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://m2rnoyfp6ulv"]
+[gd_scene load_steps=30 format=3 uid="uid://m2rnoyfp6ulv"]
 
 [ext_resource type="Theme" uid="uid://ckglgrr504an2" path="res://resources/theme.tres" id="1_jnl7h"]
 [ext_resource type="Script" uid="uid://dtph46pqc5cgf" path="res://scripts/ui/root_control.gd" id="2_hst8y"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bralilgetm27y" path="res://images/graph_axes.png" id="24_vmb1c"]
 [ext_resource type="Script" uid="uid://dtwwejr0qpue0" path="res://scripts/ui/news.gd" id="26_058p6"]
 [ext_resource type="PackedScene" uid="uid://6ylf4puxpkpm" path="res://scenes/ui/news_background.tscn" id="26_rrr7h"]
+[ext_resource type="Script" uid="uid://birwkgb6jx617" path="res://scripts/pause_handler.gd" id="29_vmb1c"]
 
 [node name="UI" type="Control" groups=["main_ui"]]
 texture_filter = 1
@@ -749,6 +750,80 @@ text = "News
 update!"
 horizontal_alignment = 1
 
+[node name="PauseHandler" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("29_vmb1c")
+
+[node name="PausePanel" type="Panel" parent="PauseHandler"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.663)
+z_index = 5
+texture_filter = 1
+offset_left = -370.0
+offset_top = -135.0
+offset_right = 1384.0
+offset_bottom = 911.0
+
+[node name="Continue" type="Button" parent="PauseHandler/PausePanel"]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 543.0
+offset_right = 946.0
+offset_bottom = 606.0
+text = "Continue"
+
+[node name="Back" type="Button" parent="PauseHandler/PausePanel"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 634.0
+offset_right = 992.0
+offset_bottom = 697.0
+text = "Back to menu"
+
+[node name="Label" type="Label" parent="PauseHandler/PausePanel"]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 432.0
+offset_right = 860.0
+offset_bottom = 456.0
+scale = Vector2(2, 2)
+text = "Paused"
+
+[node name="Panel" type="Panel" parent="PauseHandler/PausePanel"]
+visible = false
+layout_mode = 0
+offset_left = 635.0
+offset_top = 517.0
+offset_right = 1079.0
+offset_bottom = 702.0
+
+[node name="Label" type="Label" parent="PauseHandler/PausePanel/Panel"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 10.0
+offset_right = 384.0
+offset_bottom = 61.0
+text = "Progress won't be saved.
+Are you sure?"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PauseHandler/PausePanel/Panel"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 125.0
+offset_right = 170.0
+offset_bottom = 161.0
+text = "Yes"
+
+[node name="Button2" type="Button" parent="PauseHandler/PausePanel/Panel"]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 126.0
+offset_right = 325.0
+offset_bottom = 162.0
+text = "No
+"
+
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="TabBarPanel/Loan" to="." method="_on_loan_pressed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
@@ -779,3 +854,7 @@ horizontal_alignment = 1
 [connection signal="timeout" from="hour_timer" to="." method="_on_hour_timer_timeout"]
 [connection signal="timeout" from="day_timer" to="." method="_on_day_timer_timeout"]
 [connection signal="timeout" from="two_day_timer" to="." method="_on_two_day_timer_timeout"]
+[connection signal="pressed" from="PauseHandler/PausePanel/Continue" to="PauseHandler" method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseHandler/PausePanel/Back" to="PauseHandler" method="_on_back_pressed"]
+[connection signal="pressed" from="PauseHandler/PausePanel/Panel/Button" to="PauseHandler" method="_on_button_pressed"]
+[connection signal="pressed" from="PauseHandler/PausePanel/Panel/Button2" to="PauseHandler" method="_on_button_2_pressed"]

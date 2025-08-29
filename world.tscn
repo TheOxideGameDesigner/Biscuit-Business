@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwe0hr8to15eg"]
+
+[ext_resource type="Texture2D" uid="uid://ch3wfuan81rx4" path="res://icon.svg" id="1_f3sb7"]
+
+[node name="World" type="Node2D"]
+
+[node name="PauseHandler" type="Node" parent="."]
+process_mode = 3
+
+[node name="PausePanel" type="Panel" parent="PauseHandler"]
+visible = false
+offset_right = 1924.0
+offset_bottom = 1084.0
+
+[node name="Continue" type="Button" parent="PauseHandler/PausePanel"]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 498.0
+offset_right = 1064.0
+offset_bottom = 561.0
+text = "Continue"
+
+[node name="Back" type="Button" parent="PauseHandler/PausePanel"]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 584.0
+offset_right = 1108.0
+offset_bottom = 647.0
+text = "Back to menu"
+
+[node name="Label" type="Label" parent="PauseHandler/PausePanel"]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 285.0
+offset_right = 1035.0
+offset_bottom = 340.0
+text = "Paused"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(963.5, 535)
+scale = Vector2(14.9453, 8.39063)
+texture = ExtResource("1_f3sb7")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="PauseHandler/PausePanel/Continue" to="PauseHandler" method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseHandler/PausePanel/Back" to="PauseHandler" method="_on_back_pressed"]
