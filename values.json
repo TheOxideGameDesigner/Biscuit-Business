@@ -12,12 +12,12 @@
 	"factory_cost_per_biscuit" : 0.1,
 	"factory_storage" : [100000, 150000, 200000],
 	"factory_speed" : [5000, 7500, 10000],
-	"factory_upgrade_cost" : [150000, 250000, 9999999999999],
+	"factory_upgrade_cost" : [40000, 70000, 9999999999999],
 	"factory_truck_cost" : 50000,
 	
 	"shop_storage" : [50000, 75000, 100000],
 	"shop_marketing" : [1, 2, 3],
-	"shop_upgrade_cost" : [50000, 80000, 999999999],
+	"shop_upgrade_cost" : [15000, 25000, 999999999],
 	"shop_demand_constant" : 1800,
 	
 	"truck_capacity" : 5000,

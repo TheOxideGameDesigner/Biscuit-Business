@@ -5,8 +5,8 @@ const SHIP = preload("res://images/ship.png")
 const TRUCK = preload("res://images/truck.png")
 const GREEN_MONEY = preload("res://scenes/green_money.tscn")
 
-const TSPEED_GLOBAL = 18
-const TSPEED_LOCAL = 13
+const TSPEED_GLOBAL = 23
+const TSPEED_LOCAL = 18
 
 var country
 var port
