@@ -4,8 +4,8 @@
 	"win_money" : 10000000,
 	"initial_money" : 150000,
 	
-	"land_factory_price" : 40000,
-	"land_shop_price" : 20000,
+	"land_factory_price" : 30000,
+	"land_shop_price" : 15000,
 	"factory_price" : 100000,
 	"shop_price" : 60000,
 	
