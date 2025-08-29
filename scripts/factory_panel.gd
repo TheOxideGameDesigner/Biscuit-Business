@@ -74,3 +74,8 @@ func _on_upgrade_button_mouse_exited():
 func _on_connections_button_pressed():
 	$ConnectionsButton.text = "Select shop..."
 	$ConnectionsButton.disabled = true
+
+
+func _on_remove_connections_button_pressed():
+	$RemoveConnectionsButton.text = "Select shop..."
+	$RemoveConnectionsButton.disabled = true

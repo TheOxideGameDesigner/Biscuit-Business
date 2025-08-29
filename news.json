@@ -97,7 +97,7 @@
 			"event_type" : 1
 		},
 		{
-			"headline" : "Italy experiences growth in residential construction",
+			"headline" : "Europe experiences growth in residential construction",
 			"content" : "Housing developments in several Italian regions are on the rise, as builders respond to increasing demand.",
 			"image" : "placeholder.png",
 			"company" : 1,
@@ -105,7 +105,7 @@
 		},
 		{
 			"headline" : "Urban population on the rise across Europe",
-			"content" : "More people are relocating to European cities. Analysts note that growing urban populations are expected to support expansion in housing and infrastructure development.",
+			"content" : "More people are relocating to European cities. Growing urban populations are expected to support expansion in housing and infrastructure development.",
 			"image" : "placeholder.png",
 			"company" : 1,
 			"event_type" : 0
@@ -166,7 +166,7 @@
 		},
 		{
 			"headline" : "People in {country} are becoming more thrifty",
-			"content" : "Consumers in {country} are tightening their spending, purchasing less of certain items such as luxury goods, snacks, and non-essential household products.",
+			"content" : "Consumers in {country} are tightening their spending, purchasing less of certain items such as luxury goods and sweet snacks.",
 			"image" : "placeholder.png",
 			"optimal_price_min" : 3.0,
 			"optimal_price_max" : 4.0

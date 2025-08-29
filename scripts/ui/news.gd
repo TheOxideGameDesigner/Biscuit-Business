@@ -9,12 +9,11 @@ var biscuit_good_news : Array
 var biscuit_bad_news : Array
 var filler_idx = 0
 var stock_idx = 0
-var event_country = null
 
 var news_json : Dictionary
 
 const MIN_COUNTRIES_BAD_NEWS = 3
-const GOOD_NEWS_CHANCE = 0.7
+const GOOD_NEWS_CHANCE = 0.8
 
 func update_panel_visual(i, news : Dictionary):
 	panels[i].get_node("Headline").text = news["headline"]
@@ -46,14 +45,21 @@ func update_news():
 	var owned_countries = main_ui.bought_countries
 	var good_news : bool = owned_countries.size() < MIN_COUNTRIES_BAD_NEWS or randf() < GOOD_NEWS_CHANCE
 	var bn = news_json["biscuit_good_news"].pick_random() if good_news else news_json["biscuit_bad_news"].pick_random()
-	var bcountry = countries.pick_random() if good_news else owned_countries.pick_random()
+	var bcountry
+	if owned_countries.size() < MIN_COUNTRIES_BAD_NEWS:
+		bcountry = countries.pick_random()
+	else:
+		if good_news:
+			if randf() < 0.5:
+				bcountry = owned_countries.pick_random()
+			else:
+				bcountry = countries.pick_random()
+		else:
+			bcountry = owned_countries.pick_random()
 	bn["headline"] = bn["headline"].replace("{country}", bcountry.name)
 	bn["headline"] = bn["headline"][0].to_upper() + bn["headline"].substr(1,-1)
 	bn["content"] = bn["content"].replace("{country}", bcountry.name)
-	if event_country != null:
-		event_country.event_price = -1
-	bcountry.event_price = randf_range(bn["optimal_price_min"], bn["optimal_price_max"])
-	event_country = bcountry
+	bcountry.optimal_price = randf_range(bn["optimal_price_min"], bn["optimal_price_max"])
 	
 	update_panel_visual(order[3], bn)
 

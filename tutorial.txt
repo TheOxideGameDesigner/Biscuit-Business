@@ -1,5 +1,5 @@
 -Welcome! Use the scroll wheel to zoom and drag the mouse to move around
--Your goal is to reach $10000000
+-Your goal is to reach $5000000
 
 -Click on the property panel (al doilea panou) to buy a factory and a shop
 *Vrei sa cumperi o fabrica si un magazin dar iti dai seama ca nu ai suficienti bani*
@@ -16,8 +16,7 @@
 
 -Click on the "Add connections" button to connect it to a shop.
 -Factories automatically deliver cookies to shops they are connected to.
--You can have up to 3 connections. (If you already have 3 connections, 
-adding a new one removes an existing connection)
+-You can have up to 3 connections.
 
 -You can upgrade the factory to increase its speed and storage
 -You can also buy more trucks increase biscuit delivery speed

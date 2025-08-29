@@ -75,7 +75,7 @@ func hour_update():
 	if not is_factory:
 		var M = country.optimal_price
 		var A = (log(json["shop_marketing"][level - 1]) + 1) * json["shop_demand_constant"]
-		var clients = min((log(M + 1)/M) * A * exp(-shop_biscuit_price / M), int(cookies / 10))
+		var clients = min(A * exp(-shop_biscuit_price / M), int(cookies / 10))
 		var earnings = clients * shop_biscuit_price
 		if earnings > 0:
 			var g = GREEN_MONEY.instantiate()
@@ -142,6 +142,19 @@ func add_connection(shop):
 		connection_line_list.pop_front()
 		connections.pop_front()
 		factory_paths.pop_front()
+
+func remove_connection(shop):
+	if not connections.has(shop):
+		return
+	var idx = connections.find(shop)
+	connections.remove_at(idx)
+	factory_paths.remove_at(idx)
+	connection_line_list[idx].queue_free()
+	connection_line_list.remove_at(idx)
+	var shop_idx = shop.connections.find(self)
+	shop.connections.remove_at(shop_idx)
+	shop.connection_line_list[shop_idx].queue_free()
+	shop.connection_line_list.remove_at(shop_idx)
 
 func purchase():
 	$Area2D/CollisionShape2D.disabled = false

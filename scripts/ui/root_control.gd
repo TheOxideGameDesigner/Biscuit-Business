@@ -27,6 +27,7 @@ var selected_unit = null
 var selected_factory : bool
 var last_mouse_pressed_pos : Vector2
 var selecting_shop_connection : bool = false
+var selecting_remove_connection : bool = false
 
 var loans = []
 var loans_unpaid = []
@@ -50,7 +51,7 @@ func _ready():
 	$hour_timer.start()
 	$day_timer.wait_time = json["hour_duration"] * 24
 	$day_timer.start()
-	$two_day_timer.wait_time = json["hour_duration"] * 48
+	$two_day_timer.wait_time = json["hour_duration"] * 24 #not actually 2 days
 	$two_day_timer.start()
 	shopsandfactories = factories.duplicate()
 	shopsandfactories.append_array(shops)
@@ -94,12 +95,19 @@ func _process(delta):
 		process_mode = Node.PROCESS_MODE_DISABLED
 
 func select(f : Node2D, is_factory):
-	if selected_factory and selecting_shop_connection and not is_factory:
-		selected_unit.add_connection(f)
-		selecting_shop_connection = false
-		$Map/FactoryPanel/ConnectionsButton.text = "Add Connection"
-		$Map/FactoryPanel/ConnectionsButton.disabled = false
-		return
+	if selected_factory and not is_factory:
+		if selecting_shop_connection:
+			selected_unit.add_connection(f)
+			selecting_shop_connection = false
+			$Map/FactoryPanel/ConnectionsButton.text = "Add Connection"
+			$Map/FactoryPanel/ConnectionsButton.disabled = false
+			return
+		elif selecting_remove_connection:
+			selected_unit.remove_connection(f)
+			selecting_remove_connection = false
+			$Map/FactoryPanel/RemoveConnectionsButton.text = "Remove Connection"
+			$Map/FactoryPanel/RemoveConnectionsButton.disabled = false
+			return
 	if selected_unit != null:
 		selected_unit.set_selected(false)
 	selected_unit = f
@@ -114,6 +122,7 @@ func select(f : Node2D, is_factory):
 	panel.visible = true
 	if is_factory:
 		selecting_shop_connection = false
+		selecting_remove_connection = false
 		panel.set_factory(f)
 	else:
 		panel.set_shop(f)
@@ -145,6 +154,7 @@ func _input(event):
 			factory_panel.visible = false
 			shop_panel.visible = false
 			selecting_shop_connection = false
+			selecting_remove_connection = false
 
 func _on_tab_bar_tab_changed(tab):
 	for i in tabs:
@@ -157,6 +167,11 @@ func _on_tab_bar_tab_changed(tab):
 
 func _on_connections_button_pressed():
 	selecting_shop_connection = true
+	selecting_remove_connection = false
+	
+func _on_remove_connections_button_pressed():
+	selecting_shop_connection = false
+	selecting_remove_connection = true
 
 
 func _on_hour_timer_timeout():
@@ -182,8 +197,6 @@ func _on_day_timer_timeout():
 
 func _on_two_day_timer_timeout():
 	for n in two_day_updaters:
-		n.two_day_update()
-	for n in countries:
 		n.two_day_update()
 	if $TabBarPanel/TabBar.current_tab != 3:
 		$NewsUpdatePanel.visible = true
