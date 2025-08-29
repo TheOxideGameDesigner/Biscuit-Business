@@ -2,7 +2,7 @@
 	"filler_news" : [ 
 		{
 			"headline" : "Severe heatwave grips southern Europe",
-			"content" : "Southern Europe is enduring an intense heatwave, with temperatures soaring well above seasonal averages. Authorities have issued health warnings, urging residents avoid prolonged exposure to the sun.",
+			"content" : "Southern Europe is enduring an intense heatwave. Authorities have issued health warnings, urging residents avoid prolonged exposure to the sun.",
 			"image" : "placeholder.png"
 		},
 		{
@@ -26,52 +26,155 @@
 			"image" : "placeholder.png"
 		},
 		{
-			"headline" : "Virgo faces shifts in daily routine",
-			"content" : "Astrologers suggest Virgos may experience unexpected changes this week as Mercury moves into retrograde, whatever that means.",
-			"image" : "placeholder.png"
-		},
-		{
 			"headline" : "Astronomers discover strange exoplanet",
 			"content" : "Chemical composition analysis reveals that a recently discovered distant planet is made of amylose and sucrose.",
 			"image" : "placeholder.png"
 		},
 		{
 			"headline" : "Study links high carb diet to shorter lifespan",
-			"content" : "Researchers found that people who eat high carb foods, such as chips, biscuits and white bread, tend to live shorter lives.",
+			"content" : "Researchers found that people who frequently eat high carb foods, such as chips, biscuits and white bread, tend to live shorter lives.",
 			"image" : "placeholder.png"
 		},
 		{
-			"headline" : "Mental Health Concerns Rise Among Teenagers",
+			"headline" : "Mental health concerns rise among teenagers",
 			"content" : "Recent surveys indicate increasing rates of depression among teens. Some are turning to crunchy snacks as a way to cope with their mood.",
 			"image" : "placeholder.png"
 		},
 		{
-			"headline" : "Satellite Reveals Rapid Ice Melt in Greenland",
+			"headline" : "Satellite reveals rapid ice melt in Greenland",
 			"contect" : "New satellite data shows accelerated ice sheet melting in Greenland, contributing to rising sea levels. Scientists warn of potential impacts on coastal communities.",
 			"image" : "placeholder.png"
 		},
 		{
-			"headline" : "Artificial Coral Reefs Promote Marine Biodiversity",
+			"headline" : "Artificial coral reefs promote marine biodiversity",
 			"content" : "Scientists are deploying artificial coral structures to restore damaged reefs. Early results indicate increased fish populations and improved ecosystem health.",
 			"image" : "placeholder.png"
 		},
 		{
-			"headline" : "Scientists Develop Renewable Bio-Energy",
+			"headline" : "Scientists develop renewable bio-energy",
 			"content" : "Researchers have invented a high-efficiency, sustainable method of obtaining energy by fermenting and burning flour and sugar.",
 			"image" : "placeholder.png"
 		},
 		{
-			"headline" : "Value of Cryptocurrency Skyrockets",
-			"content" : "BiscCoin and other major cryptocurrencies have surged in value, reaching record highs this week. Analysts cite growing investor confidence as key drivers behind the rapid gains.",
+			"headline" : "Value of cryptocurrency skyrockets",
+			"content" : "BiscCoin and other major cryptocurrencies have surged in value, reaching record highs this week. Analysts cite growing investor confidence as key driver behind the rapid gains.",
 			"image" : "placeholder.png"
 		},
 		{
-			"headline" : "Spain Approves Renewable Energy Investment Plan",
+			"headline" : "Spain approves renewable energy investment plan",
 			"content" : "Spain’s government outlined a multi-year plan to invest in solar and wind energy projects. Experts expect the initiative to reduce the country’s carbon footprint by 30%.",
 			"image" : "placeholder.png"
 		}
 	],
 	
-	"stock_news" : [],
-	"biscuit_news" : []
+	"stock_news" : [
+		{
+			"headline" : "Energy transition fuels interest in critical minerals",
+			"content" : "With infrastructure projects and renewable energy initiatives gaining momentum, demand for certain raw materials is strengthening, supporting stable growth in extraction.",
+			"image" : "placeholder.png",
+			"company" : 0,
+			"event_type" : 0
+		},
+		{
+			"headline" : "Innovation beneath the ground",
+			"content" : "Researchers have developed a new excavation method designed to improve efficiency and reduce environmental impact. Experts say the approach could modernize mining worldwide.",
+			"image" : "placeholder.png",
+			"company" : 0,
+			"event_type" : 0
+		},
+		{
+			"headline" : "Underground discoveries spark research interest",
+			"content" : "Geologists have reported the discovery of flour-like organic compounds preserved in deep underground layers.",
+			"image" : "placeholder.png",
+			"company" : 0,
+			"event_type" : 1
+		},
+		{
+			"headline" : "Earthquake spurs rebuilding efforts",
+			"content" : "A recent earthquake in Greece has caused structural damage in affected areas. Authorities are coordinating efforts for swift reconstruction.",
+			"image" : "placeholder.png",
+			"company" : 1,
+			"event_type" : 1
+		},
+		{
+			"headline" : "Italy experiences growth in residential construction",
+			"content" : "Housing developments in several Italian regions are on the rise, as builders respond to increasing demand.",
+			"image" : "placeholder.png",
+			"company" : 1,
+			"event_type" : 0,
+		},
+		{
+			"headline" : "Urban population on the rise across Europe",
+			"content" : "More people are relocating to European cities. Analysts note that growing urban populations are expected to support expansion in housing and infrastructure development.",
+			"image" : "placeholder.png",
+			"company" : 1,
+			"event_type" : 0
+		},
+		{
+			"headline" : "Cloud computing fuels hardware growth",
+			"content" : "As companies expand cloud-based services, demand for servers and computing infrastructure is climbing.",
+			"image" : "placeholder.png",
+			"company" : 2,
+			"event_type" : 0
+		},
+		{
+			"headline" : "Remote work is on the rise",
+			"content" : "The growing trend toward remote and hybrid work arrangements across multiple industries is prompting higher sales of laptops, PCs and computer accessories.",
+			"image" : "placeholder.png",
+			"company" : 2,
+			"event_type" : 0
+		},
+		{
+			"headline" : "Semiconductor boom drives industry growth",
+			"content" : "Recent breakthroughs in chip fabrication have led to a swift increase in computer hardware output. Analysts note that manufacturers are scaling operations faster than ever to meet rising demand.",
+			"image" : "placeholder.png",
+			"company" : 2,
+			"event_type" : 1
+		}
+	],
+	
+	"biscuit_news" : [
+		{
+			"headline" : "{country} experiences growth in confectionery purchases",
+			"content" : "Shoppers in {country} are buying more packaged cookies and wafers, according to recent market surveys. Producers are responding by scaling up output to keep up with demand.",
+			"image" : "placeholder.png",
+			"optimal_price_min" : 7.0,
+			"optimal_price_max" : 9.0
+		},
+		{
+			"headline" : "Snack Firms Scale Back in {country}",
+			"content" : "Several major snack producers are scaling back operations in {country}. Shoppers are desperately searching for their favorite treats.",
+			"image" : "placeholder.png",
+			"optimal_price_min" : 9.0,
+			"optimal_price_max" : 10.0
+		},
+		{
+			"headline" : "{country} experiences uptick in packaged sweet sales",
+			"content" : "Consumers in {country} are buying more ready-to-eat snack items, with manufacturers observing steady growth in production orders.",
+			"image" : "placeholder.png",
+			"optimal_price_min" : 7.0,
+			"optimal_price_max" : 9.0
+		},
+		{
+			"headline" : "People in {country} are switching to healthier diets",
+			"content" : "Consumers in {country} are increasingly choosing nutritious options, leading to fewer purchases of sugary and packaged snacks.",
+			"image" : "placeholder.png",
+			"optimal_price_min" : 2.5,
+			"optimal_price_max" : 4.0
+		},
+		{
+			"headline" : "{country} reports reduced interest in sweet snacks",
+			"content" : "Supermarkets in {country} have observed fewer purchases of individually wrapped sweet treats. Experts point to shifting consumer preferences and lifestyle trends.",
+			"image" : "placeholder.png",
+			"optimal_price_min" : 2.5,
+			"optimal_price_max" : 4.0
+		},
+		{
+			"headline" : "People in {country} are becoming more thrifty",
+			"content" : "Consumers in {country} are tightening their spending, purchasing less of certain items such as luxury goods, snacks, and non-essential household products.",
+			"image" : "placeholder.png",
+			"optimal_price_min" : 3.0,
+			"optimal_price_max" : 4.0
+		}
+	]
 }

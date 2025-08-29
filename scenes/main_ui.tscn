@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://bug76xr178xwd" path="res://scripts/ui/stock_market.gd" id="20_26nsp"]
 [ext_resource type="Texture2D" uid="uid://bqvigoimf83c7" path="res://images/ui/logo_bergstrom_mining.png" id="20_32s7f"]
 [ext_resource type="Texture2D" uid="uid://07me8ov3it75" path="res://images/ui/x_button.png" id="20_eigca"]
-[ext_resource type="Texture2D" uid="uid://dc2fssdkscose" path="res://images/ui/logo_hellvik_construction.png" id="21_26nsp"]
+[ext_resource type="Texture2D" uid="uid://dc2fssdkscose" path="res://images/ui/logo_granite_construction.png" id="21_26nsp"]
 [ext_resource type="Texture2D" uid="uid://2i3fvryws1mb" path="res://images/ui/logo_lumina_computers.png" id="22_rrr7h"]
 [ext_resource type="Texture2D" uid="uid://csh8f4cak7572" path="res://images/graph_background.png" id="23_058p6"]
 [ext_resource type="Texture2D" uid="uid://bralilgetm27y" path="res://images/graph_axes.png" id="24_vmb1c"]
@@ -636,11 +636,11 @@ color = Color(1, 0, 0, 1)
 
 [node name="Title" type="Label" parent="News/Panel2"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 16.0
-offset_right = 480.0
-offset_bottom = 70.0
-text = "Heatwave grips southern Europe anime moment"
+offset_left = 33.0
+offset_top = 14.0
+offset_right = 448.0
+offset_bottom = 92.0
+text = "Consumers in the Netherlands struggle as snack firms reduce presence"
 autowrap_mode = 3
 
 [node name="ColorRect3" type="ColorRect" parent="News/Panel2"]

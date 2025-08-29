@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dc2fssdkscose"
-path="res://.godot/imported/logo_hellvik_construction.png-5b5035fd9c87ed96fcb2e1964b51138f.ctex"
+path="res://.godot/imported/logo_granite_construction.png-630177137d0b481757eaa35fe5d52e4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/ui/logo_hellvik_construction.png"
-dest_files=["res://.godot/imported/logo_hellvik_construction.png-5b5035fd9c87ed96fcb2e1964b51138f.ctex"]
+source_file="res://images/ui/logo_granite_construction.png"
+dest_files=["res://.godot/imported/logo_granite_construction.png-630177137d0b481757eaa35fe5d52e4b.ctex"]
 
 [params]
 
