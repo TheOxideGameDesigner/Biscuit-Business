@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://m2rnoyfp6ulv"]
+[gd_scene load_steps=29 format=3 uid="uid://m2rnoyfp6ulv"]
 
 [ext_resource type="Theme" uid="uid://ckglgrr504an2" path="res://resources/theme.tres" id="1_jnl7h"]
 [ext_resource type="Script" uid="uid://dtph46pqc5cgf" path="res://scripts/ui/root_control.gd" id="2_hst8y"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://2i3fvryws1mb" path="res://images/ui/logo_lumina_computers.png" id="22_rrr7h"]
 [ext_resource type="Texture2D" uid="uid://csh8f4cak7572" path="res://images/graph_background.png" id="23_058p6"]
 [ext_resource type="Texture2D" uid="uid://bralilgetm27y" path="res://images/graph_axes.png" id="24_vmb1c"]
+[ext_resource type="Script" uid="uid://dtwwejr0qpue0" path="res://scripts/ui/news.gd" id="26_058p6"]
+[ext_resource type="PackedScene" uid="uid://6ylf4puxpkpm" path="res://scenes/ui/news_background.tscn" id="26_rrr7h"]
 
 [node name="UI" type="Control" groups=["main_ui"]]
 texture_filter = 1
@@ -606,59 +608,26 @@ offset_right = 360.0
 offset_bottom = 24.0
 text = "+$500"
 
-[node name="News" type="Panel" parent="."]
+[node name="News" type="Panel" parent="." groups=["get_two_day_update"]]
 self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
 offset_top = 53.0
 offset_right = 982.0
 offset_bottom = 906.0
+script = ExtResource("26_058p6")
 
-[node name="ColorRect" type="ColorRect" parent="News"]
-layout_mode = 0
-offset_left = -20.0
-offset_top = -10.0
-offset_right = 1010.0
-offset_bottom = 862.0
+[node name="NewsBackground" parent="News" instance=ExtResource("26_rrr7h")]
+position = Vector2(250.5, 217)
 
-[node name="Panel2" type="Control" parent="News"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="NewsBackground2" parent="News" instance=ExtResource("26_rrr7h")]
+position = Vector2(736.5, 217)
 
-[node name="ColorRect2" type="ColorRect" parent="News/Panel2"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 1.0
-offset_right = 504.0
-offset_bottom = 410.0
-color = Color(1, 0, 0, 1)
+[node name="NewsBackground3" parent="News" instance=ExtResource("26_rrr7h")]
+position = Vector2(250.5, 637)
 
-[node name="Title" type="Label" parent="News/Panel2"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 14.0
-offset_right = 448.0
-offset_bottom = 92.0
-text = "Consumers in the Netherlands struggle as snack firms reduce presence"
-autowrap_mode = 3
-
-[node name="ColorRect3" type="ColorRect" parent="News/Panel2"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 82.0
-offset_right = 169.0
-offset_bottom = 226.0
-color = Color(0, 0, 1, 1)
-
-[node name="Label" type="Label" parent="News/Panel2"]
-layout_mode = 0
-offset_left = 186.0
-offset_top = 84.0
-offset_right = 476.0
-offset_bottom = 405.0
-text = "Persistent rainfall has led to severe flooding across parts of northern Italy. Emergency services are assisting residents as rivers overflow and transport routes face disruptions."
-autowrap_mode = 3
+[node name="NewsBackground4" parent="News" instance=ExtResource("26_rrr7h")]
+position = Vector2(736.5, 637)
 
 [node name="LoanPanel" type="Panel" parent="."]
 visible = false
@@ -758,6 +727,28 @@ icon = ExtResource("20_eigca")
 
 [node name="day_timer" type="Timer" parent="."]
 
+[node name="two_day_timer" type="Timer" parent="."]
+
+[node name="NewsUpdatePanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color(3.5, 0, 0, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 871.0
+offset_top = 54.0
+offset_right = 975.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="NewsUpdatePanel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 100.0
+offset_bottom = 60.0
+text = "News
+update!"
+horizontal_alignment = 1
+
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="TabBarPanel/Loan" to="." method="_on_loan_pressed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
@@ -787,3 +778,4 @@ icon = ExtResource("20_eigca")
 [connection signal="pressed" from="LoanPanel/Close" to="." method="_on_close_pressed"]
 [connection signal="timeout" from="hour_timer" to="." method="_on_hour_timer_timeout"]
 [connection signal="timeout" from="day_timer" to="." method="_on_day_timer_timeout"]
+[connection signal="timeout" from="two_day_timer" to="." method="_on_two_day_timer_timeout"]

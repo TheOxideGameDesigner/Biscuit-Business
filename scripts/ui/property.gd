@@ -2,7 +2,7 @@ extends VBoxContainer
 
 const LAND_PANEL = preload("res://scenes/ui/land_panel.tscn")
 @onready var countries = get_tree().get_nodes_in_group("country")
-
+@onready var main_ui = get_tree().get_first_node_in_group("main_ui")
 @onready var purchased_land = $PurchasedLand
 @onready var unpurchased_land = $UnpurchasedLand
 
@@ -32,6 +32,7 @@ func on_purchased(panel):
 	unpurchased_country_panels.erase(panel)
 	unpurchased_land.remove_child(panel)
 	purchased_land.add_child(panel)
+	main_ui.bought_countries.push_back(panel.country)
 	update_ui()
 
 func _ready():
@@ -51,6 +52,7 @@ func _ready():
 	var uk_land_panel = LAND_PANEL.instantiate()
 	uk_land_panel.purchased = true
 	uk_land_panel.country = uk
+	main_ui.bought_countries.push_back(uk)
 	purchased_country_panels.push_back(uk_land_panel)
 	unpurchased_country_panels.sort_custom(compare_panels)
 	for node in purchased_country_panels:

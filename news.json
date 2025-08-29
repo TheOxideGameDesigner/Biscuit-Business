@@ -42,7 +42,7 @@
 		},
 		{
 			"headline" : "Satellite reveals rapid ice melt in Greenland",
-			"contect" : "New satellite data shows accelerated ice sheet melting in Greenland, contributing to rising sea levels. Scientists warn of potential impacts on coastal communities.",
+			"content" : "New satellite data shows accelerated ice sheet melting in Greenland, contributing to rising sea levels. Scientists warn of potential impacts on coastal communities.",
 			"image" : "placeholder.png"
 		},
 		{
@@ -133,7 +133,7 @@
 		}
 	],
 	
-	"biscuit_news" : [
+	"biscuit_good_news" : [
 		{
 			"headline" : "{country} experiences growth in confectionery purchases",
 			"content" : "Shoppers in {country} are buying more packaged cookies and wafers, according to recent market surveys. Producers are responding by scaling up output to keep up with demand.",
@@ -143,7 +143,7 @@
 		},
 		{
 			"headline" : "Snack Firms Scale Back in {country}",
-			"content" : "Several major snack producers are scaling back operations in {country}. Shoppers are desperately searching for their favorite treats.",
+			"content" : "Several major snack producers are scaling back operations in {country}. Shoppers are desperately searching for stores to buy delicious treats.",
 			"image" : "placeholder.png",
 			"optimal_price_min" : 9.0,
 			"optimal_price_max" : 10.0
@@ -155,13 +155,8 @@
 			"optimal_price_min" : 7.0,
 			"optimal_price_max" : 9.0
 		},
-		{
-			"headline" : "People in {country} are switching to healthier diets",
-			"content" : "Consumers in {country} are increasingly choosing nutritious options, leading to fewer purchases of sugary and packaged snacks.",
-			"image" : "placeholder.png",
-			"optimal_price_min" : 2.5,
-			"optimal_price_max" : 4.0
-		},
+	],
+	"biscuit_bad_news" : [
 		{
 			"headline" : "{country} reports reduced interest in sweet snacks",
 			"content" : "Supermarkets in {country} have observed fewer purchases of individually wrapped sweet treats. Experts point to shifting consumer preferences and lifestyle trends.",
@@ -174,6 +169,13 @@
 			"content" : "Consumers in {country} are tightening their spending, purchasing less of certain items such as luxury goods, snacks, and non-essential household products.",
 			"image" : "placeholder.png",
 			"optimal_price_min" : 3.0,
+			"optimal_price_max" : 4.0
+		},
+		{
+			"headline" : "People in {country} are switching to healthier diets",
+			"content" : "Consumers in {country} are increasingly choosing nutritious options, leading to fewer purchases of sugary and packaged snacks.",
+			"image" : "placeholder.png",
+			"optimal_price_min" : 2.5,
 			"optimal_price_max" : 4.0
 		}
 	]

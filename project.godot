@@ -32,6 +32,7 @@ main_ui=""
 get_day_update=""
 constant_size_label=""
 spinbox=""
+get_two_day_update=""
 
 [gui]
 

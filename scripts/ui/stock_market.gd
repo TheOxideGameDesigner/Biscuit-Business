@@ -23,12 +23,30 @@ const COMPANY_COUNT = 3
 const POINT_COUNT = 30
 const GRID_X_UNIT = 294.0 / (POINT_COUNT - 1)
 const COMPANY_NAMES = ["Bergstrom Mining", "Granite Construction", "Lumina Computers"]
+var base_stock_price = [0.0, 0.0, 0.0]
 var stock_price = [0.0, 0.0, 0.0]
 var stock_growth = [0.0, 0.0, 0.0]
 var stocks_owned = [0, 0, 0]
 var money_spent = [0, 0, 0]
 var lines : Array[PackedVector2Array] = [[], [], []]
 
+const EVENT_DELAY = 5
+var event_company : int = 0
+var event_moment : int = 0
+var event_index : int = -1
+
+const EVENTS = [
+	[0.3, 0.5, 0.6, 0.8, 1.0, 0.9, 1.0, 0.8, 0.95, 0.7, 0.4, 0.3, 0.1],  # type 0 slow decline
+	[0.25, 0.35, 0.5, 0.6, 0.75, 1.0, 0.8, 0.95, 1.0, 0.6, 0.2, 0.1],  # type 0 sharp decline
+	[0.6, 0.9, 1.0, 0.9, 1.0, 0.95, 0.8, 0.75, 0.6, 0.45, 0.2, 0.1],  # type 1 slow decline
+	[0.3, 0.9, 1.0, 0.8, 0.9, 1.0, 0.85, 0.9, 0.95, 0.85, 1.0, 0.3, 0.1]  #type 1 sharp decline
+]
+
+func add_event(company, type):
+	event_company = company
+	event_moment = -EVENT_DELAY
+	event_index = type * 2 + randi() % 2
+	pass
 
 func update_visual():
 	$SharePriceLabel.text = "Share price: $" + str(roundf(stock_price[company] * 10.0) / 10.0)
@@ -61,20 +79,25 @@ func get_y(val):
 	return (1 - float(val - MIN_PRICE) / (MAX_PRICE_EVENT - MIN_PRICE)) * 150.0
 
 func update_price(i):
-	var new_price = stock_price[i]
-	stock_price[i] += stock_growth[i]
-	stock_price[i] = clamp(stock_price[i], MIN_GROWTH_PRICE, MAX_GROWTH_PRICE)
-	stock_price[i] += randf_range(-RANDOM_OFFSET, RANDOM_OFFSET)
+	var new_price = base_stock_price[i]
+	base_stock_price[i] += stock_growth[i]
+	base_stock_price[i] = clamp(base_stock_price[i], MIN_GROWTH_PRICE, MAX_GROWTH_PRICE)
+	base_stock_price[i] += randf_range(-RANDOM_OFFSET, RANDOM_OFFSET)
 	if randf() < SNAP_CHANCE:
-		stock_price[i] += randf_range(SNAP_MIN, SNAP_MAX) * (int(stock_price[i] < (MIN_PRICE + MAX_PRICE) / 2) * 2 - 1)
-	stock_price[i] = clamp(stock_price[i], MIN_PRICE, MAX_PRICE)
+		base_stock_price[i] += randf_range(SNAP_MIN, SNAP_MAX) * (int(base_stock_price[i] < (MIN_PRICE + MAX_PRICE) / 2) * 2 - 1)
+	base_stock_price[i] = clamp(base_stock_price[i], MIN_PRICE, MAX_PRICE)
 	if randf() < GROWTH_CHANGE_CHANCE:
 		stock_growth[i] = randf_range(-GROWTH_RANGE, GROWTH_RANGE)
+	stock_price[i] = base_stock_price[i]
+	if event_index == -1 or event_moment < 0 or i != event_company:
+		return
+	stock_price[i] += EVENTS[event_index][event_moment] * (MAX_PRICE_EVENT - MAX_PRICE)
 
 
 func _ready():
 	for i in range(COMPANY_COUNT):
-		stock_price[i] = (MIN_PRICE + MAX_PRICE) / 2 + randf_range(-RANDOM_OFFSET, RANDOM_OFFSET)
+		base_stock_price[i] = (MIN_PRICE + MAX_PRICE) / 2 + randf_range(-RANDOM_OFFSET, RANDOM_OFFSET)
+		stock_price[i] = base_stock_price[i]
 		stock_growth[i] = randf_range(-GROWTH_RANGE, GROWTH_RANGE)
 		for j in range(POINT_COUNT):
 			lines[i].push_back(Vector2(j * GRID_X_UNIT, get_y(stock_price[i])))
@@ -86,6 +109,10 @@ func _on_company_tabs_tab_changed(tab):
 	update_visual()
 
 func hour_update():
+	if event_index != -1:
+		event_moment += 1
+		if event_moment >= EVENTS[event_index].size():
+			event_index = -1
 	for i in range(COMPANY_COUNT):
 		for j in range(POINT_COUNT):
 			lines[i][j].x -= GRID_X_UNIT

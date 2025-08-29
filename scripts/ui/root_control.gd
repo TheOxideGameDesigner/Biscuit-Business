@@ -11,6 +11,8 @@ extends Control
 @onready var daily_payment_label = $LoanPanel/DailyPaymentLabel
 @onready var debt_too_high_label = $LoanPanel/DebtTooHighLabel
 
+@onready var countries = get_tree().get_nodes_in_group("country")
+var bought_countries = []
 
 var json : Dictionary
 @onready var buy_buttons = get_tree().get_nodes_in_group("buy_button")
@@ -18,6 +20,7 @@ var json : Dictionary
 @onready var shops = get_tree().get_nodes_in_group("shop")
 @onready var hour_updaters = get_tree().get_nodes_in_group("get_hour_update")
 @onready var day_updaters = get_tree().get_nodes_in_group("get_day_update")
+@onready var two_day_updaters = get_tree().get_nodes_in_group("get_two_day_update")
 @onready var spinboxes = get_tree().get_nodes_in_group("spinbox")
 var shopsandfactories
 var selected_unit = null
@@ -47,6 +50,8 @@ func _ready():
 	$hour_timer.start()
 	$day_timer.wait_time = json["hour_duration"] * 24
 	$day_timer.start()
+	$two_day_timer.wait_time = json["hour_duration"] * 48
+	$two_day_timer.start()
 	shopsandfactories = factories.duplicate()
 	shopsandfactories.append_array(shops)
 	
@@ -137,6 +142,8 @@ func _on_tab_bar_tab_changed(tab):
 		i.visible = false
 	tabs[tab].visible = true
 	loan_panel.visible = false
+	if tab == 3:
+		$NewsUpdatePanel.visible = false
 
 
 func _on_connections_button_pressed():
@@ -164,6 +171,13 @@ func _on_day_timer_timeout():
 	loans = filtered_loans
 	loans_unpaid = filtered_loans_unpaid
 
+func _on_two_day_timer_timeout():
+	for n in two_day_updaters:
+		n.two_day_update()
+	for n in countries:
+		n.two_day_update()
+	if $TabBarPanel/TabBar.current_tab != 3:
+		$NewsUpdatePanel.visible = true
 
 func _on_loan_pressed():
 	loan_panel.visible = true
