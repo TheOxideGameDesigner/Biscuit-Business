@@ -1,13 +1,15 @@
 {
 	"hour_duration" : 5,
 	
-	"initial_money" : 20000000,
-	"land_factory_price" : 70000,
-	"land_shop_price" : 50000,
-	"factory_price" : 300000,
-	"shop_price" : 100000,
+	"win_money" : 10000000,
+	"initial_money" : 200000,
 	
-	"factory_cost_per_biscuit" : 0.2,
+	"land_factory_price" : 40000,
+	"land_shop_price" : 20000,
+	"factory_price" : 140000,
+	"shop_price" : 70000,
+	
+	"factory_cost_per_biscuit" : 0.1,
 	"factory_storage" : [100000, 150000, 200000],
 	"factory_speed" : [5000, 7500, 10000],
 	"factory_upgrade_cost" : [150000, 250000, 9999999999999],
@@ -16,12 +18,12 @@
 	"shop_storage" : [50000, 75000, 100000],
 	"shop_marketing" : [1, 2, 3],
 	"shop_upgrade_cost" : [50000, 80000, 999999999],
-	"shop_demand_constant" : 1500,
+	"shop_demand_constant" : 1800,
 	
 	"truck_capacity" : 5000,
 	
 	"max_loan" : 1000000,
-	"loan_pay_per_day" : 0.05,
+	"loan_pay_per_day" : 0.03,
 	"loan_bank_profit" : 0.1,
 	
 	"max_shares" : 10000

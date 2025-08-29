@@ -824,6 +824,93 @@ offset_bottom = 162.0
 text = "No
 "
 
+[node name="WinPanel" type="Panel" parent="."]
+process_mode = 3
+visible = false
+z_index = 6
+layout_mode = 0
+offset_left = -71.0
+offset_top = -24.0
+offset_right = 1054.0
+offset_bottom = 964.0
+
+[node name="Label" type="Label" parent="WinPanel"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 227.0
+offset_right = 498.0
+offset_bottom = 251.0
+scale = Vector2(3, 3)
+text = "You win!"
+
+[node name="Label2" type="Label" parent="WinPanel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 518.0
+offset_right = 562.0
+offset_bottom = 569.0
+scale = Vector2(2, 2)
+text = "You have reached 
+$10000000"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="WinPanel"]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 710.0
+offset_right = 566.0
+offset_bottom = 746.0
+scale = Vector2(2, 2)
+text = "Return to menu"
+
+[node name="LosePanel" type="Panel" parent="."]
+process_mode = 3
+visible = false
+z_index = 6
+layout_mode = 0
+offset_left = -71.0
+offset_top = -24.0
+offset_right = 1054.0
+offset_bottom = 964.0
+
+[node name="Label" type="Label" parent="LosePanel"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 227.0
+offset_right = 498.0
+offset_bottom = 251.0
+scale = Vector2(3, 3)
+text = "You lose"
+
+[node name="Label2" type="Label" parent="LosePanel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 476.0
+offset_right = 562.0
+offset_bottom = 527.0
+scale = Vector2(2, 2)
+text = "You went bankrupt.
+Your money went below -$100000"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="LosePanel"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 694.0
+offset_right = 568.0
+offset_bottom = 730.0
+scale = Vector2(2, 2)
+text = "Return to menu"
+
+[node name="Button2" type="Button" parent="LosePanel"]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 777.0
+offset_right = 567.0
+offset_bottom = 813.0
+scale = Vector2(2, 2)
+text = "Try again"
+
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="TabBarPanel/Loan" to="." method="_on_loan_pressed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
@@ -858,3 +945,6 @@ text = "No
 [connection signal="pressed" from="PauseHandler/PausePanel/Back" to="PauseHandler" method="_on_back_pressed"]
 [connection signal="pressed" from="PauseHandler/PausePanel/Panel/Button" to="PauseHandler" method="_on_button_pressed"]
 [connection signal="pressed" from="PauseHandler/PausePanel/Panel/Button2" to="PauseHandler" method="_on_button_2_pressed"]
+[connection signal="pressed" from="WinPanel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LosePanel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LosePanel/Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,163 @@
+[gd_scene load_steps=3 format=3 uid="uid://buh8qvqb45fln"]
+
+[ext_resource type="Script" uid="uid://x2m72x6qb1oq" path="res://scripts/ui/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://fodeisl215vy" path="res://scripts/ui/options.gd" id="2_bqqt6"]
+
+[node name="MainMenu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Label" type="Label" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 388.0
+offset_top = 251.0
+offset_right = 592.0
+offset_bottom = 275.0
+text = "Biscuit Business"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -127.0
+offset_right = 167.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="CreditsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_left = -6.0
+offset_top = -9.0
+offset_right = 990.0
+offset_bottom = 903.0
+
+[node name="Label" type="Label" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 37.0
+offset_right = 44.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "cock"
+
+[node name="CloseCredits" type="Button" parent="CreditsPanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 846.0
+offset_right = 981.0
+offset_bottom = 909.0
+text = "Close"
+
+[node name="OptionsContainer" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Music" type="Panel" parent="OptionsContainer"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 949.0
+offset_bottom = 870.0
+script = ExtResource("2_bqqt6")
+
+[node name="Label" type="Label" parent="OptionsContainer/Music"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 245.0
+offset_right = 269.0
+offset_bottom = 300.0
+text = "Music"
+
+[node name="Label2" type="Label" parent="OptionsContainer/Music"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 368.0
+offset_right = 309.0
+offset_bottom = 423.0
+text = "Sound Effects"
+
+[node name="Label3" type="Label" parent="OptionsContainer/Music"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 99.0
+offset_right = 216.0
+offset_bottom = 154.0
+text = "Master Volume"
+
+[node name="Master" type="HSlider" parent="OptionsContainer/Music"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 34.0
+offset_right = 966.0
+offset_bottom = 188.0
+value = 50.0
+
+[node name="Music" type="HSlider" parent="OptionsContainer/Music"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 176.0
+offset_right = 964.0
+offset_bottom = 330.0
+value = 50.0
+
+[node name="Sfx" type="HSlider" parent="OptionsContainer/Music"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 303.0
+offset_right = 969.0
+offset_bottom = 457.0
+value = 50.0
+
+[node name="CloseOptions" type="Button" parent="OptionsContainer"]
+layout_mode = 0
+offset_top = 864.0
+offset_right = 975.0
+offset_bottom = 900.0
+text = "Close"
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CreditsPanel/CloseCredits" to="." method="_on_close_credits_pressed"]
+[connection signal="value_changed" from="OptionsContainer/Music/Master" to="OptionsContainer/Music" method="_on_master_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/Music/Music" to="OptionsContainer/Music" method="_on_music_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/Music/Sfx" to="OptionsContainer/Music" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="OptionsContainer/CloseOptions" to="OptionsContainer/Music" method="_on_close_options_pressed"]

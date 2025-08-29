@@ -194,6 +194,8 @@ func update_truck(i, delta):
 					truck_current_node[i] += 1
 
 func _process(delta):
+	if not purchased:
+		return
 	no_connection_warning.visible = connections.is_empty()
 	if is_factory:
 		if connections.is_empty():

@@ -56,6 +56,8 @@ func _ready():
 	shopsandfactories.append_array(shops)
 	
 	loan_amount.max_value = json["max_loan"]
+	$WinPanel/Label2.text = "You have reached\n$" + str(int(json["win_money"]))
+	$LosePanel/Label2.text = "You went bankrupt"
 
 func pay(b : Button):
 	money -= b.value
@@ -83,6 +85,13 @@ func _process(delta):
 	debt_too_high_label.visible = not loan_button.enabled
 	
 	debt_label.text = "Debt: $" + str(debt)
+	
+	if money >= json["win_money"]:
+		$WinPanel.visible = true
+		process_mode = Node.PROCESS_MODE_DISABLED
+	elif money < 0 and debt - money >= json["max_loan"]:
+		$LosePanel.visible = true
+		process_mode = Node.PROCESS_MODE_DISABLED
 
 func select(f : Node2D, is_factory):
 	if selected_factory and selecting_shop_connection and not is_factory:
@@ -203,3 +212,11 @@ func _on_take_button_pressed():
 	for i in range(loans.size()):
 		daily += int((1 + json["loan_bank_profit"]) * loans[i] * json["loan_pay_per_day"])
 	daily_payment_label.text = "Daily payment: $" + str(int(daily))
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_button_2_pressed():
+	get_tree().reload_current_scene()

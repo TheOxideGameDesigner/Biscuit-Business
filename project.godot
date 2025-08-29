@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Biscuit Business"
+run/main_scene="uid://buh8qvqb45fln"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://bc5bpc11dwx6m"
+
+[audio]
+
+buses/default_bus_layout="uid://bxpptx3p8qdk"
 
 [display]
 

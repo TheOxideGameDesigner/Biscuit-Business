@@ -30,7 +30,7 @@ var stocks_owned = [0, 0, 0]
 var money_spent = [0, 0, 0]
 var lines : Array[PackedVector2Array] = [[], [], []]
 
-const EVENT_DELAY = 5
+const EVENT_DELAY = 10
 var event_company : int = 0
 var event_moment : int = 0
 var event_index : int = -1
