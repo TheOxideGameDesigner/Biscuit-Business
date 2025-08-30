@@ -60,7 +60,7 @@
 		"unlock_tab" : 0
 	},
 	{
-		"text" : "You can also customize the price of the biscuits.",
+		"text" : "You can also customize the price of the biscuits. If they sell to fast, increase the price. If their storage is full, decrease it.",
 		"condition" : -1,
 		"unlock_tab" : 0
 	},
@@ -100,7 +100,7 @@
 		"unlock_tab" : 0
 	},
 	{
-		"text" : "Your goal is to reach $5000000. Good luck!",
+		"text" : "Your goal is to reach $10000000. Good luck!",
 		"condition" : -1,
 		"unlock_tab" : 0
 	},

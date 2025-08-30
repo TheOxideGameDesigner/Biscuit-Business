@@ -463,9 +463,9 @@ layout_mode = 2
 self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
-offset_top = 53.0
+offset_top = 54.0
 offset_right = 982.0
-offset_bottom = 906.0
+offset_bottom = 907.0
 script = ExtResource("20_26nsp")
 
 [node name="CompanyTabs" type="TabBar" parent="Stock Market"]
@@ -620,6 +620,11 @@ offset_right = 360.0
 offset_bottom = 24.0
 text = "+$500"
 
+[node name="Sprite2D" type="Sprite2D" parent="Stock Market"]
+modulate = Color(0.4089, 0.47, 0.47, 1)
+position = Vector2(935.25, 65.25)
+texture = ExtResource("26_o81xr")
+
 [node name="Label" type="Label" parent="Stock Market"]
 modulate = Color(0.55, 0.55, 0.55, 1)
 layout_mode = 0
@@ -628,11 +633,6 @@ offset_top = 32.0
 offset_right = 976.0
 offset_bottom = 56.0
 text = "Current price"
-
-[node name="Sprite2D" type="Sprite2D" parent="Stock Market/Label"]
-modulate = Color(0.85098, 1, 1, 1)
-position = Vector2(125, 33)
-texture = ExtResource("26_o81xr")
 
 [node name="News" type="Panel" parent="." groups=["get_two_day_update"]]
 visible = false

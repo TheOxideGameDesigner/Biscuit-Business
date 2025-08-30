@@ -13,7 +13,7 @@ var stock_idx = 0
 var news_json : Dictionary
 
 const STOCK_EVENT_CHANCE = 0.375
-const MIN_COUNTRIES_STOCK_EVENT = 4
+const MIN_COUNTRIES_STOCK_EVENT = 3
 
 func update_panel_visual(i, news : Dictionary):
 	panels[i].get_node("Headline").text = news["headline"]
@@ -21,9 +21,10 @@ func update_panel_visual(i, news : Dictionary):
 	panels[i].get_node("Image").texture = load("res://images/news/" + news["image"])
 
 func generate_biscuit_news(i):
+	print(countries[country_idx].name + " " + str(country_idx))
 	var bcountry = countries[country_idx]
 	country_idx = (country_idx + 1) % countries.size()
-	var bn = biscuit_good_news.pick_random()
+	var bn = biscuit_good_news.pick_random().duplicate()
 	bn["headline"] = bn["headline"].replace("{country}", bcountry.name)
 	bn["headline"] = bn["headline"][0].to_upper() + bn["headline"].substr(1,-1)
 	bn["content"] = bn["content"].replace("{country}", bcountry.name)
@@ -45,7 +46,11 @@ func update_news():
 		filler_news.shuffle()
 	
 	var owned_countries = main_ui.bought_countries
-	if owned_countries.size() >= MIN_COUNTRIES_STOCK_EVENT and randf() < STOCK_EVENT_CHANCE:
+	var shop_countries = 0
+	for i in owned_countries:
+		if i.shops.size() > 0:
+			shop_countries += 1
+	if shop_countries >= MIN_COUNTRIES_STOCK_EVENT and randf() < STOCK_EVENT_CHANCE:
 		var sn = stock_news[stock_idx]
 		stock_idx += 1
 		if stock_idx >= stock_news.size():
