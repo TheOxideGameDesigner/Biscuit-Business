@@ -61,10 +61,13 @@ tab_0/tooltip = "Map"
 tab_0/icon = ExtResource("3_u04fh")
 tab_1/tooltip = "Property"
 tab_1/icon = ExtResource("4_ulqfl")
+tab_1/disabled = true
 tab_2/tooltip = "Stock market"
 tab_2/icon = ExtResource("5_rx44x")
+tab_2/disabled = true
 tab_3/tooltip = "News"
 tab_3/icon = ExtResource("6_j03cv")
+tab_3/disabled = true
 
 [node name="Money" type="Label" parent="TabBarPanel"]
 modulate = Color(1, 1, 0.27, 1)
@@ -921,6 +924,32 @@ offset_bottom = 813.0
 scale = Vector2(2, 2)
 text = "Try again"
 
+[node name="TutorialPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.882353)
+z_index = 100
+layout_mode = 0
+offset_top = 779.0
+offset_right = 975.0
+offset_bottom = 900.0
+
+[node name="Label" type="Label" parent="TutorialPanel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 971.0
+offset_bottom = 98.0
+text = "Others can help you decide what countries to expand your business into, or what countries you should increase or decrease biscuit prices in."
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="TutorialPanel"]
+layout_mode = 0
+offset_left = 859.0
+offset_top = 79.0
+offset_right = 963.0
+offset_bottom = 115.0
+mouse_filter = 1
+text = "Next"
+
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="TabBarPanel/Loan" to="." method="_on_loan_pressed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
@@ -960,3 +989,6 @@ text = "Try again"
 [connection signal="pressed" from="WinPanel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LosePanel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LosePanel/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="TutorialPanel" to="." method="_on_tutorial_panel_mouse_entered"]
+[connection signal="mouse_exited" from="TutorialPanel" to="." method="_on_tutorial_panel_mouse_exited"]
+[connection signal="pressed" from="TutorialPanel/Button" to="." method="_on_tutorial_button_pressed"]

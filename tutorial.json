@@ -1,0 +1,107 @@
+[
+	{
+		"text" : "Welcome! Use your scroll wheel to zoom in and drag the mouse to move around.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Open the property menu.",
+		"condition" : 0,
+		"unlock_tab" : 1
+	},
+	{
+		"text" : "In the property menu, you can buy factories, shops, and land in other countries to expand your business.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Click on the plus button in the top-left corner to take a loan.",
+		"condition" : 7,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Buy a shop and a factory and return to the map.",
+		"condition" : 8,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Select the factory",
+		"condition" : 2,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Click on the add connections button to connect it to a shop.",
+		"condition" : 3,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Factories automatically deliver cookies to shops they are connected to.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "You can have up to three connections.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "You can upgrade the factory to increase its speed and storage. You can also buy more trucks to deliver biscuits faster.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Now select the shop.",
+		"condition" : 4,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "You can upgrade the shop to increase its storage and attract more customers.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "You can also customize the price of the biscuits.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Now open the stock market menu.",
+		"condition" : 5,
+		"unlock_tab" : 2
+	},
+	{
+		"text" : "You can choose to invest in three different companies. Buy stocks when the price is low and sell them when the price is high to make a profit.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Don't forget to frequently check the share price of companies you've invested in.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Lastly, open the news menu.",
+		"condition" : 6,
+		"unlock_tab" : 3
+	},
+	{
+		"text" : "Some news articles have no relevance, but others can contain useful information.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Some news can hint at when the stock value of one of the three companies is about to go up.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Others can help you decide what countries to expand your business into, or what countries you should increase or decrease biscuit prices in.",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+	{
+		"text" : "Your goal is to reach $5000000. Good luck!",
+		"condition" : -1,
+		"unlock_tab" : 0
+	},
+]

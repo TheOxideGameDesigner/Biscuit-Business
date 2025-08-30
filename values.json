@@ -11,7 +11,7 @@
 	
 	"factory_cost_per_biscuit" : 0.1,
 	"factory_storage" : [100000, 150000, 200000],
-	"factory_speed" : [5000, 7500, 10000],
+	"factory_speed" : [6500, 8000, 10000],
 	"factory_upgrade_cost" : [30000, 50000, 9999999999999],
 	"factory_truck_cost" : 30000,
 	

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=48 format=3 uid="uid://ckglgrr504an2"]
+[gd_resource type="Theme" load_steps=49 format=3 uid="uid://ckglgrr504an2"]
 
 [ext_resource type="Texture2D" uid="uid://c66gaycd5nacy" path="res://images/ui/button_stylebox_texture.png" id="1_7ct1h"]
 [ext_resource type="FontFile" uid="uid://dysbleh7o8113" path="res://resources/04B_03__.TTF" id="1_d4nwg"]
@@ -105,6 +105,14 @@ modulate_color = Color(0.4, 0.4, 0.4, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbyuf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogd5j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ynyh7"]
+texture = ExtResource("3_b751m")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.4, 0.4, 0.4, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhnw2"]
 
@@ -256,6 +264,7 @@ SpinBox/styles/up_background_disabled = SubResource("StyleBoxEmpty_ouajo")
 SpinBox/styles/up_background_hovered = SubResource("StyleBoxEmpty_j5sbq")
 SpinBox/styles/up_background_pressed = SubResource("StyleBoxEmpty_lbyuf")
 SpinBox/styles/up_down_buttons_separator = SubResource("StyleBoxEmpty_ogd5j")
+TabBar/styles/tab_disabled = SubResource("StyleBoxTexture_ynyh7")
 TabBar/styles/tab_focus = SubResource("StyleBoxEmpty_dhnw2")
 TabBar/styles/tab_hovered = SubResource("StyleBoxTexture_571rs")
 TabBar/styles/tab_selected = SubResource("StyleBoxTexture_ogd5j")

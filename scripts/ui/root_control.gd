@@ -15,6 +15,9 @@ extends Control
 var bought_countries = []
 
 var json : Dictionary
+var tutorial_json : Array
+var tutorial_idx : int = 0
+var tutorial_condition : int = -1
 @onready var buy_buttons = get_tree().get_nodes_in_group("buy_button")
 @onready var factories = get_tree().get_nodes_in_group("factory")
 @onready var shops = get_tree().get_nodes_in_group("shop")
@@ -28,17 +31,69 @@ var selected_factory : bool
 var last_mouse_pressed_pos : Vector2
 var selecting_shop_connection : bool = false
 var selecting_remove_connection : bool = false
+var hovering_tutorial_panel : bool = false
 
 var loans = []
 var loans_unpaid = []
 
 var money : int
 
+func tutorial_condition_met():
+	match tutorial_condition:
+		0:
+			return $TabBarPanel/TabBar.current_tab == 1
+		1:
+			return $TabBarPanel/TabBar.current_tab == 0
+		2:
+			return selected_unit != null and selected_factory
+		3:
+			return selected_unit != null and selected_factory and selected_unit.connections.size() > 0
+		4:
+			return selected_unit != null and not selected_factory
+		5:
+			return $TabBarPanel/TabBar.current_tab == 2
+		6:
+			return $TabBarPanel/TabBar.current_tab == 3
+		7:
+			return loans.size() > 0
+		8: 
+			if $TabBarPanel/TabBar.current_tab != 0:
+				return false
+			for i in bought_countries:
+				var ok = false
+				for f in i.factories:
+					if f.purchased:
+						ok = true
+						break
+				if not ok:
+					return false
+				ok = false
+				for s in i.shops:
+					if s.purchased:
+						ok = true
+						break
+				if not ok:
+					return false
+			return true
+	return false
+
+func update_tutorial_panel():
+	if tutorial_idx >= tutorial_json.size():
+		$TutorialPanel.visible = false
+		return
+	var t = tutorial_json[tutorial_idx]
+	tutorial_condition = t["condition"]
+	$TutorialPanel/Button.visible = t["condition"] == -1
+	$TabBarPanel/TabBar.set_tab_disabled(t["unlock_tab"], false)
+	$TutorialPanel/Label.text = t["text"]
+
 func _ready():
 	tabs[0].visible = true
 	for i in range(1, tabs.size()):
 		tabs[i].visible = false
 	json = JSON.parse_string(FileAccess.get_file_as_string("res://values.json"))
+	tutorial_json = JSON.parse_string(FileAccess.get_file_as_string("res://tutorial.json"))
+	update_tutorial_panel()
 	money = json["initial_money"]
 	for n : Button in buy_buttons:
 		n.json = json
@@ -64,6 +119,11 @@ func pay(b : Button):
 	money -= b.value
 
 func _process(delta):
+	if tutorial_idx < tutorial_json.size():
+		if tutorial_condition_met():
+			tutorial_idx += 1
+			update_tutorial_panel()
+	
 	if money >= 0:
 		money_label.text = '$' + str(money)
 		money_label.modulate = Color(1, 1, 0.27)
@@ -128,7 +188,7 @@ func select(f : Node2D, is_factory):
 		panel.set_shop(f)
 
 func _input(event):
-	if factory_panel.mouse_hovering or shop_panel.mouse_hovering:
+	if factory_panel.mouse_hovering or shop_panel.mouse_hovering or hovering_tutorial_panel:
 		return
 	if event.is_action_pressed("lmb"):
 		last_mouse_pressed_pos = get_viewport().get_mouse_position()
@@ -233,3 +293,16 @@ func _on_button_pressed():
 
 func _on_button_2_pressed():
 	get_tree().reload_current_scene()
+
+
+func _on_tutorial_button_pressed():
+	tutorial_idx += 1
+	update_tutorial_panel()
+
+
+func _on_tutorial_panel_mouse_entered():
+	hovering_tutorial_panel = true
+
+
+func _on_tutorial_panel_mouse_exited():
+	hovering_tutorial_panel = false

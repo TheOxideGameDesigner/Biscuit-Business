@@ -3,67 +3,67 @@
 		{
 			"headline" : "Severe heatwave grips southern Europe",
 			"content" : "Southern Europe is enduring an intense heatwave. Authorities have issued health warnings, urging residents avoid prolonged exposure to the sun.",
-			"image" : "placeholder.png"
+			"image" : "heatwave.png"
 		},
 		{
 			"headline" : "Heavy rain causes flooding in Italy",
 			"content" : "Persistent rainfall has led to severe flooding across parts of northern Italy. Emergency services are assisting residents as rivers overflow and transport routes face disruptions.",
-			"image" : "placeholder.png"
+			"image" : "rain.png"
 		},
 		{
 			"headline" : "Flood alerts in low countries",
 			"content" : "Rising river levels triggered flood warnings in parts of the Netherlands and Belgium after days of steady rainfall.",
-			"image" : "placeholder.png"
+			"image" : "rain.png"
 		},
 		{
 			"headline" : "Dense fog delays flights in UK and Ireland",
 			"content" : "Thick fog settled over airports in London, Dublin, and Manchester, leading to widespread flight delays. Motorists were urged to drive with caution.",
-			"image" : "placeholder.png"
+			"image" : "rain.png"
 		},
 		{
 			"headline" : "Thunderstorms sweep across Iberian Peninsula",
 			"content" : "Spain and Portugal saw intense thunderstorms, with lightning strikes and localized flooding reported. Meteorologists expect unsettled weather to continue through the week.",
-			"image" : "placeholder.png"
+			"image" : "rain.png"
 		},
 		{
 			"headline" : "Astronomers discover strange exoplanet",
 			"content" : "Chemical composition analysis reveals that a recently discovered distant planet is made of amylose and sucrose.",
-			"image" : "placeholder.png"
+			"image" : "exoplanet.png"
 		},
 		{
 			"headline" : "Study links high carb diet to shorter lifespan",
 			"content" : "Researchers found that people who frequently eat high carb foods, such as chips, biscuits and white bread, tend to live shorter lives.",
-			"image" : "placeholder.png"
+			"image" : "carb_diet.png"
 		},
 		{
 			"headline" : "Mental health concerns rise among teenagers",
 			"content" : "Recent surveys indicate increasing rates of depression among teens. Some are turning to crunchy snacks as a way to cope with their mood.",
-			"image" : "placeholder.png"
+			"image" : "mental_health.png"
 		},
 		{
 			"headline" : "Satellite reveals rapid ice melt in Greenland",
 			"content" : "New satellite data shows accelerated ice sheet melting in Greenland, contributing to rising sea levels. Scientists warn of potential impacts on coastal communities.",
-			"image" : "placeholder.png"
+			"image" : "greenland.png"
 		},
 		{
 			"headline" : "Artificial coral reefs promote marine biodiversity",
 			"content" : "Scientists are deploying artificial coral structures to restore damaged reefs. Early results indicate increased fish populations and improved ecosystem health.",
-			"image" : "placeholder.png"
+			"image" : "coral.png"
 		},
 		{
 			"headline" : "Scientists develop renewable bio-energy",
 			"content" : "Researchers have invented a high-efficiency, sustainable method of obtaining energy by fermenting and burning flour and sugar.",
-			"image" : "placeholder.png"
+			"image" : "flour.png"
 		},
 		{
 			"headline" : "Value of cryptocurrency skyrockets",
 			"content" : "BiscCoin and other major cryptocurrencies have surged in value, reaching record highs this week. Analysts cite growing investor confidence as key driver behind the rapid gains.",
-			"image" : "placeholder.png"
+			"image" : "bisccoin.png"
 		},
 		{
 			"headline" : "Spain approves renewable energy investment plan",
-			"content" : "Spain’s government outlined a multi-year plan to invest in solar and wind energy projects. Experts expect the initiative to reduce the country’s carbon footprint by 30%.",
-			"image" : "placeholder.png"
+			"content" : "Spain's government outlined a multi-year plan to invest in solar and wind energy projects. Experts expect the initiative to reduce the country's carbon footprint by 30%.",
+			"image" : "turbine.png"
 		}
 	],
 	
@@ -71,63 +71,63 @@
 		{
 			"headline" : "Energy transition fuels interest in critical minerals",
 			"content" : "With infrastructure projects and renewable energy initiatives gaining momentum, demand for certain raw materials is strengthening, supporting stable growth in extraction.",
-			"image" : "placeholder.png",
+			"image" : "mining.png",
 			"company" : 0,
 			"event_type" : 0
 		},
 		{
 			"headline" : "Innovation beneath the ground",
 			"content" : "Researchers have developed a new excavation method designed to improve efficiency and reduce environmental impact. Experts say the approach could modernize mining worldwide.",
-			"image" : "placeholder.png",
+			"image" : "mining.png",
 			"company" : 0,
 			"event_type" : 0
 		},
 		{
 			"headline" : "Underground discoveries spark research interest",
 			"content" : "Geologists have reported the discovery of flour-like organic compounds preserved in deep underground layers.",
-			"image" : "placeholder.png",
+			"image" : "mining.png",
 			"company" : 0,
 			"event_type" : 1
 		},
 		{
-			"headline" : "Earthquake spurs rebuilding efforts",
-			"content" : "A recent earthquake in Greece has caused structural damage in affected areas. Authorities are coordinating efforts for swift reconstruction.",
-			"image" : "placeholder.png",
+			"headline" : "Construction sector reports rising activity",
+			"content" : "Recent surveys show an increase in new housing and commercial projects across Europe. Analysts note that demand for infrastructure development is driving the uptick.",
+			"image" : "city.png",
 			"company" : 1,
 			"event_type" : 1
 		},
 		{
 			"headline" : "Europe experiences growth in residential construction",
-			"content" : "Housing developments in several Italian regions are on the rise, as builders respond to increasing demand.",
-			"image" : "placeholder.png",
+			"content" : "Housing developments in several countries are on the rise, as builders respond to increasing demand.",
+			"image" : "city.png",
 			"company" : 1,
 			"event_type" : 0,
 		},
 		{
 			"headline" : "Urban population on the rise across Europe",
 			"content" : "More people are relocating to European cities. Growing urban populations are expected to support expansion in housing and infrastructure development.",
-			"image" : "placeholder.png",
+			"image" : "city.png",
 			"company" : 1,
 			"event_type" : 0
 		},
 		{
 			"headline" : "Cloud computing fuels hardware growth",
 			"content" : "As companies expand cloud-based services, demand for servers and computing infrastructure is climbing.",
-			"image" : "placeholder.png",
+			"image" : "computer.png",
 			"company" : 2,
 			"event_type" : 0
 		},
 		{
 			"headline" : "Remote work is on the rise",
 			"content" : "The growing trend toward remote and hybrid work arrangements across multiple industries is prompting higher sales of laptops, PCs and computer accessories.",
-			"image" : "placeholder.png",
+			"image" : "computer.png",
 			"company" : 2,
 			"event_type" : 0
 		},
 		{
 			"headline" : "Semiconductor boom drives industry growth",
 			"content" : "Recent breakthroughs in chip fabrication have led to a swift increase in computer hardware output. Analysts note that manufacturers are scaling operations faster than ever to meet rising demand.",
-			"image" : "placeholder.png",
+			"image" : "computer.png",
 			"company" : 2,
 			"event_type" : 1
 		}
@@ -137,21 +137,21 @@
 		{
 			"headline" : "{country} experiences growth in confectionery purchases",
 			"content" : "Shoppers in {country} are buying more packaged cookies and wafers, according to recent market surveys. Producers are responding by scaling up output to keep up with demand.",
-			"image" : "placeholder.png",
+			"image" : "cake.png",
 			"optimal_price_min" : 7.0,
 			"optimal_price_max" : 9.0
 		},
 		{
 			"headline" : "Snack Firms Scale Back in {country}",
 			"content" : "Several major snack producers are scaling back operations in {country}. Shoppers are desperately searching for stores to buy delicious treats.",
-			"image" : "placeholder.png",
+			"image" : "scale_back.png",
 			"optimal_price_min" : 9.0,
 			"optimal_price_max" : 10.0
 		},
 		{
 			"headline" : "{country} experiences uptick in packaged sweet sales",
 			"content" : "Consumers in {country} are buying more ready-to-eat snack items, with manufacturers observing steady growth in production orders.",
-			"image" : "placeholder.png",
+			"image" : "cake.png",
 			"optimal_price_min" : 7.0,
 			"optimal_price_max" : 9.0
 		},
@@ -160,21 +160,21 @@
 		{
 			"headline" : "{country} reports reduced interest in sweet snacks",
 			"content" : "Supermarkets in {country} have observed fewer purchases of individually wrapped sweet treats. Experts point to shifting consumer preferences and lifestyle trends.",
-			"image" : "placeholder.png",
+			"image" : "cake.png",
 			"optimal_price_min" : 2.5,
 			"optimal_price_max" : 4.0
 		},
 		{
 			"headline" : "People in {country} are becoming more thrifty",
 			"content" : "Consumers in {country} are tightening their spending, purchasing less of certain items such as luxury goods and sweet snacks.",
-			"image" : "placeholder.png",
+			"image" : "thrifty.png",
 			"optimal_price_min" : 3.0,
 			"optimal_price_max" : 4.0
 		},
 		{
 			"headline" : "People in {country} are switching to healthier diets",
 			"content" : "Consumers in {country} are increasingly choosing nutritious options, leading to fewer purchases of sugary and packaged snacks.",
-			"image" : "placeholder.png",
+			"image" : "healthy_diet.png",
 			"optimal_price_min" : 2.5,
 			"optimal_price_max" : 4.0
 		}
