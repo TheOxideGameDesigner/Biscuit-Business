@@ -5,7 +5,7 @@
 		"unlock_tab" : 0
 	},
 	{
-		"text" : "Open the property menu.",
+		"text" : "Open the property menu (second tab).",
 		"condition" : 0,
 		"unlock_tab" : 1
 	},
@@ -65,7 +65,7 @@
 		"unlock_tab" : 0
 	},
 	{
-		"text" : "Now open the stock market menu.",
+		"text" : "Now open the stock market menu (third tab).",
 		"condition" : 5,
 		"unlock_tab" : 2
 	},
@@ -80,7 +80,7 @@
 		"unlock_tab" : 0
 	},
 	{
-		"text" : "Lastly, open the news menu.",
+		"text" : "Lastly, open the news menu (fourth tab).",
 		"condition" : 6,
 		"unlock_tab" : 3
 	},
@@ -90,12 +90,12 @@
 		"unlock_tab" : 0
 	},
 	{
-		"text" : "Some news can hint at when the stock value of one of the three companies is about to go up.",
+		"text" : "Some news can help you decide what countries to expand your business into, or what countries you should increase biscuit prices in.",
 		"condition" : -1,
 		"unlock_tab" : 0
 	},
 	{
-		"text" : "Others can help you decide what countries to expand your business into, or what countries you should increase or decrease biscuit prices in.",
+		"text" : "Others can hint at when the stock value of one of the three companies is about to go up.",
 		"condition" : -1,
 		"unlock_tab" : 0
 	},

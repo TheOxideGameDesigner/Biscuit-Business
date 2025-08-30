@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://m2rnoyfp6ulv"]
+[gd_scene load_steps=31 format=3 uid="uid://m2rnoyfp6ulv"]
 
 [ext_resource type="Theme" uid="uid://ckglgrr504an2" path="res://resources/theme.tres" id="1_jnl7h"]
 [ext_resource type="Script" uid="uid://dtph46pqc5cgf" path="res://scripts/ui/root_control.gd" id="2_hst8y"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://csh8f4cak7572" path="res://images/graph_background.png" id="23_058p6"]
 [ext_resource type="Texture2D" uid="uid://bralilgetm27y" path="res://images/graph_axes.png" id="24_vmb1c"]
 [ext_resource type="Script" uid="uid://dtwwejr0qpue0" path="res://scripts/ui/news.gd" id="26_058p6"]
+[ext_resource type="Texture2D" uid="uid://by1kew5fpwetu" path="res://images/ui/spinbox_down.png" id="26_o81xr"]
 [ext_resource type="PackedScene" uid="uid://6ylf4puxpkpm" path="res://scenes/ui/news_background.tscn" id="26_rrr7h"]
 [ext_resource type="Script" uid="uid://birwkgb6jx617" path="res://scripts/pause_handler.gd" id="29_vmb1c"]
 
@@ -358,8 +359,8 @@ offset_right = 270.0
 offset_bottom = 325.0
 mouse_filter = 1
 min_value = 1.0
-max_value = 10.0
-value = 1.0
+max_value = 20.0
+value = 10.0
 rounded = true
 prefix = "$"
 
@@ -459,7 +460,6 @@ custom_minimum_size = Vector2(943.685, 0)
 layout_mode = 2
 
 [node name="Stock Market" type="Panel" parent="." groups=["get_hour_update", "request_json"]]
-visible = false
 self_modulate = Color(0.6, 0.6, 0.6, 1)
 layout_mode = 0
 offset_left = -6.0
@@ -495,7 +495,7 @@ scale = Vector2(3, 3)
 handle_input_locally = false
 gui_disable_input = true
 size = Vector2i(294, 178)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="StockMarket" type="Sprite2D" parent="Stock Market/GraphViewportContainer/graph_viewport"]
 texture_filter = 1
@@ -536,7 +536,7 @@ offset_right = 335.0
 offset_bottom = 765.0
 text = "Shares owned: 100000"
 
-[node name="BuyAmount" type="SpinBox" parent="Stock Market" groups=["spinbox"]]
+[node name="BuyAmount" type="SpinBox" parent="Stock Market"]
 layout_mode = 0
 offset_left = 411.0
 offset_top = 669.0
@@ -574,7 +574,7 @@ offset_right = 548.0
 offset_bottom = 31.0
 text = "Limit reached"
 
-[node name="SellAmount" type="SpinBox" parent="Stock Market" groups=["spinbox"]]
+[node name="SellAmount" type="SpinBox" parent="Stock Market"]
 layout_mode = 0
 offset_left = 412.0
 offset_top = 734.0
@@ -619,6 +619,20 @@ offset_left = 288.0
 offset_right = 360.0
 offset_bottom = 24.0
 text = "+$500"
+
+[node name="Label" type="Label" parent="Stock Market"]
+modulate = Color(0.55, 0.55, 0.55, 1)
+layout_mode = 0
+offset_left = 811.0
+offset_top = 32.0
+offset_right = 976.0
+offset_bottom = 56.0
+text = "Current price"
+
+[node name="Sprite2D" type="Sprite2D" parent="Stock Market/Label"]
+modulate = Color(0.85098, 1, 1, 1)
+position = Vector2(125, 33)
+texture = ExtResource("26_o81xr")
 
 [node name="News" type="Panel" parent="." groups=["get_two_day_update"]]
 visible = false
@@ -950,6 +964,14 @@ offset_bottom = 115.0
 mouse_filter = 1
 text = "Next"
 
+[node name="SkipButton" type="Button" parent="TutorialPanel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 74.0
+offset_right = 183.0
+offset_bottom = 110.0
+text = "Skip tutorial"
+
 [connection signal="tab_changed" from="TabBarPanel/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="TabBarPanel/Loan" to="." method="_on_loan_pressed"]
 [connection signal="pressed" from="Map/NamesVisible" to="Map/NamesVisible" method="_on_pressed"]
@@ -992,3 +1014,4 @@ text = "Next"
 [connection signal="mouse_entered" from="TutorialPanel" to="." method="_on_tutorial_panel_mouse_entered"]
 [connection signal="mouse_exited" from="TutorialPanel" to="." method="_on_tutorial_panel_mouse_exited"]
 [connection signal="pressed" from="TutorialPanel/Button" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="TutorialPanel/SkipButton" to="." method="_on_skip_button_pressed"]

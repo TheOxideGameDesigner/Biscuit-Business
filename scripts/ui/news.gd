@@ -2,23 +2,33 @@ extends Panel
 
 @onready var panels : Array[Sprite2D] = [$NewsBackground, $NewsBackground2, $NewsBackground3, $NewsBackground4]
 @onready var countries = get_tree().get_nodes_in_group("country")
+var country_idx : int = 0
 @onready var main_ui = get_tree().get_first_node_in_group("main_ui")
 var filler_news : Array
 var stock_news : Array
 var biscuit_good_news : Array
-var biscuit_bad_news : Array
 var filler_idx = 0
 var stock_idx = 0
 
 var news_json : Dictionary
 
-const MIN_COUNTRIES_BAD_NEWS = 3
-const GOOD_NEWS_CHANCE = 0.8
+const STOCK_EVENT_CHANCE = 0.375
+const MIN_COUNTRIES_STOCK_EVENT = 4
 
 func update_panel_visual(i, news : Dictionary):
 	panels[i].get_node("Headline").text = news["headline"]
 	panels[i].get_node("Content").text = news["content"]
 	panels[i].get_node("Image").texture = load("res://images/news/" + news["image"])
+
+func generate_biscuit_news(i):
+	var bcountry = countries[country_idx]
+	country_idx = (country_idx + 1) % countries.size()
+	var bn = biscuit_good_news.pick_random()
+	bn["headline"] = bn["headline"].replace("{country}", bcountry.name)
+	bn["headline"] = bn["headline"][0].to_upper() + bn["headline"].substr(1,-1)
+	bn["content"] = bn["content"].replace("{country}", bcountry.name)
+	bcountry.optimal_price = randf_range(bn["optimal_price_min"], bn["optimal_price_max"])
+	update_panel_visual(i, bn)
 
 func update_news():
 	var order = range(panels.size())
@@ -34,44 +44,29 @@ func update_news():
 		filler_idx = 0
 		filler_news.shuffle()
 	
-	var sn = stock_news[stock_idx]
-	stock_idx += 1
-	if stock_idx >= stock_news.size():
-		stock_idx = 0
-		stock_news.shuffle()
-	$"../Stock Market".add_event(sn["company"], sn["event_type"])
-	update_panel_visual(order[2], sn)
-	
 	var owned_countries = main_ui.bought_countries
-	var good_news : bool = owned_countries.size() < MIN_COUNTRIES_BAD_NEWS or randf() < GOOD_NEWS_CHANCE
-	var bn = news_json["biscuit_good_news"].pick_random() if good_news else news_json["biscuit_bad_news"].pick_random()
-	var bcountry
-	if owned_countries.size() < MIN_COUNTRIES_BAD_NEWS:
-		bcountry = countries.pick_random()
+	if owned_countries.size() >= MIN_COUNTRIES_STOCK_EVENT and randf() < STOCK_EVENT_CHANCE:
+		var sn = stock_news[stock_idx]
+		stock_idx += 1
+		if stock_idx >= stock_news.size():
+			stock_idx = 0
+			stock_news.shuffle()
+		$"../Stock Market".add_event(sn["company"], sn["event_type"])
+		update_panel_visual(order[2], sn)
 	else:
-		if good_news:
-			if randf() < 0.5:
-				bcountry = owned_countries.pick_random()
-			else:
-				bcountry = countries.pick_random()
-		else:
-			bcountry = owned_countries.pick_random()
-	bn["headline"] = bn["headline"].replace("{country}", bcountry.name)
-	bn["headline"] = bn["headline"][0].to_upper() + bn["headline"].substr(1,-1)
-	bn["content"] = bn["content"].replace("{country}", bcountry.name)
-	bcountry.optimal_price = randf_range(bn["optimal_price_min"], bn["optimal_price_max"])
+		generate_biscuit_news(order[2])
 	
-	update_panel_visual(order[3], bn)
+	generate_biscuit_news(order[3])
 
 func two_day_update():
 	update_news()
 
 func _ready():
+	countries.shuffle()
 	news_json = JSON.parse_string(FileAccess.get_file_as_string("res://news.json"))
 	filler_news = news_json["filler_news"]
 	filler_news.shuffle()
 	stock_news = news_json["stock_news"]
 	stock_news.shuffle()
-	biscuit_good_news = news_json["biscuit_good_news"]
-	biscuit_bad_news = news_json["biscuit_bad_news"]
+	biscuit_good_news = news_json["biscuit_news"]
 	update_news()

@@ -91,7 +91,7 @@ func update_price(i):
 	stock_price[i] = base_stock_price[i]
 	if event_index == -1 or event_moment < 0 or i != event_company:
 		return
-	stock_price[i] += EVENTS[event_index][event_moment] * (MAX_PRICE_EVENT - MAX_PRICE)
+	stock_price[i] += randf_range(0.7, 1.0) * [event_index][event_moment] * (MAX_PRICE_EVENT - MAX_PRICE)
 
 
 func _ready():

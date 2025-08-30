@@ -133,50 +133,41 @@
 		}
 	],
 	
-	"biscuit_good_news" : [
+	"biscuit_news" : [
 		{
-			"headline" : "{country} experiences growth in confectionery purchases",
+			"headline" : "{country} experiences growth in biscuit purchases",
 			"content" : "Shoppers in {country} are buying more packaged cookies and wafers, according to recent market surveys. Producers are responding by scaling up output to keep up with demand.",
 			"image" : "cake.png",
 			"optimal_price_min" : 7.0,
 			"optimal_price_max" : 9.0
 		},
 		{
-			"headline" : "Snack Firms Scale Back in {country}",
+			"headline" : "Biscuit firms scale back in {country}",
 			"content" : "Several major snack producers are scaling back operations in {country}. Shoppers are desperately searching for stores to buy delicious treats.",
 			"image" : "scale_back.png",
 			"optimal_price_min" : 9.0,
 			"optimal_price_max" : 10.0
 		},
 		{
-			"headline" : "{country} experiences uptick in packaged sweet sales",
+			"headline" : "{country} experiences uptick in bicuit sales",
 			"content" : "Consumers in {country} are buying more ready-to-eat snack items, with manufacturers observing steady growth in production orders.",
 			"image" : "cake.png",
 			"optimal_price_min" : 7.0,
 			"optimal_price_max" : 9.0
 		},
-	],
-	"biscuit_bad_news" : [
 		{
-			"headline" : "{country} reports reduced interest in sweet snacks",
-			"content" : "Supermarkets in {country} have observed fewer purchases of individually wrapped sweet treats. Experts point to shifting consumer preferences and lifestyle trends.",
+			"headline" : "People in {country} are desperate for more biscuits",
+			"content" : "Shoppers across {country} are expressing frustration as supplies of their favorite crunchy treats run low.",
 			"image" : "cake.png",
-			"optimal_price_min" : 2.5,
-			"optimal_price_max" : 4.0
+			"optimal_price_min" : 9.0,
+			"optimal_price_max" : 10.0
 		},
 		{
-			"headline" : "People in {country} are becoming more thrifty",
-			"content" : "Consumers in {country} are tightening their spending, purchasing less of certain items such as luxury goods and sweet snacks.",
-			"image" : "thrifty.png",
-			"optimal_price_min" : 3.0,
-			"optimal_price_max" : 4.0
-		},
-		{
-			"headline" : "People in {country} are switching to healthier diets",
-			"content" : "Consumers in {country} are increasingly choosing nutritious options, leading to fewer purchases of sugary and packaged snacks.",
-			"image" : "healthy_diet.png",
-			"optimal_price_min" : 2.5,
-			"optimal_price_max" : 4.0
+			"headline" : "People in {country} are looking for tasty snacks",
+			"content" : "Retailers in Italy report growing interest in premium packaged treats. Shoppers are increasingly choosing higher-priced options.",
+			"image" : "cake.png",
+			"optimal_price_min" : 9.0,
+			"optimal_price_max" : 10.0
 		}
-	]
+	],
 }

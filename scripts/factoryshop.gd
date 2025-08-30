@@ -5,8 +5,8 @@ const SHIP = preload("res://images/ship.png")
 const TRUCK = preload("res://images/truck.png")
 const GREEN_MONEY = preload("res://scenes/green_money.tscn")
 
-const TSPEED_GLOBAL = 23
-const TSPEED_LOCAL = 18
+const TSPEED_GLOBAL = 26
+const TSPEED_LOCAL = 23
 
 var country
 var port
@@ -28,7 +28,7 @@ var mouse_hovering : bool = false
 var level : int = 1
 var factory_running : bool = true
 var factory_trucks : int = 0
-var shop_biscuit_price : int = 5
+var shop_biscuit_price : int = 10
 var shop_clients_yesterday : int = -1
 var shop_earnings_yesterday : int = -1
 var shop_clients_today : int = 0
@@ -73,7 +73,7 @@ func hour_update():
 	if not purchased:
 		return
 	if not is_factory:
-		var M = country.optimal_price
+		var M = country.optimal_price * 2.0
 		var A = (log(json["shop_marketing"][level - 1]) + 1) * json["shop_demand_constant"]
 		var clients = min(A * exp(-shop_biscuit_price / M), int(cookies / 10))
 		var earnings = clients * shop_biscuit_price

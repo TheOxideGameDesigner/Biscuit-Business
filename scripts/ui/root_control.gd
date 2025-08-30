@@ -80,6 +80,7 @@ func tutorial_condition_met():
 func update_tutorial_panel():
 	if tutorial_idx >= tutorial_json.size():
 		$TutorialPanel.visible = false
+		$two_day_timer.start()
 		return
 	var t = tutorial_json[tutorial_idx]
 	tutorial_condition = t["condition"]
@@ -107,7 +108,6 @@ func _ready():
 	$day_timer.wait_time = json["hour_duration"] * 24
 	$day_timer.start()
 	$two_day_timer.wait_time = json["hour_duration"] * 24 #not actually 2 days
-	$two_day_timer.start()
 	shopsandfactories = factories.duplicate()
 	shopsandfactories.append_array(shops)
 	
@@ -306,3 +306,10 @@ func _on_tutorial_panel_mouse_entered():
 
 func _on_tutorial_panel_mouse_exited():
 	hovering_tutorial_panel = false
+
+
+func _on_skip_button_pressed():
+	tutorial_idx = 10000
+	for i in range(4):
+		$TabBarPanel/TabBar.set_tab_disabled(i, false)
+	update_tutorial_panel()

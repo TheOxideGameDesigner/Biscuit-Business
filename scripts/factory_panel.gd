@@ -30,6 +30,8 @@ func set_factory(f : Node):
 	factory = f
 	$ConnectionsButton.text = "Add connection"
 	$ConnectionsButton.disabled = false
+	$RemoveConnectionsButton.text = "Remove connection"
+	$RemoveConnectionsButton.disabled = false
 	update_visual()
 
 func _process(delta):
